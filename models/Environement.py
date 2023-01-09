@@ -22,6 +22,10 @@ class Environment:
     scores = Dict[str, int]
     time: int = 0
     alerts: Dict[str, List[Alert]]
+    _zone: List[Point]
+    _safe_zone: List[Point]
+    _is_zone_shrinking: bool = False
+    _zone_shrink_times: List[int]
 
     def __init__(self):
         """Initialize the cells with random locations and directions."""
@@ -45,6 +49,12 @@ class Environment:
                 self.enforce_bounds(agent)
                 self.enforce_collisions(agent)
                 self.enforce_zone(agent)
+
+        for bullet in self.bullets:
+            self.enforce_bullet_collisions(bullet)
+            bullet.tick()
+            if not bullet.is_alive():
+                self.bullets.remove(bullet)
 
         red_state = self.generate_state('red')
         blue_state = self.generate_state('blue')
@@ -120,14 +130,22 @@ class Environment:
         # - check if it collided with a wall, agent  or bullet
         # - if bullet decrease health
         # - else stop the agent.
+        #
 
         agent.stop()
 
-    def enforce_zone(self, agent):
+    def enforce_bullet_collisions(self, bullet: Bullet) -> None:
+        """Cause a bullet to stop if it collides with another agent or obstacle."""
+        # TODO: implement this
+        pass
 
+    def enforce_zone(self, agent):
+        # TODO: implement this
         pass
 
     def is_complete(self) -> bool:
         """Method to indicate when the simulation is complete."""
         # TODO: implement this
+        if self.time > MAX_TIME:
+            return True
         return False

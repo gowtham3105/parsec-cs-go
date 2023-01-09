@@ -14,9 +14,11 @@ class Bullet:
         self._energy = energy
 
     def tick(self) -> None:
-        # TODO: implement the movement of the bullet according to its velocity and direction
-        pass
+        if self.energy > 0:
+            self._position.add(self._direction)
+        else:
+            return
+        self._energy -= 1
 
     def is_alive(self) -> bool:
         return self._energy > 0
-

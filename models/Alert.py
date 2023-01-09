@@ -1,6 +1,6 @@
 class Alert:
     _id: int
-    alert_type: str  # Collision, Zone, Bullet_hit
+    alert_type: str  # COLLISION, ZONE, BULLET_HIT
     agent_id: int
 
     def __init__(self):

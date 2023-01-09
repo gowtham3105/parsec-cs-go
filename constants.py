@@ -19,6 +19,12 @@ TEAM_COLORS: dict = {
     "blue": "#0000ff"
 }
 
-OPPONENT = 'opponent'
-WALL = 'wall'
-BULLET = 'bullet'
+OPPONENT: str = 'opponent'
+WALL: str = 'wall'
+BULLET: str = 'bullet'
+
+UPDATE_DIRECTION: str = "UPDATE_DIRECTION"
+UPDATE_VIEW_DIRECTION: str = "UPDATE_VIEW_DIRECTION"
+FIRE: str = "FIRE"
+
+MAX_TIME: int = 5000
