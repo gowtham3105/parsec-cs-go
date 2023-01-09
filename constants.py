@@ -12,9 +12,13 @@ VIEW_HEIGHT: int = BOUNDS_HEIGHT + 20
 
 CELL_RADIUS: int = 15
 
-FIRE_DELAY: int = 1
+FIRE_COOLDOWN: int = 1
 
 TEAM_COLORS: dict = {
     "red": "#ff0000",
     "blue": "#0000ff"
 }
+
+OPPONENT = 'opponent'
+WALL = 'wall'
+BULLET = 'bullet'

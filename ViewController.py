@@ -1,6 +1,6 @@
 """The ViewController drives the visualization of the simulation."""
 
-from turtle import Turtle, Screen, done
+from turtle import Turtle, Screen, done, register_shape
 from models.Environement import Environment
 from constants import *
 from typing import Any
@@ -39,12 +39,13 @@ class ViewController:
         start_time = time_ns() // NS_TO_MS
         self.environment.tick()
         self.pen.clear()
-        for agent in self.environment.agents:
-            self.pen.penup()
-            self.pen.goto(agent.get_location().x, agent.get_location().y)
-            self.pen.pendown()
-            self.pen.color(get_color(agent.get_team()))
-            self.pen.dot(CELL_RADIUS)
+        for team in self.environment.agents:
+            for agent_id, agent in self.environment.agents[team].items():
+                self.pen.penup()
+                self.pen.goto(agent.get_location().x, agent.get_location().y)
+                self.pen.pendown()
+                self.pen.color(get_color(agent.get_team()))
+                self.pen.dot(CELL_RADIUS)
         self.screen.update()
 
         if self.environment.is_complete():

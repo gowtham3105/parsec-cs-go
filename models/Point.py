@@ -10,9 +10,9 @@ class Point:
 
     def add(self, other):
         """Add two Point objects together and return a new Point."""
-        x: float = self.x + other.x
-        y: float = self.y + other.y
-        return Point(x, y)
+        self.x += other.x
+        self.y += other.y
+        return True
 
     def distance(self, other) -> float:
         """Return the distance between two points."""
