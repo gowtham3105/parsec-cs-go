@@ -10,6 +10,8 @@ MAX_Y: float = BOUNDS_HEIGHT / 2
 MIN_Y: float = -MAX_Y
 VIEW_HEIGHT: int = BOUNDS_HEIGHT + 20
 
+DISTNACE_THRESHOLD: float = 1
+
 CELL_RADIUS: int = 15
 
 FIRE_COOLDOWN: int = 1
