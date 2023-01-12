@@ -9,6 +9,7 @@ from .Action import Action
 from .Alert import Alert
 from math import sin, cos, pi
 from .State import State
+import math
 
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
@@ -76,17 +77,71 @@ class Environment:
     def validate_actions(self, actions, team) -> List[Action]:
         """Validate the actions of the agents."""
         #  TODO: implement this
-        # - check if the agent is alive/dead
-        # - check if the agent is able to fire or not
-        # - make the direction's magnitude 1
-        # -
-        # decrease the score based on that.
+        
+        for action in actions:
+            curr_agentId = action.agent_id
+            curr_actionType = action.type
+            curr_actionDirection = action.direction
+            curr_agentObject = self.agents[team][str(curr_agentId)]
+            allowed = 1
+            # - check if the agent is alive/dead
+            if curr_agentObject.get_health() == 0:
+                self.alerts[team].append(f"Agent {curr_agentObject._id} is already dead!")
+                allowed = 0
+                # raise Exception("Agent is already dead!")
 
-        return []
+            # - check if the agent is able to fire or not
+            elif curr_actionType == FIRE and not curr_agentObject.fire():
+                self.alerts[team].append(f"Agent {curr_agentObject._id} cannot fire now!")
+                allowed = 0
+
+            # - make the direction's magnitude 1  --> ask
+            
+
+            # Remove action if invalid and decrease the score based on that.
+            if allowed == 0:
+                self.scores[team] -= 10
+                actions.remove(action)
+
+        return actions
 
     def perform_actions(self, actions, team) -> List[Alert]:
         """Perform the actions of the agents."""
         # TODO: implement this
+
+        opponent = "red"
+        if team == "red":
+            opponent = "blue"
+        for action in actions:
+            curr_agentId = action.agent_id
+            curr_actionType = action.type
+            curr_actionDirection = action.direction
+            curr_agentObject = self.agents[team][str(curr_agentId)]
+            curr_opponentAgents = self.agents[opponent]
+
+            # IF ACTION ---> FIRE
+            if curr_actionType == FIRE:
+                curr_agentObject.fire()
+                x1 = curr_agentObject.get_location().x
+                y1 = curr_agentObject.get_location().y
+                # Check if any opponents' agents are in the direction of fire
+                for opponent_agent in curr_opponentAgents.values():
+
+                    x2 = opponent_agent.get_location().x
+                    y2 = opponent_agent.get_location().y
+                    slope = (y2 - y1)/(x2 - x1)
+                    if math.tan(curr_actionDirection) == slope:
+                        # Fire hit the opponent agent, so decrease health/kill
+                        pass
+
+            # UPDATE DIRECTION
+            if curr_actionType == UPDATE_DIRECTION:
+                curr_agentObject.set_direction(curr_actionDirection)
+
+            # UPDATE VIEW DIRECTION
+            if curr_actionType == UPDATE_VIEW_DIRECTION:
+                curr_agentObject.set_view_direction(curr_actionDirection)
+            
 
         return []
 

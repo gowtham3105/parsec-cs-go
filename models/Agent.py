@@ -59,6 +59,9 @@ class Agent:
     def set_range(self, range: float) -> None:
         self._range = range
 
+    def set_range(self, range: float) -> None:
+        self._range = range
+
     def get_view_angle(self) -> float:
         return self._view_angle
 
