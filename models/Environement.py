@@ -47,33 +47,35 @@ class Environment:
     def tick(self) -> dict[int | str, int]:
         """Update the state of the simulation by one time step."""
 
-        for team in self.agents:
-            for agent in self.agents[team].values():
-                agent.tick()
-                self.enforce_bounds(agent)
-                self.enforce_collisions(agent)
-                self.enforce_zone(agent)
+        if self.time % (UNIT_TIME * TICKS['Bullet']) == 0:
+            for bullet in self.bullets:
+                self.enforce_bullet_collisions(bullet)
+                bullet.tick()
+                if not bullet.is_alive():
+                    self.bullets.remove(bullet)
 
-        for bullet in self.bullets:
-            self.enforce_bullet_collisions(bullet)
-            bullet.tick()
-            if not bullet.is_alive():
-                self.bullets.remove(bullet)
+        if self.time % (UNIT_TIME * TICKS['Agent']) == 0:
+            for team in self.agents:
+                for agent in self.agents[team].values():
+                    agent.tick()
+                    self.enforce_bounds(agent)
+                    self.enforce_collisions(agent)
+                    self.enforce_zone(agent)
 
-        red_state = self.generate_state('red')
-        blue_state = self.generate_state('blue')
+            red_state = self.generate_state('red')
+            blue_state = self.generate_state('blue')
 
-        red_actions = player_red_tick(red_state)
-        blue_actions = player_blue_tick(blue_state)
+            red_actions = player_red_tick(red_state)
+            blue_actions = player_blue_tick(blue_state)
 
-        validated_red_actions = self.validate_actions(red_actions, "red")
-        validated_blue_actions = self.validate_actions(blue_actions, "blue")
+            validated_red_actions = self.validate_actions(red_actions, "red")
+            validated_blue_actions = self.validate_actions(blue_actions, "blue")
 
-        self.alerts['red'] = self.perform_actions(validated_red_actions, "red")
-        self.alerts['blue'] = self.perform_actions(validated_blue_actions, "blue")
+            self.alerts['red'] = self.perform_actions(validated_red_actions, "red")
+            self.alerts['blue'] = self.perform_actions(validated_blue_actions, "blue")
 
-        self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
-                         validated_blue_actions)
+            self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
+                             validated_blue_actions)
 
         self.time += 1
         return {}
@@ -204,127 +206,21 @@ class Environment:
         #
         agent.stop()
 
-    def is_bullet_colliding(self, bullet: Bullet, obstacle: Obstacle|Agent) -> bool:
-        """Given a bullet and obstacle check if they are colliding"""
-        
-        class Point:
-            def __init__(self, x, y):
-                self.x = x
-                self.y = y
-
-        class line:
-            def __init__(self, p1, p2):
-                self.p1 = p1
-                self.p2 = p2
-
-        def onLine(l1, p):
-            # Check whether p is on the line or not
-            if (
-                p.x <= max(l1.p1.x, l1.p2.x)
-                and p.x <= min(l1.p1.x, l1.p2.x)
-                and (p.y <= max(l1.p1.y, l1.p2.y) and p.y <= min(l1.p1.y, l1.p2.y))
-            ):
-                return True
-            return False
-
-        def direction(a, b, c):
-            val = (b.y - a.y) * (c.x - b.x) - (b.x - a.x) * (c.y - b.y)
-            if val == 0:
-                # Colinear
-                return 0
-            elif val < 0:
-                # Anti-clockwise direction
-                return 2
-            # Clockwise direction
-            return 1
-
-        def isIntersect(l1, l2):
-            # Four direction for two lines and points of other line
-            dir1 = direction(l1.p1, l1.p2, l2.p1)
-            dir2 = direction(l1.p1, l1.p2, l2.p2)
-            dir3 = direction(l2.p1, l2.p2, l1.p1)
-            dir4 = direction(l2.p1, l2.p2, l1.p2)
-
-            # When intersecting
-            if dir1 != dir2 and dir3 != dir4:
-                return True
-
-            # When p2 of line2 are on the line1
-            if dir1 == 0 and onLine(l1, l2.p1):
-                return True
-
-            # When p1 of line2 are on the line1
-            if dir2 == 0 and onLine(l1, l2.p2):
-                return True
-
-            # When p2 of line1 are on the line2
-            if dir3 == 0 and onLine(l2, l1.p1):
-                return True
-
-            # When p1 of line1 are on the line2
-            if dir4 == 0 and onLine(l2, l1.p2):
-                return True
-
-            return False
-
-        def checkInside(poly, n, p):
-            # When polygon has less than 3 edge, it is not polygon
-            if n < 3:
-                return False
-
-            # Create a point at infinity, y is same as point p
-            exline = line(p, Point(9999, p.y))
-            count = 0
-            i = 0
-            while True:
-                # Forming a line from two consecutive points of poly
-                side = line(poly[i], poly[(i + 1) % n])
-                if isIntersect(side, exline):
-                    # If side is intersects ex
-                    if (direction(side.p1, p, side.p2) == 0):
-                        return onLine(side, p)
-                    count += 1
-                
-                i = (i + 1) % n
-                if i == 0:
-                    break
-
-            # When count is odd
-            return count & 1
-
-        if(type(obstacle)== Obstacle):
-            # if obstacle is polygon, the ray going in y direction intersects the side only odd times.
-            return checkInside(obstacle.corners, len(obstacle.corners), bullet._position)
-        if(type(obstacle)== Agent):
-            # if the obstacle is agent see if they are within some distance of the bullet.
-            #  then make the bullet collide with them and make them and bullet die.
-            distance = sqrt( (obstacle._location.y- bullet._position.x)**2 + (obstacle._location- bullet._position.y)**2 )
-            if(distance<DISTNACE_THRESHOLD):
-                return True
-            else:
-                return False
-
-
-
     def enforce_bullet_collisions(self, bullet: Bullet) -> None:
         """Cause a bullet to stop if it collides with another agent or obstacle."""
         # TODO: implement this
 
         # check collision with walls
         for obstacle in self.obstacles:
-            if(self.is_bullet_colliding(bullet, obstacle)):
+            if bullet.is_colliding(obstacle):
                 bullet.is_alive = False
-        
-        for agent in self.agents:
-            if(self.is_bullet_colliding(bullet, agent)==True):
-                bullet.is_alive = False
-                self.decrease_agent_health(self, bullet, agent)
-                
 
-    def decrease_agent_health(self, bullet:Bullet, agent):
-        """Decrease the heath of agent depending on the energy of bullet"""
-        # TODO: find an appropriate formula for health deduction.
-        pass
+        # check collision with agents
+        for team in self.agents:
+            for agent in self.agents[team].values():
+                if bullet.is_colliding(agent):
+                    bullet.is_alive = False
+                    agent.decrease_health(BULLET_HIT)
 
     def enforce_zone(self, agent):
         # TODO: implement this
