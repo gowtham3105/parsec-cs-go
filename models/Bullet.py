@@ -2,9 +2,9 @@ from .Point import Point
 
 
 class Bullet:
-    position: Point
-    direction: Point
-    energy: int
+    _position: Point
+    _direction: Point  # Only 8 directions possible and 0,0 is allowed for stop
+    _energy: int
     _id: int
     STRING: str = "Bullet with id {id} at {position} with direction {direction} and energy {energy}"
 
