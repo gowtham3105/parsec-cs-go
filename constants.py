@@ -32,26 +32,5 @@ UPDATE_VIEW_DIRECTION: str = "UPDATE_VIEW_DIRECTION"
 FIRE: str = "FIRE"
 
 MAX_TIME: int = 5000
-INVALID_ACTION: int = 20
-INITIAL_BULLET_ENERGY = 50
 
-COLLISION: str = 'collision'
-ZONE: str = 'zone'
-BULLET_HIT: str = 'bullet_hit'
-DEAD: str = 'agent_dead'
-FIRE_IMPOSSIBLE: str = 'cannot_fire'
-WRONG_AGENT: str = 'opponent_agent'
-
-AGENT_RADIUS: int = 5
-
-TICKS: Dict[str, int] = {  # Ticks per second
-    "Bullet": 5,
-    "Agent": 1,
-}
-
-# multiple all Ticks here always
-UNIT_TIME: int = TICKS['Bullet'] * TICKS['Agent']  # Time in which all objects move at least
-# once
-DAMAGES: Dict[str, int] = {
-    BULLET_HIT: 10
-}
+AGENT_RADIUS: int = 10
