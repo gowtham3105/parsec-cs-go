@@ -233,16 +233,22 @@ class Environment:
         for team in self.agents:
             if(team != agent.get_team()):
                 for opponent_agent in self.agents[team].values():
-                    if(self.is_agent_in_vision(agent,opponent_agent)):
+                    if(self.is_point_in_vision(agent,opponent_agent.get_location())):
                         object_in_sight.append(ObjectSighting("Opponent's Agent",opponent_agent.get_location(),opponent_agent.get_direction()))
 
 
+        #bullets
+        for bullet in self.bullets:
+            if(self.is_point_in_vision(agent,bullet.position)):
+                object_in_sight.append(ObjectSighting("bullet",bullet.position,bullet.direction))
+
+        
+        
 
         return object_in_sight
 
-    def is_agent_in_vision(self, agent:Agent, opponent_agent:Agent) -> bool:
+    def is_point_in_vision(self, agent:Agent, polar_point:Point) -> bool:
         center = agent.get_location()
-        polar_point = opponent_agent.get_location()
 
         if(center.distance(polar_point) > agent.get_range()):
             return False
@@ -258,7 +264,6 @@ class Environment:
     def angle(self, center:Point, polar:Point, radial :Point):
         vector1 = Point(polar.x - center.x, polar.y-center.y)
         vector2 = Point(radial.x-center.x, radial.y - center.y)
-
         dot_product = (vector1.x*vector2.x) + (vector1.y*vector2.y)
         vector_mod = ((vector1.x**2 + vector1.y**2)**0.5)*((vector2.x**2 + vector2.y**2)**0.5)
 
@@ -266,12 +271,7 @@ class Environment:
             return 0
 
         angle = dot_product/vector_mod
-
         return math.acos(angle)
-
-
-
-
 
 
     def random_location(self) -> Point:
