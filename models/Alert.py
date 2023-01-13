@@ -4,8 +4,8 @@ class Alert:
     agent_id: int
     STRING: str = "Alert with id {id} of type {type} for agent {agent_id}"
 
-    def __init__(self, id, alertType, agentId):
+    def __init__(self, alertType, agentId):
         # TODO: implement this
-        self._id = id
+        self._id = id(self)
         self.alert_type = alertType
         self.agent_id = agentId

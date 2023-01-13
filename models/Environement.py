@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import List, Dict
 import time
-from random import random, randint
+from random import random
 from constants import *
 from .Agent import Agent
 from .Point import Point
@@ -10,7 +10,6 @@ from .Action import Action
 from .Alert import Alert
 from math import sin, cos, pi
 from .State import State
-import math
 
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
@@ -33,7 +32,7 @@ class Environment:
         """Initialize the cells with random locations and directions."""
         self.agents = {
             "red": {
-                "0": Agent(self.random_location(), self.random_direction(), 10, Point(1, 0), pi, "red", 0),
+                "0": Agent(self.random_location(), self.random_direction(), 10, Point(1, 0), pi, "red"),
             }
         }
         self.bullets = []
@@ -64,12 +63,14 @@ class Environment:
 
         red_actions = player_red_tick(red_state)
         blue_actions = player_blue_tick(blue_state)
+        self.alerts['red'] = []
+        self.alerts['blue'] = []
 
         validated_red_actions = self.validate_actions(red_actions, "red")
         validated_blue_actions = self.validate_actions(blue_actions, "blue")
 
-        self.alerts['red'] = self.perform_actions(validated_red_actions, "red")
-        self.alerts['blue'] = self.perform_actions(validated_blue_actions, "blue")
+        self.perform_actions(validated_red_actions, "red")
+        self.perform_actions(validated_blue_actions, "blue")
 
         self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
                          validated_blue_actions)
@@ -77,37 +78,35 @@ class Environment:
         self.time += 1
         return {}
 
-    def validate_actions(self, actions, team) -> List[Action]:
+    def validate_actions(self, actions: List[Action], team: str) -> List[Action]:
         """Validate the actions of the agents."""
-        #  TODO: implement this
-        
         for action in actions:
-            agentId = action.agent_id
-            actionType = action.type
-            actionDirection = action.direction
-            agentObject = self.agents[team][str(agentId)]
+            agent_id = action.agent_id
+            action_type = action.type
+            action_direction = action.direction
             allowed = 0
 
             # check if action is on his agent only
-            if agentId in self.agents[team].keys():
+            if agent_id in self.agents[team].keys():
+                agent = self.agents[team][str(agent_id)]
 
                 allowed = 1
                 # - check if the agent is alive/dead
-                if agentObject.get_health() == 0:
-                    self.alerts[team].append(Alert(len(self.alerts[team]), DEAD, agentId))
+                if agent.get_health() == 0:
+                    self.alerts[team].append(Alert(DEAD, agent_id))
                     allowed = 0
                     # raise Exception("Agent is already dead!")
 
                 # - check if the agent is able to fire or not
-                elif actionType == FIRE and not agentObject.can_fire():
-                    self.alerts[team].append(Alert(len(self.alerts[team]), FIRE_IMPOSSIBLE, agentId))
+                elif action_type == FIRE and not agent.can_fire():
+                    self.alerts[team].append(Alert(FIRE_IMPOSSIBLE, agent_id))
                     allowed = 0
 
                 # - make the direction's magnitude 1
-                agentObject.set_direction(agentObject.get_direction().make_unit_magnitude())
+                action_direction.make_unit_magnitude()
 
             else:
-                self.alerts[team].append(Alert(len(self.alerts[team]), WRONG_AGENT, agentId))
+                self.alerts[team].append(Alert(WRONG_AGENT, agent_id))
 
             # Remove action if invalid and decrease the score based on that.
             if allowed == 0:
@@ -116,36 +115,26 @@ class Environment:
 
         return actions
 
-    def perform_actions(self, actions, team) -> List[Alert]:
+    def perform_actions(self, actions: List[Action], team: str):
         """Perform the actions of the agents."""
-        # TODO: implement this
-
-        opponent = "red"
-        if team == "red":
-            opponent = "blue"
         for action in actions:
-            agentId = action.agent_id
-            actionType = action.type
-            actionDirection = action.direction
-            agentObject = self.agents[team][str(agentId)]
-            opponentAgents = self.agents[opponent]
+            agent_id = action.agent_id
+            action_type = action.type
+            action_direction = action.direction
+            agent = self.agents[team][str(agent_id)]
 
             # IF ACTION ---> FIRE
-            if actionType == FIRE:
-                 if agentObject.fire():
-                    actionDirection.make_unit_magnitude()
-                    self.bullets.append(Bullet(agentObject.get_location(), actionDirection, INITIAL_BULLET_ENERGY))
+            if action_type == FIRE:
+                if agent.fire():
+                    self.bullets.append(Bullet(agent.get_location(), action_direction, INITIAL_BULLET_ENERGY))
 
             # UPDATE DIRECTION
-            if actionType == UPDATE_DIRECTION:
-                agentObject.set_direction(actionDirection)
+            if action_type == UPDATE_DIRECTION:
+                agent.set_direction(action_direction)
 
             # UPDATE VIEW DIRECTION
-            if actionType == UPDATE_VIEW_DIRECTION:
-                agentObject.set_view_direction(actionDirection)
-            
-
-        return self.alerts
+            if action_type == UPDATE_VIEW_DIRECTION:
+                agent.set_view_direction(action_direction)
 
     def write_stats(self, red_state: State, blue_state: State, red_actions: List[Action], blue_actions: List[Action],
                     validated_red_actions: List[Action], validated_blue_actions: List[Action]) -> None:
