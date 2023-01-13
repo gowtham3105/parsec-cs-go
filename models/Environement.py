@@ -2,12 +2,15 @@ from __future__ import annotations
 from typing import List, Dict
 import time
 from random import random
+import math
+from random import random, randint
 from constants import *
 from .Agent import Agent
 from .Point import Point
 from .Bullet import Bullet
 from .Action import Action
 from .Alert import Alert
+from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
 
@@ -207,9 +210,69 @@ class Environment:
 
     def generate_state(self, team) -> State:
         """Generate the state of the environment."""
-        # TODO: implement this
+        
+        _agents = self.agents[team]
+        object_in_sight = {}
+
+        for agent in _agents:
+            object_in_sight[agent] = self.get_object_in_sight(_agents[agent])
+
+
+
+        
 
         return State()
+
+    
+
+    def get_object_in_sight(self, agent:Agent) -> List[ObjectSighting]:
+
+        object_in_sight = []
+
+        #opponent's agents
+        for team in self.agents:
+            if(team != agent.get_team()):
+                for opponent_agent in self.agents[team].values():
+                    if(self.is_agent_in_vision(agent,opponent_agent)):
+                        object_in_sight.append(ObjectSighting("Opponent's Agent",opponent_agent.get_location(),opponent_agent.get_direction()))
+
+
+
+        return object_in_sight
+
+    def is_agent_in_vision(self, agent:Agent, opponent_agent:Agent) -> bool:
+        center = agent.get_location()
+        polar_point = opponent_agent.get_location()
+
+        if(center.distance(polar_point) > agent.get_range()):
+            return False
+        
+        radial_point = agent.get_location()
+        radial_point.add(agent.get_view_direction())
+
+        if(self.angle(center, polar_point, radial_point) <= agent._view_angle()/2):
+            return True
+        
+        return False
+
+    def angle(self, center:Point, polar:Point, radial :Point):
+        vector1 = Point(polar.x - center.x, polar.y-center.y)
+        vector2 = Point(radial.x-center.x, radial.y - center.y)
+
+        dot_product = (vector1.x*vector2.x) + (vector1.y*vector2.y)
+        vector_mod = ((vector1.x**2 + vector1.y**2)**0.5)*((vector2.x**2 + vector2.y**2)**0.5)
+
+        if(vector_mod == 0):
+            return 0
+
+        angle = dot_product/vector_mod
+
+        return math.acos(angle)
+
+
+
+
+
 
     def random_location(self) -> Point:
         # TODO: make this more random
