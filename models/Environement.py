@@ -256,7 +256,6 @@ class Environment:
         # TODO: implement this
         # - check if the agent is alive/dead
         # - check if it collided with an obstacle, agent
-        # - if bullet decrease health
         # - else stop the agent.
         #
         
