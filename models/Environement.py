@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import List, Dict
+import time
 from random import random, randint
 from constants import *
 from .Agent import Agent
@@ -39,6 +40,7 @@ class Environment:
             "red": [],
             "blue": []
         }
+        self._log = open("log.txt", "w")
 
     def tick(self) -> dict[int | str, int]:
         """Update the state of the simulation by one time step."""
@@ -68,7 +70,8 @@ class Environment:
         self.alerts['red'] = self.perform_actions(validated_red_actions, "red")
         self.alerts['blue'] = self.perform_actions(validated_blue_actions, "blue")
 
-        self.write_stats()
+        self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
+                         validated_blue_actions)
 
         self.time += 1
         return {}
@@ -90,8 +93,74 @@ class Environment:
 
         return []
 
-    def write_stats(self) -> None:
-        pass
+    def write_stats(self, red_state: State, blue_state: State, red_actions: List[Action], blue_actions: List[Action],
+                    validated_red_actions: List[Action], validated_blue_actions: List[Action]) -> None:
+        """Write the stats of the simulation to a file."""
+        self._log.write(f"Game time: {self.time} Real Time: {time.time()}\n")
+        self._log.write(f"STARTING GAME LOG FOR TIME {self.time}\n")
+        self._log.write(f"Red Agents: {len(self.agents['red'])} Red Score: {self.scores['red']} "
+                        f"|| Blue Agents: {len(self.agents['blue'])} Blue Score: {self.scores['blue']}\n")
+        # log map elements
+        self._log.write("STARTING LOG OF MAP ELEMENTS\n")
+
+        self._log.write("LOGGING AGENTS\n")
+        for team in self.agents:
+            for agent in self.agents[team].values():
+                self._log.write(f"{agent}\n")
+
+        self._log.write("LOGGING BULLETS\n")
+        for bullet in self.bullets:
+            self._log.write(f"{bullet}\n")
+
+        self._log.write("ENDING LOG OF MAP ELEMENTS\n")
+
+        self._log.write("STARTING LOG OF STATES\n")
+
+        self._log.write("LOGGING RED STATE\n")
+        self._log.write(f"{red_state}\n")
+
+        self._log.write("LOGGING BLUE STATE\n")
+        self._log.write(f"{blue_state}\n")
+
+        self._log.write("ENDING LOG OF STATES\n")
+
+        self._log.write("STARTING LOG OF ACTIONS\n")
+
+        self._log.write("LOGGING RED ACTIONS\n")
+        for action in red_actions:
+            self._log.write(f"  {action}\n")
+
+        self._log.write("LOGGING BLUE ACTIONS\n")
+        for action in blue_actions:
+            self._log.write(f"  {action}\n")
+
+        self._log.write("ENDING LOG OF ACTIONS\n")
+
+        self._log.write("STARTING LOG OF VALIDATED ACTIONS\n")
+
+        self._log.write("LOGGING RED VALIDATED ACTIONS\n")
+        for action in validated_red_actions:
+            self._log.write(f"  {action}\n")
+
+        self._log.write("LOGGING BLUE VALIDATED ACTIONS\n")
+        for action in validated_blue_actions:
+            self._log.write(f"  {action}\n")
+
+        self._log.write("ENDING LOG OF VALIDATED ACTIONS\n")
+
+        self._log.write("STARTING LOG OF ALERTS\n")
+
+        self._log.write("LOGGING RED ALERTS\n")
+        for alert in self.alerts['red']:
+            self._log.write(f"{alert}\n")
+
+        self._log.write("LOGGING BLUE ALERTS\n")
+        for alert in self.alerts['blue']:
+            self._log.write(f"{alert}\n")
+
+        self._log.write("ENDING LOG OF ALERTS\n")
+
+        self._log.write(f"ENDING GAME LOG FOR TIME {self.time}\n")
 
     def generate_state(self, team) -> State:
         """Generate the state of the environment."""

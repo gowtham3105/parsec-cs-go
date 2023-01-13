@@ -18,8 +18,12 @@ class Agent:
     _team: str
     _id: int
 
+    STRING: str = "Agent with id {id} at {location} and direction {direction} and view direction {view_direction} and" \
+                  " health {health} and fire time {fire_time} and team {team} and range {range} and view angle {" \
+                  "view_angle}"
+
     def __init__(self, location: Point, direction: Point, view_range: float, view_direction: Point, view_angle: float,
-                 team: str, id: int):
+                 team: str):
         """Construct an agent with position, velocity, radius, color, and id."""
         self._location = location
         self._direction = direction  # only 8 directions possible
@@ -28,16 +32,20 @@ class Agent:
         self._view_direction = view_direction
         self._health = 100
         self._team = team
-        self._id = id
+        self._id = id(self)
         self._fire_time = 0
 
     def __str__(self) -> str:
         """Return a string representation of the agent."""
-        return f"Agent {self.id} at {self._location}  and direction {self._direction}"
+        return Agent.STRING.format(id=self._id, location=self._location, direction=self._direction,
+                                   view_direction=self._view_direction, health=self._health, fire_time=self._fire_time,
+                                   team=self._team, range=self._range, view_angle=self._view_angle)
 
     def __repr__(self) -> str:
         """Return a string representation of the agent."""
-        return f"Agent {self.id} at {self._location} and direction {self._direction}"
+        return Agent.STRING.format(id=self._id, location=self._location, direction=self._direction,
+                                   view_direction=self._view_direction, health=self._health, fire_time=self._fire_time,
+                                   team=self._team, range=self._range, view_angle=self._view_angle)
 
     def get_location(self) -> Point:
         return self._location

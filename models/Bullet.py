@@ -4,14 +4,15 @@ from .Point import Point
 class Bullet:
     position: Point
     direction: Point
-    # velocity: int
     energy: int
+    _id: int
+    STRING: str = "Bullet with id {id} at {position} with direction {direction} and energy {energy}"
 
-    def __init__(self, position: Point, direction: Point, velocity: int, energy: int):
+    def __init__(self, position: Point, direction: Point, energy: int):
         self._position = position
         self._direction = direction
-        # self._velocity = velocity
         self._energy = energy
+        self._id = id(self)
 
     def tick(self) -> None:
         if self.energy > 0:
