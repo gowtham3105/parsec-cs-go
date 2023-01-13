@@ -39,7 +39,7 @@ TICKS: Dict[str, int] = {  # Ticks per second
 }
 
 # multiple all Ticks here always
-UNIT_TIME: float = 1 / (TICKS['Bullet'] * TICKS['Agent'])  # Time in which all objects move at least
+UNIT_TIME: int = TICKS['Bullet'] * TICKS['Agent']  # Time in which all objects move at least
 # once
 DAMAGES: Dict[str, int] = {
     BULLET_HIT: 10

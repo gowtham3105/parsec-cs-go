@@ -46,15 +46,15 @@ class Environment:
 
     def tick(self) -> dict[int | str, int]:
         """Update the state of the simulation by one time step."""
-
-        if self.time % (UNIT_TIME * TICKS['Bullet']) == 0:
+        #  TODO: take a look at this
+        if self.time % (UNIT_TIME / TICKS['Bullet']) == 0:
             for bullet in self.bullets:
                 self.enforce_bullet_collisions(bullet)
                 bullet.tick()
                 if not bullet.is_alive():
                     self.bullets.remove(bullet)
 
-        if self.time % (UNIT_TIME * TICKS['Agent']) == 0:
+        if self.time % (UNIT_TIME / TICKS['Agent']) == 0:
             for team in self.agents:
                 for agent in self.agents[team].values():
                     agent.tick()
