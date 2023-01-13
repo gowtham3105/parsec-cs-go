@@ -79,28 +79,36 @@ class Environment:
         #  TODO: implement this
         
         for action in actions:
-            curr_agentId = action.agent_id
-            curr_actionType = action.type
-            curr_actionDirection = action.direction
-            curr_agentObject = self.agents[team][str(curr_agentId)]
-            allowed = 1
-            # - check if the agent is alive/dead
-            if curr_agentObject.get_health() == 0:
-                self.alerts[team].append(f"Agent {curr_agentObject._id} is already dead!")
-                allowed = 0
-                # raise Exception("Agent is already dead!")
+            agentId = action.agent_id
+            actionType = action.type
+            actionDirection = action.direction
+            agentObject = self.agents[team][str(agentId)]
+            allowed = 0
 
-            # - check if the agent is able to fire or not
-            elif curr_actionType == FIRE and not curr_agentObject.fire():
-                self.alerts[team].append(f"Agent {curr_agentObject._id} cannot fire now!")
-                allowed = 0
+            # check if action is on his agent only
+            if agentId in self.agents[team].keys():
 
-            # - make the direction's magnitude 1  --> ask
-            
+                allowed = 1
+                # - check if the agent is alive/dead
+                if agentObject.get_health() == 0:
+                    self.alerts[team].append(Alert(len(self.alerts[team]), DEAD, agentId))
+                    allowed = 0
+                    # raise Exception("Agent is already dead!")
+
+                # - check if the agent is able to fire or not
+                elif actionType == FIRE and not agentObject.can_fire():
+                    self.alerts[team].append(Alert(len(self.alerts[team]), FIRE_IMPOSSIBLE, agentId))
+                    allowed = 0
+
+                # - make the direction's magnitude 1
+                agentObject.set_direction(agentObject.get_direction().make_unit_magnitude())
+
+            else:
+                self.alerts[team].append(Alert(len(self.alerts[team]), WRONG_AGENT, agentId))
 
             # Remove action if invalid and decrease the score based on that.
             if allowed == 0:
-                self.scores[team] -= 10
+                self.scores[team] -= INVALID_ACTION
                 actions.remove(action)
 
         return actions
@@ -113,37 +121,28 @@ class Environment:
         if team == "red":
             opponent = "blue"
         for action in actions:
-            curr_agentId = action.agent_id
-            curr_actionType = action.type
-            curr_actionDirection = action.direction
-            curr_agentObject = self.agents[team][str(curr_agentId)]
-            curr_opponentAgents = self.agents[opponent]
+            agentId = action.agent_id
+            actionType = action.type
+            actionDirection = action.direction
+            agentObject = self.agents[team][str(agentId)]
+            opponentAgents = self.agents[opponent]
 
             # IF ACTION ---> FIRE
-            if curr_actionType == FIRE:
-                curr_agentObject.fire()
-                x1 = curr_agentObject.get_location().x
-                y1 = curr_agentObject.get_location().y
-                # Check if any opponents' agents are in the direction of fire
-                for opponent_agent in curr_opponentAgents.values():
-
-                    x2 = opponent_agent.get_location().x
-                    y2 = opponent_agent.get_location().y
-                    slope = (y2 - y1)/(x2 - x1)
-                    if math.tan(curr_actionDirection) == slope:
-                        # Fire hit the opponent agent, so decrease health/kill
-                        pass
+            if actionType == FIRE:
+                 if agentObject.fire():
+                    actionDirection.make_unit_magnitude()
+                    self.bullets.append(Bullet(agentObject.get_location(), actionDirection, INITIAL_BULLET_ENERGY))
 
             # UPDATE DIRECTION
-            if curr_actionType == UPDATE_DIRECTION:
-                curr_agentObject.set_direction(curr_actionDirection)
+            if actionType == UPDATE_DIRECTION:
+                agentObject.set_direction(actionDirection)
 
             # UPDATE VIEW DIRECTION
-            if curr_actionType == UPDATE_VIEW_DIRECTION:
-                curr_agentObject.set_view_direction(curr_actionDirection)
+            if actionType == UPDATE_VIEW_DIRECTION:
+                agentObject.set_view_direction(actionDirection)
             
 
-        return []
+        return self.alerts
 
     def write_stats(self) -> None:
         pass

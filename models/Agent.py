@@ -59,9 +59,6 @@ class Agent:
     def set_range(self, range: float) -> None:
         self._range = range
 
-    def set_range(self, range: float) -> None:
-        self._range = range
-
     def get_view_angle(self) -> float:
         return self._view_angle
 
@@ -88,6 +85,9 @@ class Agent:
             self._fire_time = FIRE_COOLDOWN
             return True
         return False
+    
+    def can_fire(self) -> bool:
+        return self._fire_time == 0
 
     def tick(self) -> None:
         """Update the state of the agent by one time step."""
