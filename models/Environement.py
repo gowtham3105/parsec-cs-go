@@ -233,24 +233,26 @@ class Environment:
         for team in self.agents:
             if(team != agent.get_team()):
                 for opponent_agent in self.agents[team].values():
-                    if(self.is_point_in_vision(agent,opponent_agent.get_location())):
+                    if(self.is_point_in_vision(agent,opponent_agent.get_location(),opponent_agent.get_radius())):
                         object_in_sight.append(ObjectSighting("Opponent's Agent",opponent_agent.get_location(),opponent_agent.get_direction()))
 
 
         #bullets
         for bullet in self.bullets:
-            if(self.is_point_in_vision(agent,bullet.position)):
+            if(self.is_point_in_vision(agent,bullet.position,0)):
                 object_in_sight.append(ObjectSighting("bullet",bullet.position,bullet.direction))
 
         
+        #Walls (considering triangular vision)
         
+
 
         return object_in_sight
 
-    def is_point_in_vision(self, agent:Agent, polar_point:Point) -> bool:
+    def is_point_in_vision(self, agent:Agent, polar_point:Point, opponent_agent_radius: int) -> bool:
         center = agent.get_location()
 
-        if(center.distance(polar_point) > agent.get_range()):
+        if(center.distance(polar_point) > agent.get_range() + opponent_agent_radius):
             return False
         
         radial_point = agent.get_location()
