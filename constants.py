@@ -1,4 +1,5 @@
 """Constants used through the simulation."""
+from typing import Dict
 
 BOUNDS_WIDTH: int = 400
 MAX_X: float = BOUNDS_WIDTH / 2
@@ -9,6 +10,8 @@ BOUNDS_HEIGHT: int = 400
 MAX_Y: float = BOUNDS_HEIGHT / 2
 MIN_Y: float = -MAX_Y
 VIEW_HEIGHT: int = BOUNDS_HEIGHT + 20
+
+DISTANCE_THRESHOLD: float = 1
 
 CELL_RADIUS: int = 15
 
@@ -22,6 +25,7 @@ TEAM_COLORS: dict = {
 OPPONENT: str = 'opponent'
 WALL: str = 'wall'
 BULLET: str = 'bullet'
+BULLET_HIT: str = 'bullet_hit'
 
 UPDATE_DIRECTION: str = "UPDATE_DIRECTION"
 UPDATE_VIEW_DIRECTION: str = "UPDATE_VIEW_DIRECTION"
@@ -39,3 +43,15 @@ FIRE_IMPOSSIBLE: str = 'cannot_fire'
 WRONG_AGENT: str = 'opponent_agent'
 
 AGENT_RADIUS: int = 5
+
+TICKS: Dict[str, int] = {  # Ticks per second
+    "Bullet": 5,
+    "Agent": 1,
+}
+
+# multiple all Ticks here always
+UNIT_TIME: int = TICKS['Bullet'] * TICKS['Agent']  # Time in which all objects move at least
+# once
+DAMAGES: Dict[str, int] = {
+    BULLET_HIT: 10
+}

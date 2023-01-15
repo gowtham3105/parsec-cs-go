@@ -6,6 +6,8 @@ class ObjectSighting:
     object_type: str  # Opponent's Agent, Bullet, Wall
     location: Point
     direction: Point  # For Wall it's Point(0,0)
+    _id: int
+    STRING: str = "ObjectSighting with id {id} of type {object_type} at {location} with direction {direction}"
 
     def __init__(self, object_type: str, location: Point, direction: Point):
         self.object_type = object_type
@@ -14,3 +16,11 @@ class ObjectSighting:
             self.direction = Point(0, 0)
         else:
             self.direction = direction
+
+        self._id = id(self)
+
+    def __str__(self):
+        return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location, direction=self.direction)
+
+    def __repr__(self):
+        return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location, direction=self.direction)
