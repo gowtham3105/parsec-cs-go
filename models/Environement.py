@@ -167,15 +167,15 @@ class Environment:
     def enforce_bounds(self, agent: Agent) -> None:
         """Cause a cell to 'bounce' if it goes out of bounds."""
 
-        if agent.get_location().x > MAX_X:
-            agent.get_location().x = MAX_X
-        if agent.get_location().x < MIN_X:
-            agent.get_location().x = MIN_X
+        if agent.get_location().x + AGENT_RADIUS > MAX_X:
+            agent.set_location(Point(MAX_X - AGENT_RADIUS, agent.get_location().y))
+        if agent.get_location().x - AGENT_RADIUS < MIN_X:
+            agent.set_location(Point(MIN_X + AGENT_RADIUS, agent.get_location().y))
 
-        if agent.get_location().y > MAX_Y:
-            agent.get_location().y = MAX_Y
-        if agent.get_location().y < MIN_Y:
-            agent.get_location().y = MIN_Y
+        if agent.get_location().y + AGENT_RADIUS > MAX_Y:
+            agent.set_location(Point(agent.get_location().x, MAX_Y - AGENT_RADIUS))
+        if agent.get_location().y - AGENT_RADIUS < MIN_Y:
+            agent.set_location(Point(agent.get_location().x, MIN_Y + AGENT_RADIUS))
 
     def enforce_collisions(self, agent: Agent) -> None:
         """Cause an agent to stop if it collides with another agent."""

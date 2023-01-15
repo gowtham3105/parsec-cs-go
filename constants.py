@@ -37,3 +37,5 @@ BULLET_HIT: str = 'bullet_hit'
 DEAD: str = 'agent_dead'
 FIRE_IMPOSSIBLE: str = 'cannot_fire'
 WRONG_AGENT: str = 'opponent_agent'
+
+AGENT_RADIUS: int = 5
