@@ -10,12 +10,15 @@ from .Point import Point
 from .Bullet import Bullet
 from .Action import Action
 from .Alert import Alert
+from .Obstacle import Obstacle
 from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
 
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
+
+from shapely import LineString, Polygon
 
 
 class Environment:
@@ -24,6 +27,7 @@ class Environment:
     agents: Dict[str, Dict[str, Agent]]
     bullets: List[Bullet]
     scores = Dict[str, int]
+    obstacles: List[Obstacle]
     time: int = 0
     alerts: Dict[str, List[Alert]]
     _zone: List[Point]
@@ -213,21 +217,18 @@ class Environment:
         
         _agents = self.agents[team]
         object_in_sight = {}
-
+        
         for agent in _agents:
             object_in_sight[agent] = self.get_object_in_sight(_agents[agent])
 
-
-
-        
-
-        return State()
+        return State(_agents, object_in_sight, self.alerts, team, self.time, self.obstacles, self._zone,self._safe_zone,self._is_zone_shrinking)
 
     
 
     def get_object_in_sight(self, agent:Agent) -> List[ObjectSighting]:
 
         object_in_sight = []
+        non_blocked_object_in_sight = []
 
         #opponent's agents
         for team in self.agents:
@@ -243,11 +244,20 @@ class Environment:
                 object_in_sight.append(ObjectSighting("bullet",bullet.position,bullet.direction))
 
         
-        #Walls (considering triangular vision)
+        # checking if the line of sight passes through a wall
+        for object in object_in_sight:
+            for obstacle in self.obstacles:
+                if(self.isBetweenLineOfSight(agent.get_location(), object.location, obstacle.corners)):
+                    break
+            non_blocked_object_in_sight.append(object)
         
+        return non_blocked_object_in_sight
 
+    def isBetweenLineOfSight(self, point1 : Point, point2 : Point, corners : List[Point]):
 
-        return object_in_sight
+        line = LineString([(point1.x, point1.y), (point2.x, point2.y)])
+        polygon = Polygon([(i.x, i.y) for i in corners])
+        return line.intersection(polygon)
 
     def is_point_in_vision(self, agent:Agent, polar_point:Point, opponent_agent_radius: int) -> bool:
         center = agent.get_location()
