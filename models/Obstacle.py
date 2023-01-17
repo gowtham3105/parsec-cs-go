@@ -1,4 +1,5 @@
 from .Point import Point
+from .Line import Line
 from typing import List
 from .Line import Line
 
@@ -18,7 +19,7 @@ class Obstacle:
 
     def __repr__(self):
         return self.STRING.format(corners=self.corners)
-
+    
     def checkInside(self, p:Point):
             """
             Check whether the point is inside the Polygon.
@@ -46,3 +47,11 @@ class Obstacle:
 
             # When count is odd
             return count & 1
+
+    def get_edges(self) -> List[Line]:
+        edges = []
+        for i in range(self.n):
+            edges.append(Line(self.corners[i], self.corners[(i + 1) % self.n]))
+        return edges
+
+

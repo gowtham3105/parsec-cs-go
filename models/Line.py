@@ -5,6 +5,12 @@ class Line:
         self.p1 = p1
         self.p2 = p2
     
+    def __str__(self):
+        return "Line from {p1} to {p2}".format(p1=self._p1, p2=self._p2)
+
+    def __repr__(self):
+        return "Line from {p1} to {p2}".format(p1=self._p1, p2=self._p2)
+    
     def onLine(self, p:Point):
         # check if the point is on the line.
         if (
