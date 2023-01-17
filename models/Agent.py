@@ -26,7 +26,7 @@ class Agent:
                  team: str):
         """Construct an agent with position, velocity, radius, color, and id."""
         self._location = location
-        self._direction = direction  # only 8 directions possible
+        self._direction = direction  # only 8 directions possible and 0,0 is allowed for stop
         self._range = view_range
         self._view_angle = view_angle
         self._view_direction = view_direction
@@ -93,6 +93,9 @@ class Agent:
             self._fire_time = FIRE_COOLDOWN
             return True
         return False
+    
+    def can_fire(self) -> bool:
+        return self._fire_time == 0
 
     def tick(self) -> None:
         """Update the state of the agent by one time step."""
