@@ -2,6 +2,7 @@ from .Point import Point
 from .Line import Line
 from typing import List
 from .Line import Line
+from shapely.geometry import Polygon
 
 
 class Obstacle:
@@ -19,6 +20,11 @@ class Obstacle:
 
     def __repr__(self):
         return self.STRING.format(corners=self.corners)
+    
+    def intersects_circle(self, center: Point, radius: float) -> bool:
+        circle = Point(center.x, center.y).buffer(radius)
+        poly = Polygon([[p.x, p.y] for p in self.corners])
+        return poly.intersects(circle)
     
     def checkInside(self, p:Point):
             """

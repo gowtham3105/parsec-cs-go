@@ -267,7 +267,7 @@ class Environment:
         
         # Checking agent-wall collision
         for obstacle in self.obstacles:
-            if obstacle.contains_point(agent.get_location()):
+            if obstacle.intersects_circle(agent.get_location(), AGENT_RADIUS):
                 agent.stop()
                 break
         
