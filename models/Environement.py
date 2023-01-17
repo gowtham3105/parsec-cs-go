@@ -258,6 +258,7 @@ class Environment:
         # - check if it collided with an obstacle, agent
         # - else stop the agent.
         #
+<<<<<<< HEAD
         
         # Checking whether the agent is alive or not
         agent_alive = agent.get_health() > 0
@@ -300,6 +301,36 @@ class Environment:
         # if obstacle is polygon, the ray going in y direction intersects the side only odd times.
         return obstacle.contains_point(bullet._position, bullet._direction)
 >>>>>>> 1837496 (Completed enforce_collision method)
+=======
+        
+        # Checking whether the agent is alive or not
+        agent_alive = agent.get_health() > 0
+        if not agent_alive: 
+            agent.stop()
+            return
+        
+        # Checking agent-wall collision
+        for obstacle in self.obstacles:
+            if obstacle.contains_point(agent.get_location()):
+                agent.stop()
+                break
+        
+        # Checking agent-agent collision
+        for team in self.agents:
+            for other_agent in self.agents[team].values():
+                if agent != other_agent:
+                    agent_collision = agent.get_location().distance(other_agent.get_location()) <= 2 * AGENT_RADIUS
+                    if agent_collision: agent.stop()
+                    break
+        
+        return
+
+    def is_bullet_colliding(self, bullet: Bullet, obstacle: Obstacle) -> bool:
+        """Given a bullet and obstacle check if they are colliding"""
+        
+        # if obstacle is polygon, the ray going in y direction intersects the side only odd times.
+        return obstacle.contains_point(bullet._position, bullet._direction)
+>>>>>>> 6025d55ff1bdbf0575b0f37ee1236b6204a65bf5
 
 
 
