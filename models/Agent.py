@@ -27,7 +27,7 @@ class Agent:
                  team: str):
         """Construct an agent with location, velocity, radius, color, and id."""
         self._location = location
-        self._direction = direction  # only 8 directions possible
+        self._direction = direction  # only 8 directions possible and 0,0 is allowed for stop
         self._range = view_range
         self._view_angle = view_angle
         self._view_direction = view_direction

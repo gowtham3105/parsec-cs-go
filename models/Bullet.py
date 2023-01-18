@@ -6,7 +6,7 @@ from constants import DISTANCE_THRESHOLD
 
 class Bullet:
     _location: Point
-    _direction: Point
+    _direction: Point  # Only 8 directions possible and 0,0 is allowed for stop
     _energy: int
     _id: int
     STRING: str = "Bullet with id {id} at {location} with direction {direction} and energy {energy}"

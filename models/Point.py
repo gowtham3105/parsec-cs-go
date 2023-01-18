@@ -38,8 +38,12 @@ class Point:
 
     def make_unit_magnitude(self):
         """Return the unit vector of the point."""
+        if self.distance(Point(0, 0)) == 0:
+            return
+
         self.x = self.x / self.distance(Point(0, 0))
         self.y = self.y / self.distance(Point(0, 0))
+        
     def __str__(self) -> str:
         """Return a string representation of the point."""
         return Point.STRING.format(self.x, self.y)
