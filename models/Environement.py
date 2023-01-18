@@ -294,7 +294,20 @@ class Environment:
 
     def enforce_zone(self, agent):
         # TODO: implement this
-        pass
+        if _zone_shrink_times>t:
+	        _is_zone_shrinking=True
+        if _is_zone_shrinking:
+	        time= prevTime
+	    while(true):
+		    while (time - prevTime >= 1):
+			    MAX_X-=1
+			    MIN_X+=1
+			    MIN_Y+=1
+			    MAX_Y-=1
+			    prevTime=time
+		    if (MAX_X==MIN_X or MAX_Y==MIN_Y):
+			    break    
+#         pass
 
     def is_complete(self) -> bool:
         """Method to indicate when the simulation is complete."""
