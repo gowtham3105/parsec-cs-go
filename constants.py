@@ -11,8 +11,6 @@ MAX_Y: float = BOUNDS_HEIGHT / 2
 MIN_Y: float = -MAX_Y
 VIEW_HEIGHT: int = BOUNDS_HEIGHT + 20
 
-DISTANCE_THRESHOLD: float = 1
-
 CELL_RADIUS: int = 15
 
 FIRE_COOLDOWN: int = 1
@@ -37,7 +35,6 @@ INITIAL_BULLET_ENERGY = 50
 
 COLLISION: str = 'collision'
 ZONE: str = 'zone'
-BULLET_HIT: str = 'bullet_hit'
 DEAD: str = 'agent_dead'
 FIRE_IMPOSSIBLE: str = 'cannot_fire'
 WRONG_AGENT: str = 'opponent_agent'
@@ -50,8 +47,7 @@ TICKS: Dict[str, int] = {  # Ticks per second
 }
 
 # multiple all Ticks here always
-UNIT_TIME: int = TICKS['Bullet'] * TICKS['Agent']  # Time in which all objects move at least
-# once
+UNIT_TIME: int = TICKS['Bullet'] * TICKS['Agent']  # Time in which all objects move at least once
 DAMAGES: Dict[str, int] = {
     BULLET_HIT: 10
 }

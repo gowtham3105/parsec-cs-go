@@ -1,8 +1,8 @@
 from .Point import Point
 from .Line import Line
 from typing import List
-from .Line import Line
 from shapely.geometry import Polygon
+from shapely.geometry import Point as ShapelyPoint
 
 
 class Obstacle:
@@ -22,14 +22,11 @@ class Obstacle:
         return self.STRING.format(corners=self.corners)
 
     def intersects_circle(self, center: Point, radius: float) -> bool:
-        circle = Point(center.x, center.y).buffer(radius)
+        circle = ShapelyPoint(center.x, center.y).buffer(radius)
         poly = Polygon([[p.x, p.y] for p in self.corners])
         return poly.intersects(circle)
     
-    def checkInside(self, p:Point):
-            """
-            Check whether the point is inside the Polygon.
-            """
+    def checkInside(self, p: Point):
         # When polygon has less than 3 edge, it is not polygon
         if self.n < 3:
             return False

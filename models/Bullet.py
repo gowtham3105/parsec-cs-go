@@ -1,7 +1,7 @@
 from .Point import Point
 from .Obstacle import Obstacle
 from .Agent import Agent
-from constants import DISTANCE_THRESHOLD
+from constants import AGENT_RADIUS
 
 
 class Bullet:
@@ -41,7 +41,7 @@ class Bullet:
         # if the obstacle is agent see if they are within some distance of the bullet.
         #  then make the bullet collide with them and make them and bullet die.
         distance = agent.get_location().distance(self.get_location())
-        if distance < DISTANCE_THRESHOLD:
+        if distance < 2 * AGENT_RADIUS:
             return True
         else:
             return False

@@ -1,17 +1,15 @@
 from __future__ import annotations
-from typing import List, Dict
+from typing import List
 import time
 from random import random
 from constants import *
 from .Agent import Agent
 from .Point import Point
-from .Line import Line
 from .Bullet import Bullet
 from .Action import Action
 from .Alert import Alert
-from math import sin, cos, pi, sqrt
+from math import sin, cos, pi
 from .State import State
-import math
 from .Obstacle import Obstacle
 
 from player_red import tick as player_red_tick
@@ -123,7 +121,6 @@ class Environment:
 
         return actions
 
-
     def perform_actions(self, actions: List[Action], team: str):
         """Perform the actions of the agents."""
         for action in actions:
@@ -220,18 +217,21 @@ class Environment:
 
         return State()
 
-    def random_location(self) -> Point:
+    @staticmethod
+    def random_location() -> Point:
         # TODO: make this more random
         return Point(0, 0)
 
-    def random_direction(self) -> Point:
+    @staticmethod
+    def random_direction() -> Point:
         """Generate a 'point' used as a directional vector."""
         angle = random() * 2.0 * pi
         x = cos(angle)
         y = sin(angle)
         return Point(x, y)
 
-    def enforce_bounds(self, agent: Agent) -> None:
+    @staticmethod
+    def enforce_bounds(agent: Agent) -> None:
         """Cause a cell to 'bounce' if it goes out of bounds."""
 
         if agent.get_location().x + AGENT_RADIUS > MAX_X:
@@ -246,35 +246,33 @@ class Environment:
 
     def enforce_collisions(self, agent: Agent) -> None:
         """Cause an agent to stop if it collides with another agent."""
-        # TODO: implement this
         # - check if the agent is alive/dead
         # - check if it collided with a wall, agent
         # - else stop the agent.
         #
-        
+
         # Checking whether the agent is alive or not
         agent_alive = agent.get_health() > 0
-        if not agent_alive: 
+        if not agent_alive:
             agent.stop()
             return
-        
+
         # Checking agent-wall collision
         for obstacle in self.obstacles:
             if obstacle.intersects_circle(agent.get_location(), AGENT_RADIUS):
                 agent.stop()
                 break
-        
+
         # Checking agent-agent collision
         for team in self.agents:
             for other_agent in self.agents[team].values():
                 if agent != other_agent:
                     agent_collision = agent.get_location().distance(other_agent.get_location()) <= 2 * AGENT_RADIUS
-                    if agent_collision: agent.stop()
+                    if agent_collision:
+                        agent.stop()
                     break
-        
+
         return
-        
-        agent.stop()
 
     def enforce_bullet_collisions(self, bullet: Bullet) -> None:
         """Cause a bullet to stop if it collides with another agent or obstacle."""

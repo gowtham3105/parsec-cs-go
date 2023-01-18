@@ -111,3 +111,6 @@ class Agent:
             self._health -= DAMAGES[DAMAGE_CAUSED]
         if self._health < 0:
             self._health = 0
+
+    def set_location(self, location: Point) -> None:
+        self._location = location
