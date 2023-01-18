@@ -1,5 +1,6 @@
 from .Point import Point
 from constants import *
+from constants import DAMAGES
 
 
 class Agent:
@@ -25,7 +26,7 @@ class Agent:
 
     def __init__(self, location: Point, direction: Point, view_range: float, view_direction: Point, view_angle: float,
                  team: str):
-        """Construct an agent with position, velocity, radius, color, and id."""
+        """Construct an agent with location, velocity, radius, color, and id."""
         self._location = location
         self._direction = direction  # only 8 directions possible and 0,0 is allowed for stop
         self._range = view_range
@@ -107,3 +108,13 @@ class Agent:
 
         if self._fire_time > 0:
             self._fire_time -= 1
+
+    def decrease_health(self, DAMAGE_CAUSED: str) -> None:
+        """Decrease the health of the agent."""
+        if self._health > 0:
+            self._health -= DAMAGES[DAMAGE_CAUSED]
+        if self._health < 0:
+            self._health = 0
+
+    def set_location(self, location: Point) -> None:
+        self._location = location

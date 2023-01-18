@@ -16,7 +16,7 @@ class State:
     obstacles: List[Obstacle]  # List of obstacles in the environment
     zone: List[Point]  # List of corners in the zone
     safe_zone: List[Point]  # List of corners in the safe zone
-    is_zone_shrinking: bool  # True if zone is shrinking, False if zone is expanding
+    is_zone_shrinking: bool  # True if zone is shrinking, False otherwise.
     STRING = "Agents: {agents} \n Object in sight: {object_in_sight} \n Alerts: {alerts} \n Team: {team} \n Time: {" \
              "time} \n Obstacles: {obstacles} \n Zone: {zone} \n Safe Zone: {safe_zone} \n Is Zone Shrinking: {" \
              "is_zone_shrinking} "
