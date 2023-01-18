@@ -254,10 +254,32 @@ class Environment:
         """Cause an agent to stop if it collides with another agent."""
         # TODO: implement this
         # - check if the agent is alive/dead
-        # - check if it collided with a wall, agent  or bullet
-        # - if bullet decrease health
+        # - check if it collided with a wall, agent
         # - else stop the agent.
         #
+        
+        # Checking whether the agent is alive or not
+        agent_alive = agent.get_health() > 0
+        if not agent_alive: 
+            agent.stop()
+            return
+        
+        # Checking agent-wall collision
+        for obstacle in self.obstacles:
+            if obstacle.intersects_circle(agent.get_location(), AGENT_RADIUS):
+                agent.stop()
+                break
+        
+        # Checking agent-agent collision
+        for team in self.agents:
+            for other_agent in self.agents[team].values():
+                if agent != other_agent:
+                    agent_collision = agent.get_location().distance(other_agent.get_location()) <= 2 * AGENT_RADIUS
+                    if agent_collision: agent.stop()
+                    break
+        
+        return
+        
         agent.stop()
 
     def enforce_bullet_collisions(self, bullet: Bullet) -> None:
