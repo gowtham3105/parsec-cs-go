@@ -294,20 +294,39 @@ class Environment:
 
     def enforce_zone(self, agent):
         # TODO: implement this
-        if _zone_shrink_times>t:
-	        _is_zone_shrinking=True
-        if _is_zone_shrinking:
-	        time= prevTime
-	    while(true):
-		    while (time - prevTime >= 1):
-			    MAX_X-=1
-			    MIN_X+=1
-			    MIN_Y+=1
-			    MAX_Y-=1
-			    prevTime=time
-		    if (MAX_X==MIN_X or MAX_Y==MIN_Y):
-			    break    
-#         pass
+        i = 0
+        while i < len(self._zone_shrink_times) - 1:
+            if self._zone_shrink_times[i] <= self.time < self._zone_shrink_times[i] + (
+                    self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) / 2:
+                self._is_zone_shrinking = True
+
+        time_to_stop_shrinking = self._zone_shrink_times[i] + (
+                    self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) / 2
+        time_left = time_to_stop_shrinking - self.time
+
+        # start time for zone shrink, end time  start point and end point
+        # make a line between start and end point and then divide it into endtime - starttime parts
+
+        # then move the line by 1 part every time step
+
+        # Point(-10,10), Point(10,10), Point(10,-10), Point(-10,-10)
+
+        # MAX_X = 20
+        # MAX_Y = 20
+        # MIN_X = -20
+        # MIN_Y = -20
+
+        # FINAL_MAX_X = 10
+        # FINAL_MAX_Y = 10
+        # FINAL_MIN_X = -10
+        # FINAL_MIN_Y = -10
+
+        # 10 units to decrease in (end time - start time) ticks
+        # 10 / (end time - start time) units to decrease in 1 tick
+
+
+
+
 
     def is_complete(self) -> bool:
         """Method to indicate when the simulation is complete."""
