@@ -11,6 +11,8 @@ class Action:
     STRING: str = "Action with id {id} of type {type} for agent {agent_id} with direction {direction}"
 
     def __init__(self, agent_id: int, action_type: str):
+
+    def __init__(self, agent_id, action_type):
         # validate the action
         self._id = id(self)
         self.agent_id = agent_id

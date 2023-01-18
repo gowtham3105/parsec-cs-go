@@ -1,7 +1,6 @@
 from __future__ import annotations
 from typing import List, Dict
 import time
-from random import random
 import math
 from random import random, randint
 from constants import *
@@ -135,6 +134,7 @@ class Environment:
                 if agent.fire():
                     self.bullets.append(Bullet(agent.get_location(), action_direction, INITIAL_BULLET_ENERGY))
 
+
             # UPDATE DIRECTION
             if action_type == UPDATE_DIRECTION:
                 agent.set_direction(action_direction)
@@ -142,6 +142,7 @@ class Environment:
             # UPDATE VIEW DIRECTION
             if action_type == UPDATE_VIEW_DIRECTION:
                 agent.set_view_direction(action_direction)
+
 
     def write_stats(self, red_state: State, blue_state: State, red_actions: List[Action], blue_actions: List[Action],
                     validated_red_actions: List[Action], validated_blue_actions: List[Action]) -> None:
@@ -241,7 +242,7 @@ class Environment:
         #bullets
         for bullet in self.bullets:
             if(self.is_point_in_vision(agent,bullet.position,0)):
-                object_in_sight.append(ObjectSighting("bullet",bullet.position,bullet.direction))
+                object_in_sight.append(ObjectSighting("bullet",bullet.get_postion(),bullet.get_direction()))
 
         
         # checking if the line of sight passes through a wall

@@ -2,6 +2,7 @@ from .Point import Point
 
 
 class Bullet:
+
     _position: Point
     _direction: Point  # Only 8 directions possible and 0,0 is allowed for stop
     _energy: int
@@ -14,8 +15,17 @@ class Bullet:
         self._energy = energy
         self._id = id(self)
 
+    def get_postion(self) -> Point:
+        return self._position
+
+    def get_direction(self) -> Point:
+        return self._direction
+    
+    def get_energy(self) -> int:
+        return self._energy
+
     def tick(self) -> None:
-        if self.energy > 0:
+        if self._energy > 0:
             self._position.add(self._direction)
         else:
             return
