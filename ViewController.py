@@ -45,7 +45,7 @@ class ViewController:
                 self.pen.goto(agent.get_location().x, agent.get_location().y)
                 self.pen.pendown()
                 self.pen.color(get_color(agent.get_team()))
-                self.pen.dot(CELL_RADIUS)
+                self.pen.dot(AGENT_RADIUS * 2)
         self.screen.update()
 
         if self.environment.is_complete():

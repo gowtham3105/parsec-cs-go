@@ -40,7 +40,10 @@ class Environment:
         """Initialize the cells with random locations and directions."""
         self.agents = {
             "red": {
-                "0": Agent(self.random_location(), self.random_direction(), 10, Point(1, 0), pi, "red"),
+                "0": Agent(Point(50, 0), Point(-1, 0), 10, Point(1, 0), pi, "red"),
+            },
+            "blue": {
+                "0": Agent(Point(0, 50), Point(0, -1), 10, Point(-1, 0), pi, "blue"),
             }
         }
         self.bullets = []
@@ -48,6 +51,9 @@ class Environment:
             "red": [],
             "blue": []
         }
+        self.obstacles = []
+        self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
+        self._safe_zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self._log = open("log.txt", "w")
 
     def tick(self) -> dict[int | str, int]:
@@ -140,7 +146,6 @@ class Environment:
                 if agent.fire():
                     self.bullets.append(Bullet(agent.get_location(), action_direction, INITIAL_BULLET_ENERGY))
 
-
             # UPDATE DIRECTION
             if action_type == UPDATE_DIRECTION:
                 agent.set_direction(action_direction)
@@ -149,15 +154,14 @@ class Environment:
             if action_type == UPDATE_VIEW_DIRECTION:
                 agent.set_view_direction(action_direction)
 
-
     def write_stats(self, red_state: State, blue_state: State, red_actions: List[Action], blue_actions: List[Action],
                     validated_red_actions: List[Action], validated_blue_actions: List[Action]) -> None:
         """Write the stats of the simulation to a file."""
         self._log.write(f"Game time: {self.time} Real Time: {time.time()}\n")
         self._log.write(f"STARTING GAME LOG FOR TIME {self.time}\n")
-        self._log.write(f"Red Agents: {len(self.agents['red'])} Red Score: {self.scores['red']} "
-                        f"|| Blue Agents: {len(self.agents['blue'])} Blue Score: {self.scores['blue']}\n")
-        # log map elements
+        # self._log.write(f"Red Agents: {len(self.agents['red'])} Red Score: {self.scores['red']} "
+        #                 f"|| Blue Agents: {len(self.agents['blue'])} Blue Score: {self.scores['blue']}\n")
+        # # log map elements
         self._log.write("STARTING LOG OF MAP ELEMENTS\n")
 
         self._log.write("LOGGING AGENTS\n")
@@ -221,82 +225,79 @@ class Environment:
 
     def generate_state(self, team) -> State:
         """Generate the state of the environment."""
-        
+
         _agents = self.agents[team]
         object_in_sight = {}
-        
+
         for agent in _agents:
             object_in_sight[agent] = self.get_object_in_sight(_agents[agent])
 
-        return State(_agents, object_in_sight, self.alerts, team, self.time, self.obstacles, self._zone,self._safe_zone,self._is_zone_shrinking)
+        return State(_agents, object_in_sight, self.alerts[team], team, self.time, self.obstacles, self._zone,
+                     self._safe_zone, self._is_zone_shrinking)
 
-    
-
-    def get_object_in_sight(self, agent:Agent) -> List[ObjectSighting]:
+    def get_object_in_sight(self, agent: Agent) -> List[ObjectSighting]:
 
         object_in_sight = []
         non_blocked_object_in_sight = []
 
-        #opponent's agents
+        # opponent's agents
         for team in self.agents:
-            if(team != agent.get_team()):
+            if team != agent.get_team():
                 for opponent_agent in self.agents[team].values():
-                    if(self.is_point_in_vision(agent,opponent_agent.get_location(),opponent_agent.get_radius())):
-                        object_in_sight.append(ObjectSighting("Opponent's Agent",opponent_agent.get_location(),opponent_agent.get_direction()))
+                    if self.is_point_in_vision(agent, opponent_agent.get_location(), opponent_agent.get_radius()):
+                        object_in_sight.append(ObjectSighting("Opponent's Agent", opponent_agent.get_location(),
+                                                              opponent_agent.get_direction()))
 
-
-        #bullets
+        # bullets
         for bullet in self.bullets:
-            if(self.is_point_in_vision(agent,bullet.position,0)):
-                object_in_sight.append(ObjectSighting("bullet",bullet.get_postion(),bullet.get_direction()))
+            if self.is_point_in_vision(agent, bullet.position, 0):
+                object_in_sight.append(ObjectSighting("bullet", bullet.get_postion(), bullet.get_direction()))
 
-        
         # checking if the line of sight passes through a wall
         for object in object_in_sight:
             for obstacle in self.obstacles:
-                if(self.isBetweenLineOfSight(agent.get_location(), object.location, obstacle.corners)):
+                if (self.isBetweenLineOfSight(agent.get_location(), object.location, obstacle.corners)):
                     break
             non_blocked_object_in_sight.append(object)
-        
+
         return non_blocked_object_in_sight
 
-    def isBetweenLineOfSight(self, point1 : Point, point2 : Point, corners : List[Point]):
+    def isBetweenLineOfSight(self, point1: Point, point2: Point, corners: List[Point]):
 
         line = LineString([(point1.x, point1.y), (point2.x, point2.y)])
         polygon = Polygon([(i.x, i.y) for i in corners])
         return line.intersection(polygon)
 
-    def is_point_in_vision(self, agent:Agent, polar_point:Point, opponent_agent_radius: int) -> bool:
+    def is_point_in_vision(self, agent: Agent, polar_point: Point, opponent_agent_radius: int) -> bool:
         center = agent.get_location()
 
-        if(center.distance(polar_point) > agent.get_range() + opponent_agent_radius):
+        if center.distance(polar_point) > agent.get_range() + opponent_agent_radius:
             return False
-        
+
         radial_point = agent.get_location()
         radial_point.add(agent.get_view_direction())
 
-        if(self.angle(center, polar_point, radial_point) <= agent._view_angle()/2):
+        if self.angle(center, polar_point, radial_point) <= agent.get_view_angle() / 2:
             return True
-        
+
         return False
 
-    def angle(self, center:Point, polar:Point, radial :Point):
-        vector1 = Point(polar.x - center.x, polar.y-center.y)
-        vector2 = Point(radial.x-center.x, radial.y - center.y)
-        dot_product = (vector1.x*vector2.x) + (vector1.y*vector2.y)
-        vector_mod = ((vector1.x**2 + vector1.y**2)**0.5)*((vector2.x**2 + vector2.y**2)**0.5)
+    def angle(self, center: Point, polar: Point, radial: Point):
+        vector1 = Point(polar.x - center.x, polar.y - center.y)
+        vector2 = Point(radial.x - center.x, radial.y - center.y)
+        dot_product = (vector1.x * vector2.x) + (vector1.y * vector2.y)
+        vector_mod = ((vector1.x ** 2 + vector1.y ** 2) ** 0.5) * ((vector2.x ** 2 + vector2.y ** 2) ** 0.5)
 
-        if(vector_mod == 0):
+        if (vector_mod == 0):
             return 0
 
-        angle = dot_product/vector_mod
+        angle = dot_product / vector_mod
         return math.acos(angle)
-
 
     @staticmethod
     def random_location() -> Point:
         # TODO: make this more random
-        return Point(0, 0)
+        return Point(randint(int(MIN_X), int(MAX_X)), randint(int(MIN_Y), int(MAX_Y)))
 
     @staticmethod
     def random_direction() -> Point:
@@ -343,10 +344,17 @@ class Environment:
         for team in self.agents:
             for other_agent in self.agents[team].values():
                 if agent != other_agent:
+                    if team == 'red':
+                        print("Checking agent-agent collision")
+                        print("distance between agents: ", agent.get_location().distance(other_agent.get_location()))
+                        print("2 * agent radius: ", 2 * AGENT_RADIUS, "AGENT LOCATION: ", agent.get_location(), "OTHER AGENT LOCATION: ", other_agent.get_location())
                     agent_collision = agent.get_location().distance(other_agent.get_location()) <= 2 * AGENT_RADIUS
+                    if team == 'red':
+                        print("agent collision: ", agent_collision)
                     if agent_collision:
                         agent.stop()
-                    break
+                        print("agent stopped", agent.get_team())
+                        # break
 
         return
 

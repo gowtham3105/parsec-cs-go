@@ -20,7 +20,7 @@ class ObjectSighting:
         self._id = id(self)
 
     def __str__(self):
-        return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location, direction=self.direction)
+        return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location, direction=self.direction, id=self._id)
 
     def __repr__(self):
-        return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location, direction=self.direction)
+        return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location, direction=self.direction, id=self._id)
