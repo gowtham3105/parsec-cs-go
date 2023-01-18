@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Dict
+from typing import List
 import time
 from random import random
 from constants import *
@@ -10,6 +10,7 @@ from .Action import Action
 from .Alert import Alert
 from math import sin, cos, pi
 from .State import State
+from .Obstacle import Obstacle
 
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
@@ -23,6 +24,7 @@ class Environment:
     scores = Dict[str, int]
     time: int = 0
     alerts: Dict[str, List[Alert]]
+    obstacles: List[Obstacle]
     _zone: List[Point]
     _safe_zone: List[Point]
     _is_zone_shrinking: bool = False
@@ -44,42 +46,45 @@ class Environment:
 
     def tick(self) -> dict[int | str, int]:
         """Update the state of the simulation by one time step."""
+        #  TODO: take a look at this
+        if self.time % (UNIT_TIME / TICKS['Bullet']) == 0:
+            for bullet in self.bullets:
+                self.enforce_bullet_collisions(bullet)
+                bullet.tick()
+                if not bullet.is_alive():
+                    self.bullets.remove(bullet)
 
-        for team in self.agents:
-            for agent in self.agents[team].values():
-                agent.tick()
-                self.enforce_bounds(agent)
-                self.enforce_collisions(agent)
-                self.enforce_zone(agent)
+        if self.time % (UNIT_TIME / TICKS['Agent']) == 0:
+            for team in self.agents:
+                for agent in self.agents[team].values():
+                    agent.tick()
+                    self.enforce_bounds(agent)
+                    self.enforce_collisions(agent)
+                    self.enforce_zone(agent)
 
-        for bullet in self.bullets:
-            self.enforce_bullet_collisions(bullet)
-            bullet.tick()
-            if not bullet.is_alive():
-                self.bullets.remove(bullet)
+            red_state = self.generate_state('red')
+            blue_state = self.generate_state('blue')
 
-        red_state = self.generate_state('red')
-        blue_state = self.generate_state('blue')
+            red_actions = player_red_tick(red_state)
+            blue_actions = player_blue_tick(blue_state)
+            self.alerts['red'] = []
+            self.alerts['blue'] = []
 
-        red_actions = player_red_tick(red_state)
-        blue_actions = player_blue_tick(blue_state)
-        self.alerts['red'] = []
-        self.alerts['blue'] = []
+            validated_red_actions = self.validate_actions(red_actions, "red")
+            validated_blue_actions = self.validate_actions(blue_actions, "blue")
 
-        validated_red_actions = self.validate_actions(red_actions, "red")
-        validated_blue_actions = self.validate_actions(blue_actions, "blue")
+            self.perform_actions(validated_red_actions, "red")
+            self.perform_actions(validated_blue_actions, "blue")
 
-        self.perform_actions(validated_red_actions, "red")
-        self.perform_actions(validated_blue_actions, "blue")
-
-        self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
-                         validated_blue_actions)
+            self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
+                             validated_blue_actions)
 
         self.time += 1
         return {}
 
     def validate_actions(self, actions: List[Action], team: str) -> List[Action]:
         """Validate the actions of the agents."""
+
         for action in actions:
             agent_id = action.agent_id
             action_type = action.type
@@ -98,6 +103,7 @@ class Environment:
                     # raise Exception("Agent is already dead!")
 
                 # - check if the agent is able to fire or not
+
                 elif action_type == FIRE and not agent.can_fire():
                     self.alerts[team].append(Alert(FIRE_IMPOSSIBLE, agent_id))
                     allowed = 0
@@ -211,44 +217,79 @@ class Environment:
 
         return State()
 
-    def random_location(self) -> Point:
+    @staticmethod
+    def random_location() -> Point:
         # TODO: make this more random
         return Point(0, 0)
 
-    def random_direction(self) -> Point:
+    @staticmethod
+    def random_direction() -> Point:
         """Generate a 'point' used as a directional vector."""
         angle = random() * 2.0 * pi
         x = cos(angle)
         y = sin(angle)
         return Point(x, y)
 
-    def enforce_bounds(self, agent: Agent) -> None:
+    @staticmethod
+    def enforce_bounds(agent: Agent) -> None:
         """Cause a cell to 'bounce' if it goes out of bounds."""
 
-        if agent.get_location().x > MAX_X:
-            agent.get_location().x = MAX_X
-        if agent.get_location().x < MIN_X:
-            agent.get_location().x = MIN_X
+        if agent.get_location().x + AGENT_RADIUS > MAX_X:
+            agent.set_location(Point(MAX_X - AGENT_RADIUS, agent.get_location().y))
+        if agent.get_location().x - AGENT_RADIUS < MIN_X:
+            agent.set_location(Point(MIN_X + AGENT_RADIUS, agent.get_location().y))
 
-        if agent.get_location().y > MAX_Y:
-            agent.get_location().y = MAX_Y
-        if agent.get_location().y < MIN_Y:
-            agent.get_location().y = MIN_Y
+        if agent.get_location().y + AGENT_RADIUS > MAX_Y:
+            agent.set_location(Point(agent.get_location().x, MAX_Y - AGENT_RADIUS))
+        if agent.get_location().y - AGENT_RADIUS < MIN_Y:
+            agent.set_location(Point(agent.get_location().x, MIN_Y + AGENT_RADIUS))
 
     def enforce_collisions(self, agent: Agent) -> None:
         """Cause an agent to stop if it collides with another agent."""
-        # TODO: implement this
         # - check if the agent is alive/dead
-        # - check if it collided with a wall, agent  or bullet
-        # - if bullet decrease health
+        # - check if it collided with a wall, agent
         # - else stop the agent.
         #
 
-        agent.stop()
+        # Checking whether the agent is alive or not
+        agent_alive = agent.get_health() > 0
+        if not agent_alive:
+            agent.stop()
+            return
+
+        # Checking agent-wall collision
+        for obstacle in self.obstacles:
+            if obstacle.intersects_circle(agent.get_location(), AGENT_RADIUS):
+                agent.stop()
+                break
+
+        # Checking agent-agent collision
+        for team in self.agents:
+            for other_agent in self.agents[team].values():
+                if agent != other_agent:
+                    agent_collision = agent.get_location().distance(other_agent.get_location()) <= 2 * AGENT_RADIUS
+                    if agent_collision:
+                        agent.stop()
+                    break
+
+        return
 
     def enforce_bullet_collisions(self, bullet: Bullet) -> None:
         """Cause a bullet to stop if it collides with another agent or obstacle."""
-        # TODO: implement this
+        # check collision with walls
+        for obstacle in self.obstacles:
+            if bullet.is_colliding(obstacle):
+                bullet.is_alive = False
+
+        for team in self.agents:
+            for agent in self.agents[team].values():
+                if bullet.is_colliding(agent):
+                    bullet.is_alive = False
+                    agent.decrease_health(BULLET_HIT)
+
+    def decrease_agent_health(self, bullet: Bullet, agent):
+        """Decrease the heath of agent depending on the energy of bullet"""
+        # TODO: find an appropriate formula for health deduction.
         pass
 
     def enforce_zone(self, agent):
