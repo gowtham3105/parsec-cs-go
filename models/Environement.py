@@ -85,7 +85,7 @@ class Environment:
     def validate_actions(self, actions, team) -> List[Action]:
         """Validate the actions of the agents."""
         #  TODO: implement this
-        
+
         for action in actions:
             agentId = action.agent_id
             actionType = action.type
@@ -137,7 +137,7 @@ class Environment:
 
             # IF ACTION ---> FIRE
             if actionType == FIRE:
-                 if agentObject.fire():
+                if agentObject.fire():
                     actionDirection.make_unit_magnitude()
                     self.bullets.append(Bullet(agentObject.get_location(), actionDirection, INITIAL_BULLET_ENERGY))
 
@@ -148,7 +148,6 @@ class Environment:
             # UPDATE VIEW DIRECTION
             if actionType == UPDATE_VIEW_DIRECTION:
                 agentObject.set_view_direction(actionDirection)
-            
 
         return self.alerts
 
@@ -283,41 +282,23 @@ class Environment:
         
         agent.stop()
 
-    def is_bullet_colliding(self, bullet: Bullet, obstacle: Obstacle|Agent) -> bool:
-        """Given a bullet and obstacle check if they are colliding"""
-        if(type(obstacle)== Obstacle):
-            # if obstacle is polygon, the ray going in y direction intersects the side only odd times.
-            return obstacle.checkInside(bullet._position)
-        if(type(obstacle)== Agent):
-            # if the obstacle is agent see if they are within some distance of the bullet.
-            #  then make the bullet collide with them and make them and bullet die.
-            distance = sqrt( (obstacle._location.y- bullet._position.x)**2 + (obstacle._location- bullet._position.y)**2 )
-            if(distance<DISTANCE_THRESHOLD):
-                return True
-            else:
-                return False
-
-
-
     def enforce_bullet_collisions(self, bullet: Bullet) -> None:
         """Cause a bullet to stop if it collides with another agent or obstacle."""
         # check collision with walls
         for obstacle in self.obstacles:
-            if(self.is_bullet_colliding(bullet, obstacle)):
+            if bullet.is_colliding(obstacle):
                 bullet.is_alive = False
-        
+
         for team in self.agents:
             for agent in self.agents[team].values():
                 if bullet.is_colliding(agent):
                     bullet.is_alive = False
                     agent.decrease_health(BULLET_HIT)
-                
 
-    def decrease_agent_health(self, bullet:Bullet, agent):
+    def decrease_agent_health(self, bullet: Bullet, agent):
         """Decrease the heath of agent depending on the energy of bullet"""
         # TODO: find an appropriate formula for health deduction.
         pass
-        
 
     def enforce_zone(self, agent):
         # TODO: implement this
