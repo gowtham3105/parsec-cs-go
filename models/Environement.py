@@ -18,7 +18,7 @@ from .Obstacle import Obstacle
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
 
-from shapely import LineString, Polygon
+from shapely.geometry import LineString, Polygon
 
 
 class Environment:
@@ -254,15 +254,18 @@ class Environment:
                 object_in_sight.append(ObjectSighting("bullet", bullet.get_postion(), bullet.get_direction()))
 
         # checking if the line of sight passes through a wall
-        for object in object_in_sight:
+        for _object in object_in_sight:
+            blocked = False
             for obstacle in self.obstacles:
-                if (self.isBetweenLineOfSight(agent.get_location(), object.location, obstacle.corners)):
+                if self.isBetweenLineOfSight(agent.get_location(), _object.location, obstacle.corners):
+                    blocked = True
                     break
-            non_blocked_object_in_sight.append(object)
-
+            if blocked:
+                non_blocked_object_in_sight.append(_object)
         return non_blocked_object_in_sight
 
-    def isBetweenLineOfSight(self, point1: Point, point2: Point, corners: List[Point]):
+    @staticmethod
+    def isBetweenLineOfSight(point1: Point, point2: Point, corners: List[Point]):
 
         line = LineString([(point1.x, point1.y), (point2.x, point2.y)])
         polygon = Polygon([(i.x, i.y) for i in corners])
@@ -274,21 +277,21 @@ class Environment:
         if center.distance(polar_point) > agent.get_range() + opponent_agent_radius:
             return False
 
-        radial_point = agent.get_location()
+        radial_point = Point(center.x, center.y)
         radial_point.add(agent.get_view_direction())
 
-        if self.angle(center, polar_point, radial_point) <= agent.get_view_angle() / 2:
+        if self.find_angle(center, polar_point, radial_point) <= (agent.get_view_angle() / 2):
             return True
 
         return False
 
-    def angle(self, center: Point, polar: Point, radial: Point):
+    @staticmethod
+    def find_angle(center: Point, polar: Point, radial: Point) -> float:
         vector1 = Point(polar.x - center.x, polar.y - center.y)
         vector2 = Point(radial.x - center.x, radial.y - center.y)
         dot_product = (vector1.x * vector2.x) + (vector1.y * vector2.y)
         vector_mod = ((vector1.x ** 2 + vector1.y ** 2) ** 0.5) * ((vector2.x ** 2 + vector2.y ** 2) ** 0.5)
-
-        if (vector_mod == 0):
+        if vector_mod == 0:
             return 0
 
         angle = dot_product / vector_mod
