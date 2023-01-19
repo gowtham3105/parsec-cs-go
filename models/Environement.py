@@ -260,7 +260,7 @@ class Environment:
                 if self.isBetweenLineOfSight(agent.get_location(), _object.location, obstacle.corners):
                     blocked = True
                     break
-            if blocked:
+            if not blocked:
                 non_blocked_object_in_sight.append(_object)
         return non_blocked_object_in_sight
 
