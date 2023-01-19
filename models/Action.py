@@ -10,7 +10,7 @@ class Action:
     direction: Point
     STRING: str = "Action with id {id} of type {type} for agent {agent_id} with direction {direction}"
 
-    def __init__(self, agent_id: int, action_type: str):
+    def __init__(self, agent_id: int, action_type: str, action_direction: Point):
         # validate the action
         self._id = id(self)
         self.agent_id = agent_id
@@ -18,6 +18,7 @@ class Action:
             self.type = action_type
         else:
             raise ValueError("Invalid action type")
+        self.direction = action_direction
 
     def __init__(self, string: str):
         parameters = unformat(string, Action.STRING)
