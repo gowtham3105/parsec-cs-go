@@ -28,7 +28,7 @@ def tick(state: State) -> List[Action]:
         flag = 0
         agent_id: int = agent.id()
         
-        if random.random() < 0.1:
+        if random.random() < 0.2:
             type = UPDATE_VIEW_DIRECTION
             current_direction = agent.get_view_direction()
             x_rad = math.acos(current_direction.x/current_direction.get_distance(Point(0, 0)))
@@ -38,11 +38,6 @@ def tick(state: State) -> List[Action]:
             direction = Point(math.cos(x_rad), math.cos(y_rad))
             action = Action(agent_id, type, direction)
             flag = 1
-            
-            # object_type: str  # Opponent's Agent, Bullet, Wall
-            # location: Point
-            # direction: Point  # For Wall it's Point(0,0)
-            # _id: int
 
         elif flag==0:
             opponents = []
@@ -66,7 +61,36 @@ def tick(state: State) -> List[Action]:
                         direction = Point(opponent.direction.x - agent.get_direction().x, opponent.direction.y - agent.get_direction().y)
                 action = Action(agent_id, type, direction)
                 flag = 1
+
+
+            elif flag == 0:
+                for alert in state.Alerts:
+                    if alert.alert_type == BULLET:
+                        type = UPDATE_DIRECTION
+                        direction = Point(agent.get_direction().x + 0.69, agent.get_direction().y + 0.7)
+                        action = Action(agent_id, type, direction)
+                        flag = 1
+                        break
+               
+                if flag == 0:
+                    for alert in state.Alerts:
+                        if alert.alert_type == COLLISION:
+                            type = UPDATE_DIRECTION
+                            direction = Point(-agent.get_direction().x, -agent.get_direction().y)
+                            action = Action(agent_id, type, direction)
+                            flag = 1
+        if flag == 0:
+            type = UPDATE_VIEW_DIRECTION
+            direction = Point()
+            action = Action(agent_id, type, direction)
+            current_direction = agent.get_view_direction()
+            x_rad = math.acos(current_direction.x/current_direction.get_distance(Point(0, 0)))
+            y_rad = math.acos(current_direction.y/current_direction.get_distance(Point(0, 0)))
+            x_rad += random.choice([-1, 1]) * (math.pi/6)
+            y_rad += random.choice([-1, 1]) * (math.pi/6)
+            direction = Point(math.cos(x_rad), math.cos(y_rad))
+
+        action = Action(agent_id, type, direction)
+        actions.append(action)
             
-            
-    
     return actions
