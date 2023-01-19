@@ -6,14 +6,29 @@ import random
 import math
 from typing import List
 
+#     agents: Dict[str, Agent]  # The player's agents
+#     object_in_sight: Dict[str, List[ObjectSighting]]  # Agent : [ObjectSighting] ,Bullet: [ObjectSighting]  ,Wall: [
+#     # ObjectSighting]
+#     Alerts: List[Alert]  # List of alerts collisions, zone, bullet_hit etc
+#     team: str
+#     time: int
+#     obstacles: List[Obstacle]  # List of obstacles in the environment
+#     zone: List[Point]  # List of corners in the zone
+#     safe_zone: List[Point]  # List of corners in the safe zone
+#     is_zone_shrinking: bool  # True if zone is shrinking, False if zone is expanding
+#     STRING = "Agents: {agents} \n Object in sight: {object_in_sight} \n Alerts: {alerts} \n Team: {team} \n Time: {" \
+#              "time} \n Obstacles: {obstacles} \n Zone: {zone} \n Safe Zone: {safe_zone} \n Is Zone Shrinking: {" \
+#              "is_zone_shrinking} "
 
 def tick(state: State) -> List[Action]:
+
+
     actions = []
     for agent in state.agents:
         flag = 0
         agent_id: int = agent.id()
         
-        if random.random() < 0.1:
+        if random.random() < 0.2:
             type = UPDATE_VIEW_DIRECTION
             current_direction = agent.get_view_direction()
             x_rad = math.acos(current_direction.x/current_direction.get_distance(Point(0, 0)))
@@ -23,11 +38,6 @@ def tick(state: State) -> List[Action]:
             direction = Point(math.cos(x_rad), math.cos(y_rad))
             action = Action(agent_id, type, direction)
             flag = 1
-            
-            # object_type: str  # Opponent's Agent, Bullet, Wall
-            # location: Point
-            # direction: Point  # For Wall it's Point(0,0)
-            # _id: int
 
         elif flag==0:
             opponents = []
@@ -51,8 +61,36 @@ def tick(state: State) -> List[Action]:
                         direction = Point(opponent.direction.x - agent.get_direction().x, opponent.direction.y - agent.get_direction().y)
                 action = Action(agent_id, type, direction)
                 flag = 1
-            
-            
-    
-    return actions
 
+
+            elif flag == 0:
+                for alert in state.Alerts:
+                    if alert.alert_type == BULLET:
+                        type = UPDATE_DIRECTION
+                        direction = Point(agent.get_direction().x + 0.69, agent.get_direction().y + 0.7)
+                        action = Action(agent_id, type, direction)
+                        flag = 1
+                        break
+               
+                if flag == 0:
+                    for alert in state.Alerts:
+                        if alert.alert_type == COLLISION:
+                            type = UPDATE_DIRECTION
+                            direction = Point(-agent.get_direction().x, -agent.get_direction().y)
+                            action = Action(agent_id, type, direction)
+                            flag = 1
+        if flag == 0:
+            type = UPDATE_VIEW_DIRECTION
+            direction = Point()
+            action = Action(agent_id, type, direction)
+            current_direction = agent.get_view_direction()
+            x_rad = math.acos(current_direction.x/current_direction.get_distance(Point(0, 0)))
+            y_rad = math.acos(current_direction.y/current_direction.get_distance(Point(0, 0)))
+            x_rad += random.choice([-1, 1]) * (math.pi/6)
+            y_rad += random.choice([-1, 1]) * (math.pi/6)
+            direction = Point(math.cos(x_rad), math.cos(y_rad))
+
+        action = Action(agent_id, type, direction)
+        actions.append(action)
+            
+    return actions
