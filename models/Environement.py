@@ -1,24 +1,22 @@
 from __future__ import annotations
 from typing import List
 import time
-import math
 from random import random, randint
 from constants import *
+from copy import deepcopy
 from .Agent import Agent
 from .Point import Point
 from .Bullet import Bullet
 from .Action import Action
 from .Alert import Alert
-from .Obstacle import Obstacle
 from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
 from .Obstacle import Obstacle
+from utils import isBetweenLineOfSight, is_point_in_vision
 
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
-
-from shapely.geometry import LineString, Polygon
 
 
 class Environment:
@@ -159,9 +157,9 @@ class Environment:
         """Write the stats of the simulation to a file."""
         self._log.write(f"Game time: {self.time} Real Time: {time.time()}\n")
         self._log.write(f"STARTING GAME LOG FOR TIME {self.time}\n")
-        # self._log.write(f"Red Agents: {len(self.agents['red'])} Red Score: {self.scores['red']} "
-        #                 f"|| Blue Agents: {len(self.agents['blue'])} Blue Score: {self.scores['blue']}\n")
-        # # log map elements
+        self._log.write(f"Red Agents: {len(self.agents['red'])} Red Score: {self.scores['red']} "
+                        f"|| Blue Agents: {len(self.agents['blue'])} Blue Score: {self.scores['blue']}\n")
+        # log map elements
         self._log.write("STARTING LOG OF MAP ELEMENTS\n")
 
         self._log.write("LOGGING AGENTS\n")
@@ -223,17 +221,17 @@ class Environment:
 
         self._log.write(f"ENDING GAME LOG FOR TIME {self.time}\n")
 
-    def generate_state(self, team) -> State:
+    def generate_state(self, team: str) -> State:
         """Generate the state of the environment."""
 
-        _agents = self.agents[team]
+        agents = self.agents[team]
         object_in_sight = {}
 
-        for agent in _agents:
-            object_in_sight[agent] = self.get_object_in_sight(_agents[agent])
+        for agent in agents:
+            object_in_sight[agent] = self.get_object_in_sight(agents[agent])
 
-        return State(_agents, object_in_sight, self.alerts[team], team, self.time, self.obstacles, self._zone,
-                     self._safe_zone, self._is_zone_shrinking)
+        return deepcopy(State(agents, object_in_sight, self.alerts[team], team, self.time, self.obstacles, self._zone,
+                              self._safe_zone, self._is_zone_shrinking))
 
     def get_object_in_sight(self, agent: Agent) -> List[ObjectSighting]:
 
@@ -244,58 +242,25 @@ class Environment:
         for team in self.agents:
             if team != agent.get_team():
                 for opponent_agent in self.agents[team].values():
-                    if self.is_point_in_vision(agent, opponent_agent.get_location(), opponent_agent.get_radius()):
-                        object_in_sight.append(ObjectSighting("Opponent's Agent", opponent_agent.get_location(),
+                    if is_point_in_vision(agent, opponent_agent.get_location(), opponent_agent.get_radius()):
+                        object_in_sight.append(ObjectSighting(OPPONENT, opponent_agent.get_location(),
                                                               opponent_agent.get_direction()))
 
         # bullets
         for bullet in self.bullets:
-            if self.is_point_in_vision(agent, bullet.position, 0):
-                object_in_sight.append(ObjectSighting("bullet", bullet.get_postion(), bullet.get_direction()))
+            if is_point_in_vision(agent, bullet.get_location(), 0):
+                object_in_sight.append(ObjectSighting(BULLET, bullet.get_location(), bullet.get_direction()))
 
         # checking if the line of sight passes through a wall
         for _object in object_in_sight:
             blocked = False
             for obstacle in self.obstacles:
-                if self.isBetweenLineOfSight(agent.get_location(), _object.location, obstacle.corners):
+                if isBetweenLineOfSight(agent.get_location(), _object.location, obstacle.corners):
                     blocked = True
                     break
             if not blocked:
                 non_blocked_object_in_sight.append(_object)
         return non_blocked_object_in_sight
-
-    @staticmethod
-    def isBetweenLineOfSight(point1: Point, point2: Point, corners: List[Point]):
-
-        line = LineString([(point1.x, point1.y), (point2.x, point2.y)])
-        polygon = Polygon([(i.x, i.y) for i in corners])
-        return line.intersection(polygon)
-
-    def is_point_in_vision(self, agent: Agent, polar_point: Point, opponent_agent_radius: int) -> bool:
-        center = agent.get_location()
-
-        if center.distance(polar_point) > agent.get_range() + opponent_agent_radius:
-            return False
-
-        radial_point = Point(center.x, center.y)
-        radial_point.add(agent.get_view_direction())
-
-        if self.find_angle(center, polar_point, radial_point) <= (agent.get_view_angle() / 2):
-            return True
-
-        return False
-
-    @staticmethod
-    def find_angle(center: Point, polar: Point, radial: Point) -> float:
-        vector1 = Point(polar.x - center.x, polar.y - center.y)
-        vector2 = Point(radial.x - center.x, radial.y - center.y)
-        dot_product = (vector1.x * vector2.x) + (vector1.y * vector2.y)
-        vector_mod = ((vector1.x ** 2 + vector1.y ** 2) ** 0.5) * ((vector2.x ** 2 + vector2.y ** 2) ** 0.5)
-        if vector_mod == 0:
-            return 0
-
-        angle = dot_product / vector_mod
-        return math.acos(angle)
 
     @staticmethod
     def random_location() -> Point:
@@ -347,17 +312,10 @@ class Environment:
         for team in self.agents:
             for other_agent in self.agents[team].values():
                 if agent != other_agent:
-                    if team == 'red':
-                        print("Checking agent-agent collision")
-                        print("distance between agents: ", agent.get_location().distance(other_agent.get_location()))
-                        print("2 * agent radius: ", 2 * AGENT_RADIUS, "AGENT LOCATION: ", agent.get_location(), "OTHER AGENT LOCATION: ", other_agent.get_location())
                     agent_collision = agent.get_location().distance(other_agent.get_location()) <= 2 * AGENT_RADIUS
-                    if team == 'red':
-                        print("agent collision: ", agent_collision)
                     if agent_collision:
                         agent.stop()
-                        print("agent stopped", agent.get_team())
-                        # break
+                    break
 
         return
 

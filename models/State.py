@@ -8,8 +8,7 @@ from .ObjectSighting import ObjectSighting
 
 class State:
     agents: Dict[str, Agent]  # The player's agents
-    object_in_sight: Dict[str, List[ObjectSighting]]  # Agent : [ObjectSighting] ,Bullet: [ObjectSighting]  ,Wall: [
-    # ObjectSighting]
+    object_in_sight: Dict[str, List[ObjectSighting]]  # Agent : [ObjectSighting] ,Bullet: [ObjectSighting]
     Alerts: List[Alert]  # List of alerts collisions, zone, bullet_hit etc
     team: str
     time: int

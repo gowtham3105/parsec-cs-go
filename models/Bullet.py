@@ -5,7 +5,6 @@ from constants import AGENT_RADIUS
 
 
 class Bullet:
-
     _location: Point
     _direction: Point  # Only 8 directions possible and 0,0 is allowed for stop
     _energy: int
@@ -18,12 +17,9 @@ class Bullet:
         self._energy = energy
         self._id = id(self)
 
-    def get_postion(self) -> Point:
-        return self._position
-
     def get_direction(self) -> Point:
         return self._direction
-    
+
     def get_energy(self) -> int:
         return self._energy
 
@@ -37,14 +33,8 @@ class Bullet:
     def is_alive(self) -> bool:
         return self._energy > 0
 
-    def get_direction(self) -> Point:
-        return self._direction
-
     def get_location(self) -> Point:
         return self._location
-
-    def get_energy(self) -> int:
-        return self._energy
 
     def is_colliding_with_agent(self, agent: Agent) -> bool:
         """Given a bullet and agent check if they are colliding"""

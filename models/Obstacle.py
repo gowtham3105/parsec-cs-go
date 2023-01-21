@@ -16,10 +16,10 @@ class Obstacle:
         self.n = len(corners)
 
     def __str__(self):
-        return self.STRING.format(corners=self.corners)
+        return self.STRING.format(corners=self.corners, n=self.n)
 
     def __repr__(self):
-        return self.STRING.format(corners=self.corners)
+        return self.STRING.format(corners=self.corners, n=self.n)
 
     def intersects_circle(self, center: Point, radius: float) -> bool:
         circle = ShapelyPoint(center.x, center.y).buffer(radius)

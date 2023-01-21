@@ -3,7 +3,7 @@ from constants import WALL, BULLET, OPPONENT
 
 
 class ObjectSighting:
-    object_type: str  # Opponent's Agent, Bullet, Wall
+    object_type: str  # Opponent's Agent, Bullet
     location: Point
     direction: Point  # For Wall it's Point(0,0)
     _id: int
