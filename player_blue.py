@@ -24,15 +24,15 @@ def tick(state: State) -> List[Action]:
 
 
     actions = []
-    for agent in state.agents:
+    for agent in state.agents.values():
         flag = 0
         agent_id: int = agent.id()
         
         if random.random() < 0.2:
             type = UPDATE_VIEW_DIRECTION
             current_direction = agent.get_view_direction()
-            x_rad = math.acos(current_direction.x/current_direction.get_distance(Point(0, 0)))
-            y_rad = math.acos(current_direction.y/current_direction.get_distance(Point(0, 0)))
+            x_rad = math.acos(current_direction.x/current_direction.distance(Point(0, 0)))
+            y_rad = math.acos(current_direction.y/current_direction.distance(Point(0, 0)))
             x_rad += random.random() * 2 * math.pi
             y_rad += random.random() * 2 * math.pi
             direction = Point(math.cos(x_rad), math.cos(y_rad))
@@ -40,22 +40,15 @@ def tick(state: State) -> List[Action]:
             flag = 1
 
         elif flag==0:
-            opponents = []
-            bullets = []
-            walls = []
-            for object in state.object_in_sight:
-                if object.object_type == OPPONENT:
-                    opponents.append(object)
-                elif object.object_type == BULLET:
-                    bullets.append(object)
-                else:
-                    walls.append(object)
+            opponents =state.object_in_sight["AGENT"]
+            bullets = state.object_in_sight["BULLET"]
+            walls = state.object_in_sight["WALL"]
 
             if len(opponents)!=0:
                 type = FIRE
                 closest = float("inf")
                 for opponent in opponents:
-                    dist = opponent.location.dist(agent.get_location())
+                    dist = opponent.location.distance(agent.get_location())
                     if dist < closest:
                         closest = dist
                         direction = Point(opponent.direction.x - agent.get_direction().x, opponent.direction.y - agent.get_direction().y)
@@ -79,13 +72,13 @@ def tick(state: State) -> List[Action]:
                             direction = Point(-agent.get_direction().x, -agent.get_direction().y)
                             action = Action(agent_id, type, direction)
                             flag = 1
+                            break
         if flag == 0:
             type = UPDATE_VIEW_DIRECTION
-            direction = Point()
             action = Action(agent_id, type, direction)
             current_direction = agent.get_view_direction()
-            x_rad = math.acos(current_direction.x/current_direction.get_distance(Point(0, 0)))
-            y_rad = math.acos(current_direction.y/current_direction.get_distance(Point(0, 0)))
+            x_rad = math.acos(current_direction.x/current_direction.distance(Point(0, 0)))
+            y_rad = math.acos(current_direction.y/current_direction.distance(Point(0, 0)))
             x_rad += random.choice([-1, 1]) * (math.pi/6)
             y_rad += random.choice([-1, 1]) * (math.pi/6)
             direction = Point(math.cos(x_rad), math.cos(y_rad))
