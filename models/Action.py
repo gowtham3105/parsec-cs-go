@@ -10,10 +10,11 @@ class Action:
     direction: Point
     STRING: str = "Action with id {id} of type {type} for agent {agent_id} with direction {direction}"
 
-    def __init__(self, agent_id: int, action_type: str):
+    def __init__(self, agent_id: int, action_type: str, direction: Point):
         # validate the action
         self._id = id(self)
         self.agent_id = agent_id
+        self.direction = direction
         if action_type in [UPDATE_DIRECTION, UPDATE_VIEW_DIRECTION, FIRE]:
             self.type = action_type
         else:

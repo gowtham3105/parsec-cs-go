@@ -55,6 +55,7 @@ class ViewController:
             self.pen.pendown()
             self.pen.color("white")
             self.pen.dot(BULLET_RADIUS)
+
         self.screen.update()
 
         if self.environment.is_complete():
