@@ -1,4 +1,4 @@
-from utils import unformat
+# from utils import unformat
 
 
 class Point:
@@ -12,17 +12,17 @@ class Point:
         self.x = x
         self.y = y
 
-    def __init__(self, string: str):
-        """Construct a point from a string."""
-        string = unformat(string, Point.STRING)
-        if "x" in string:
-            self.x = string["x"]
-        else:
-            raise ValueError("Unable to Find x coordinate")
-        if "y" in string:
-            self.y = string["y"]
-        else:
-            raise ValueError("Unable to Find y coordinate")
+    # def __init__(self, string: str):
+    #     """Construct a point from a string."""
+    #     string = unformat(string, Point.STRING)
+    #     if "x" in string:
+    #         self.x = string["x"]
+    #     else:
+    #         raise ValueError("Unable to Find x coordinate")
+    #     if "y" in string:
+    #         self.y = string["y"]
+    #     else:
+    #         raise ValueError("Unable to Find y coordinate")
 
     def add(self, other):
         """Add two Point objects together and return a new Point."""
