@@ -39,7 +39,7 @@ DEAD: str = 'agent_dead'
 FIRE_IMPOSSIBLE: str = 'cannot_fire'
 WRONG_AGENT: str = 'opponent_agent'
 
-AGENT_RADIUS: int = 5
+AGENT_RADIUS: int = 10
 
 TICKS: Dict[str, int] = {  # Ticks per second
     "Bullet": 5,
