@@ -59,7 +59,7 @@ class Bullet:
     def is_colliding_with_obstacle(self, obstacle: Obstacle) -> bool:
         return obstacle.checkInside(self.get_location())
 
-    def is_colliding(self, obj: Obstacle | Agent) -> bool:
+    def is_colliding(self, obj: Obstacle or Agent) -> bool:
         """Given a bullet and obstacle check if they are colliding"""
         if isinstance(obj, Agent):
             return self.is_colliding_with_agent(obj)
