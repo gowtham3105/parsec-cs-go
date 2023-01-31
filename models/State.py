@@ -5,7 +5,6 @@ from .Obstacle import Obstacle
 from .Point import Point
 from .ObjectSighting import ObjectSighting
 
-
 class State:
     agents: Dict[str, Agent]  # The player's agents
     object_in_sight: Dict[str, List[ObjectSighting]]  # Agent : [ObjectSighting] ,Bullet: [ObjectSighting]  ,Wall: [

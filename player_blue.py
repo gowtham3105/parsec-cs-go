@@ -27,7 +27,7 @@ def tick(state: State) -> List[Action]:
     for agent in state.agents.values():
         flag = 0
         agent_id: int = agent.id()
-        
+        action = Action(agent_id, UPDATE_VIEW_DIRECTION, agent.get_view_direction())
         if random.random() < 0.2:
             type = UPDATE_VIEW_DIRECTION
             current_direction = agent.get_view_direction()
@@ -51,7 +51,7 @@ def tick(state: State) -> List[Action]:
                     dist = opponent.location.distance(agent.get_location())
                     if dist < closest:
                         closest = dist
-                        direction = Point(opponent.direction.x - agent.get_direction().x, opponent.direction.y - agent.get_direction().y)
+                        direction = Point(-agent.get_direction().x, -agent.get_direction().y)
                 action = Action(agent_id, type, direction)
                 flag = 1
 
@@ -60,7 +60,7 @@ def tick(state: State) -> List[Action]:
                 for alert in state.Alerts:
                     if alert.alert_type == BULLET:
                         type = UPDATE_DIRECTION
-                        direction = Point(agent.get_direction().x + 0.69, agent.get_direction().y + 0.7)
+                        direction = Point(agent.get_direction().x + 0.69, agent.get_direction().y + 0.69)
                         action = Action(agent_id, type, direction)
                         flag = 1
                         break
