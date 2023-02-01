@@ -13,7 +13,7 @@ from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
 from .Obstacle import Obstacle
-from utils import isBetweenLineOfSight, is_point_in_vision
+from utils import isBetweenLineOfSight, is_point_in_vision, get_section_point, get_random_float
 
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
@@ -33,6 +33,7 @@ class Environment:
     _safe_zone: List[Point]
     _is_zone_shrinking: bool = False
     _zone_shrink_times: List[int]
+    _shrink_value: int = 4  # Choosing a random point in length/4 of a side
 
     def __init__(self):
         """Initialize the cells with random locations and directions."""
@@ -339,7 +340,54 @@ class Environment:
 
     def enforce_zone(self, agent):
         # TODO: implement this
-        pass
+
+        # Setting is_zone_shrinking to false
+        self._is_zone_shrinking = False
+        i = 0
+        while i < len(self._zone_shrink_times) - 1:
+            if self._zone_shrink_times[i] <= self.time < self._zone_shrink_times[i] + (
+                    self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) // 2:
+                self._is_zone_shrinking = True
+                break
+
+        # Shrinking zone
+        if self._is_zone_shrinking:
+            time_to_stop_shrinking = self._zone_shrink_times[i] + (
+                    self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) // 2
+            time_left = time_to_stop_shrinking - self.time
+
+            # Shrinking the zone
+            self.shrink_zone(time_left)
+
+            # Shrinking complete and choose new safe zone
+            if time_left == 0:
+                self.set_new_safe_zone()
+                self._is_zone_shrinking = False
+
+    def shrink_zone(self, time_left: int):
+        new_zone = []
+        for i in range(len(self._zone)):
+            new_zone.append(get_section_point(self._zone[i], self._safe_zone[i], 1, time_left))
+
+        # Setting zone after shrinking
+        self._zone = new_zone
+
+    def set_new_safe_zone(self):
+
+        # Convention for zone and  safe-zone 0 -> top-right then clockwise
+        # (x1, y1) left-top corner of the new zone
+        # (x2, y2) right-bottom corner of the new zone
+        x1 = get_random_float(self._zone[3].x,
+                              get_section_point(self._zone[3], self._zone[0], 1, self._shrink_value - 1).x)
+        y1 = get_random_float(get_section_point(self._zone[3], self._zone[2], 1, self._shrink_value - 1).y,
+                              self._zone[3].y)
+        x2 = get_random_float(get_section_point(self._zone[1], self._zone[2], 1, self._shrink_value - 1).x,
+                              self._zone[1].x)
+        y2 = get_random_float(self._zone[1].y,
+                              get_section_point(self._zone[1], self._zone[0], 1, self._shrink_value - 1).y)
+
+        self._safe_zone = [Point(x2, y1), Point(x2, y2), Point(x1, y2), Point(x1, y1)]
+
 
     def is_complete(self) -> bool:
         """Method to indicate when the simulation is complete."""
