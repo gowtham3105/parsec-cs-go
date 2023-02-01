@@ -1,6 +1,7 @@
 from shapely import LineString, Polygon
 from typing import List
 import math
+from random import uniform
 from constants import *
 import re
 from models.Point import Point
@@ -51,3 +52,14 @@ def find_angle(center: Point, polar: Point, radial: Point) -> float:
 
     angle = dot_product / vector_mod
     return math.acos(angle)
+
+
+def get_section_point(point1: Point, point2: Point, m: int, n: int):
+    new_x = (m * point2.x + n * point1.x) / (m + n)
+    new_y = (m * point2.y + n * point1.y) / (m + n)
+
+    return Point(new_x, new_y)
+
+
+def get_random_float(num1: float, num2: float) -> float:
+    return round(uniform(num1, num2), 2)
