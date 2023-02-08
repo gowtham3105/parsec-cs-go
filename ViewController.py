@@ -46,6 +46,16 @@ class ViewController:
                 self.pen.pendown()
                 self.pen.color(get_color(agent.get_team()))
                 self.pen.dot(AGENT_RADIUS * 2)
+
+        for bullet in self.environment.bullets:
+            if not bullet.is_alive():
+                continue
+            self.pen.penup()
+            self.pen.goto(bullet.get_location().x, bullet.get_location().y)
+            self.pen.pendown()
+            self.pen.color("white")
+            self.pen.dot(BULLET_RADIUS)
+
         self.screen.update()
 
         if self.environment.is_complete():
