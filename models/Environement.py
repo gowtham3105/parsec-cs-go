@@ -1,16 +1,19 @@
 from __future__ import annotations
 from typing import List
 import time
-from random import random
+from random import random, randint
 from constants import *
+from copy import deepcopy
 from .Agent import Agent
 from .Point import Point
 from .Bullet import Bullet
 from .Action import Action
 from .Alert import Alert
+from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
 from .Obstacle import Obstacle
+from utils import isBetweenLineOfSight, is_point_in_vision
 
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
@@ -22,6 +25,7 @@ class Environment:
     agents: Dict[str, Dict[str, Agent]]
     bullets: List[Bullet]
     scores = Dict[str, int]
+    obstacles: List[Obstacle]
     time: int = 0
     alerts: Dict[str, List[Alert]]
     obstacles: List[Obstacle]
@@ -34,7 +38,10 @@ class Environment:
         """Initialize the cells with random locations and directions."""
         self.agents = {
             "red": {
-                "0": Agent(self.random_location(), self.random_direction(), 10, Point(1, 0), pi, "red"),
+                "0": Agent(Point(50, 0), Point(-1, 0), 10, Point(1, 0), pi, "red"),
+            },
+            "blue": {
+                "0": Agent(Point(0, 50), Point(0, -1), 10, Point(-1, 0), pi, "blue"),
             }
         }
         self.bullets = []
@@ -42,6 +49,14 @@ class Environment:
             "red": [],
             "blue": []
         }
+        self.scores = {
+            "red": 100,
+            "blue": 100
+        }
+        self.obstacles = []
+        self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
+        self._safe_zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
+
         self._log = open("log.txt", "w")
 
     def tick(self) -> dict[int | str, int]:
@@ -49,10 +64,9 @@ class Environment:
         #  TODO: take a look at this
         if self.time % (UNIT_TIME / TICKS['Bullet']) == 0:
             for bullet in self.bullets:
-                self.enforce_bullet_collisions(bullet)
-                bullet.tick()
-                if not bullet.is_alive():
-                    self.bullets.remove(bullet)
+                if bullet.is_alive():
+                    self.enforce_bullet_collisions(bullet)
+                    bullet.tick()
 
         if self.time % (UNIT_TIME / TICKS['Agent']) == 0:
             for team in self.agents:
@@ -84,9 +98,9 @@ class Environment:
 
     def validate_actions(self, actions: List[Action], team: str) -> List[Action]:
         """Validate the actions of the agents."""
-
+        validated_actions = []
         for action in actions:
-            agent_id = action.agent_id
+            agent_id = str(action.agent_id)
             action_type = action.type
             action_direction = action.direction
             allowed = 0
@@ -117,9 +131,10 @@ class Environment:
             # Remove action if invalid and decrease the score based on that.
             if allowed == 0:
                 self.scores[team] -= INVALID_ACTION
-                actions.remove(action)
+            else:
+                validated_actions.append(action)
 
-        return actions
+        return validated_actions
 
     def perform_actions(self, actions: List[Action], team: str):
         """Perform the actions of the agents."""
@@ -132,7 +147,10 @@ class Environment:
             # IF ACTION ---> FIRE
             if action_type == FIRE:
                 if agent.fire():
-                    self.bullets.append(Bullet(agent.get_location(), action_direction, INITIAL_BULLET_ENERGY))
+                    bullet_location = Point(agent.get_location().x, agent.get_location().y)
+                    offset = Point(action_direction.x * AGENT_RADIUS, action_direction.y * AGENT_RADIUS)
+                    bullet_location.add(offset)
+                    self.bullets.append(Bullet(bullet_location, action_direction, INITIAL_BULLET_ENERGY))
 
             # UPDATE DIRECTION
             if action_type == UPDATE_DIRECTION:
@@ -211,16 +229,51 @@ class Environment:
 
         self._log.write(f"ENDING GAME LOG FOR TIME {self.time}\n")
 
-    def generate_state(self, team) -> State:
+    def generate_state(self, team: str) -> State:
         """Generate the state of the environment."""
-        # TODO: implement this
 
-        return State()
+        agents = self.agents[team]
+        object_in_sight = {}
+
+        for agent in agents:
+            object_in_sight[agent] = self.get_object_in_sight(agents[agent])
+
+        return deepcopy(State(agents, object_in_sight, self.alerts[team], team, self.time, self.obstacles, self._zone,
+                              self._safe_zone, self._is_zone_shrinking))
+
+    def get_object_in_sight(self, agent: Agent) -> List[ObjectSighting]:
+
+        object_in_sight = []
+        non_blocked_object_in_sight = []
+
+        # opponent's agents
+        for team in self.agents:
+            if team != agent.get_team():
+                for opponent_agent in self.agents[team].values():
+                    if is_point_in_vision(agent, opponent_agent.get_location(), opponent_agent.get_radius()):
+                        object_in_sight.append(ObjectSighting(OPPONENT, opponent_agent.get_location(),
+                                                              opponent_agent.get_direction()))
+
+        # bullets
+        for bullet in self.bullets:
+            if is_point_in_vision(agent, bullet.get_location(), 0):
+                object_in_sight.append(ObjectSighting(BULLET, bullet.get_location(), bullet.get_direction()))
+
+        # checking if the line of sight passes through a wall
+        for _object in object_in_sight:
+            blocked = False
+            for obstacle in self.obstacles:
+                if isBetweenLineOfSight(agent.get_location(), _object.location, obstacle.corners):
+                    blocked = True
+                    break
+            if not blocked:
+                non_blocked_object_in_sight.append(_object)
+        return non_blocked_object_in_sight
 
     @staticmethod
     def random_location() -> Point:
         # TODO: make this more random
-        return Point(0, 0)
+        return Point(randint(int(MIN_X), int(MAX_X)), randint(int(MIN_Y), int(MAX_Y)))
 
     @staticmethod
     def random_direction() -> Point:
@@ -279,12 +332,12 @@ class Environment:
         # check collision with walls
         for obstacle in self.obstacles:
             if bullet.is_colliding(obstacle):
-                bullet.is_alive = False
+                bullet.dead()
 
         for team in self.agents:
             for agent in self.agents[team].values():
                 if bullet.is_colliding(agent):
-                    bullet.is_alive = False
+                    bullet.dead()
                     agent.decrease_health(BULLET_HIT)
 
     def decrease_agent_health(self, bullet: Bullet, agent):

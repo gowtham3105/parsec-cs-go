@@ -5,6 +5,7 @@ from constants import DAMAGES
 
 class Agent:
     """A model of a cell agent."""
+    AGENT_RADIUS: int = AGENT_RADIUS   # Radius of the agent
     _location: Point  # current location of the agent
     _direction: Point  # angle in which the agent is going
 
@@ -61,6 +62,9 @@ class Agent:
     def stop(self) -> None:
         """Stop the agent."""
         self._direction = Point(0, 0)
+
+    def get_radius(self) -> int:
+        return self.AGENT_RADIUS
 
     def get_range(self) -> float:
         return self._range
