@@ -6,8 +6,12 @@ from constants import *
 from typing import Any
 from time import time_ns
 from utils import get_color
+from PIL import Image
 
 NS_TO_MS: int = 1000000
+
+AGENT_IMAGE = 'gifs/among_us.gif'
+CUR_AGENT_IMAGE = AGENT_IMAGE.split('.')[0] + "edited.gif"
 
 
 class ViewController:
@@ -29,19 +33,32 @@ class ViewController:
         self.pen.hideturtle()
         self.pen.speed(0)
 
+        im = Image.open(AGENT_IMAGE)
+        size = (AGENT_RADIUS * 2, AGENT_RADIUS * 2)
+        im.thumbnail(size)
+        im.save(CUR_AGENT_IMAGE)
+        self.screen.register_shape(CUR_AGENT_IMAGE)
+        self.turtle = Turtle(shape=CUR_AGENT_IMAGE)
+        self.turtle.hideturtle()
+
     def start_simulation(self):
         """Call the first tick of the simulation and begin turtle gfx."""
         self.tick()
         done()
 
     def draw_agents(self):
+        self.turtle.clear()
         for team in self.environment.agents:
             for agent_id, agent in self.environment.agents[team].items():
+                self.pen.color(get_color(agent.get_team()))
                 self.pen.penup()
                 self.pen.goto(agent.get_location().x, agent.get_location().y)
                 self.pen.pendown()
-                self.pen.color(get_color(agent.get_team()))
-                self.pen.dot(AGENT_RADIUS * 2)
+                self.pen.dot(AGENT_RADIUS * 2)  ## comment this line and uncomment the next lines to see
+                # images instead of lines
+                self.pen.penup()
+                self.turtle.goto(agent.get_location().x, agent.get_location().y)
+                self.turtle.stamp()
 
     def draw_bullets(self):
         for bullet in self.environment.bullets:
