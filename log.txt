@@ -1,0 +1,3696 @@
+Game time: 0 Real Time: 1676311561.0650811
+STARTING GAME LOG FOR TIME 0
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(49, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 49) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(49, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358569168 of type opponent at Point(50, 49) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 0 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 49) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358569168 of type opponent at Point(49, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 0 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 0
+Game time: 5 Real Time: 1676311561.217238
+STARTING GAME LOG FOR TIME 5
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(48, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 48) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(48, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358733328 of type opponent at Point(50, 48) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 5 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 48) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358733328 of type opponent at Point(48, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 5 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 5
+Game time: 10 Real Time: 1676311561.370216
+STARTING GAME LOG FOR TIME 10
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(47, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 47) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(47, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358751760 of type opponent at Point(50, 47) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 10 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 47) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358751760 of type opponent at Point(47, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 10 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 10
+Game time: 15 Real Time: 1676311561.5252118
+STARTING GAME LOG FOR TIME 15
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(46, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 46) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(46, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358758544 of type opponent at Point(50, 46) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 15 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 46) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358758544 of type opponent at Point(46, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 15 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 15
+Game time: 20 Real Time: 1676311561.681036
+STARTING GAME LOG FOR TIME 20
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(45, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 45) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(45, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358761552 of type opponent at Point(50, 45) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 20 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 45) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358761552 of type opponent at Point(45, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 20 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 20
+Game time: 25 Real Time: 1676311561.835178
+STARTING GAME LOG FOR TIME 25
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(44, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 44) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(44, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358755088 of type opponent at Point(50, 44) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 25 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 44) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358755088 of type opponent at Point(44, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 25 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 25
+Game time: 30 Real Time: 1676311561.990232
+STARTING GAME LOG FOR TIME 30
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(43, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 43) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(43, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358758224 of type opponent at Point(50, 43) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 30 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 43) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358758224 of type opponent at Point(43, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 30 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 30
+Game time: 35 Real Time: 1676311562.144601
+STARTING GAME LOG FOR TIME 35
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(42, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 42) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(42, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358818128 of type opponent at Point(50, 42) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 35 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 42) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358818128 of type opponent at Point(42, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 35 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 35
+Game time: 40 Real Time: 1676311562.3002
+STARTING GAME LOG FOR TIME 40
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(41, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 41) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(41, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358824144 of type opponent at Point(50, 41) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 40 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 41) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358824144 of type opponent at Point(41, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 40 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 40
+Game time: 45 Real Time: 1676311562.455774
+STARTING GAME LOG FOR TIME 45
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(40, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 40) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(40, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358818832 of type opponent at Point(50, 40) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 45 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 40) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358818832 of type opponent at Point(40, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 45 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 45
+Game time: 50 Real Time: 1676311562.610206
+STARTING GAME LOG FOR TIME 50
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(39, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 39) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(39, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358816080 of type opponent at Point(50, 39) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 50 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 39) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358816080 of type opponent at Point(39, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 50 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 50
+Game time: 55 Real Time: 1676311562.7643101
+STARTING GAME LOG FOR TIME 55
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(38, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 38) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(38, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358824528 of type opponent at Point(50, 38) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 55 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 38) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358824528 of type opponent at Point(38, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 55 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 55
+Game time: 60 Real Time: 1676311562.921035
+STARTING GAME LOG FOR TIME 60
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(37, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 37) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(37, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358865488 of type opponent at Point(50, 37) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 60 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 37) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358865488 of type opponent at Point(37, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 60 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 60
+Game time: 65 Real Time: 1676311563.076642
+STARTING GAME LOG FOR TIME 65
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(36, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 36) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(36, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358873232 of type opponent at Point(50, 36) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 65 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 36) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358873232 of type opponent at Point(36, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 65 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 65
+Game time: 70 Real Time: 1676311563.232233
+STARTING GAME LOG FOR TIME 70
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(35, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 35) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(35, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358866512 of type opponent at Point(50, 35) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 70 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 35) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358866512 of type opponent at Point(35, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 70 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 70
+Game time: 75 Real Time: 1676311563.387249
+STARTING GAME LOG FOR TIME 75
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(34, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 34) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(34, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358870672 of type opponent at Point(50, 34) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 75 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 34) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358870672 of type opponent at Point(34, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 75 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 75
+Game time: 80 Real Time: 1676311563.5409422
+STARTING GAME LOG FOR TIME 80
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(33, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 33) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(33, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358868112 of type opponent at Point(50, 33) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 80 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 33) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358868112 of type opponent at Point(33, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 80 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 80
+Game time: 85 Real Time: 1676311563.694467
+STARTING GAME LOG FOR TIME 85
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(32, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 32) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(32, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358931984 of type opponent at Point(50, 32) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 85 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 32) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358931984 of type opponent at Point(32, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 85 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 85
+Game time: 90 Real Time: 1676311563.850223
+STARTING GAME LOG FOR TIME 90
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(31, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 31) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(31, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938448 of type opponent at Point(50, 31) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 90 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 31) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938448 of type opponent at Point(31, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 90 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 90
+Game time: 95 Real Time: 1676311564.004769
+STARTING GAME LOG FOR TIME 95
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(30, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 30) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(30, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358934544 of type opponent at Point(50, 30) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 95 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 30) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358934544 of type opponent at Point(30, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 95 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 95
+Game time: 100 Real Time: 1676311564.158551
+STARTING GAME LOG FOR TIME 100
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(29, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 29) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(29, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358941328 of type opponent at Point(50, 29) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 100 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 29) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358941328 of type opponent at Point(29, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 100 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 100
+Game time: 105 Real Time: 1676311564.3136241
+STARTING GAME LOG FOR TIME 105
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(28, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 28) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(28, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939472 of type opponent at Point(50, 28) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 105 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 28) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939472 of type opponent at Point(28, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 105 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 105
+Game time: 110 Real Time: 1676311564.470177
+STARTING GAME LOG FOR TIME 110
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(27, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 27) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(27, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358933136 of type opponent at Point(50, 27) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 110 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 27) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358933136 of type opponent at Point(27, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 110 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 110
+Game time: 115 Real Time: 1676311564.623806
+STARTING GAME LOG FOR TIME 115
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(26, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 26) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(26, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358935568 of type opponent at Point(50, 26) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 115 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 26) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358935568 of type opponent at Point(26, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 115 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 115
+Game time: 120 Real Time: 1676311564.778219
+STARTING GAME LOG FOR TIME 120
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(25, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 25) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(25, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938448 of type opponent at Point(50, 25) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 120 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 25) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938448 of type opponent at Point(25, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 120 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 120
+Game time: 125 Real Time: 1676311564.932962
+STARTING GAME LOG FOR TIME 125
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(24, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 24) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(24, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358934992 of type opponent at Point(50, 24) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 125 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 24) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358934992 of type opponent at Point(24, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 125 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 125
+Game time: 130 Real Time: 1676311565.0869381
+STARTING GAME LOG FOR TIME 130
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(23, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 23) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(23, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358936528 of type opponent at Point(50, 23) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 130 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 23) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358936528 of type opponent at Point(23, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 130 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 130
+Game time: 135 Real Time: 1676311565.239296
+STARTING GAME LOG FOR TIME 135
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(22, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 22) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(22, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358941136 of type opponent at Point(50, 22) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 135 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 22) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358941136 of type opponent at Point(22, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 135 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 135
+Game time: 140 Real Time: 1676311565.3918998
+STARTING GAME LOG FOR TIME 140
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(21, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 21) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(21, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358935696 of type opponent at Point(50, 21) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 140 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 21) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358935696 of type opponent at Point(21, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 140 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 140
+Game time: 145 Real Time: 1676311565.5471702
+STARTING GAME LOG FOR TIME 145
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(20, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 20) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(20, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939600 of type opponent at Point(50, 20) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 145 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 20) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939600 of type opponent at Point(20, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 145 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 145
+Game time: 150 Real Time: 1676311565.699142
+STARTING GAME LOG FOR TIME 150
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(19, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 19) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(19, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938896 of type opponent at Point(50, 19) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 150 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 19) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938896 of type opponent at Point(19, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 150 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 150
+Game time: 155 Real Time: 1676311565.85822
+STARTING GAME LOG FOR TIME 155
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(18, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 18) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(18, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358930896 of type opponent at Point(50, 18) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 155 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 18) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358930896 of type opponent at Point(18, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 155 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 155
+Game time: 160 Real Time: 1676311566.0110688
+STARTING GAME LOG FOR TIME 160
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(17, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 17) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(17, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358934032 of type opponent at Point(50, 17) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 160 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 17) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358934032 of type opponent at Point(17, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 160 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 160
+Game time: 165 Real Time: 1676311566.166219
+STARTING GAME LOG FOR TIME 165
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(16, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 16) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(16, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358932560 of type opponent at Point(50, 16) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 165 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 16) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358932560 of type opponent at Point(16, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 165 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 165
+Game time: 170 Real Time: 1676311566.321432
+STARTING GAME LOG FOR TIME 170
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(15, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 15) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(15, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358936336 of type opponent at Point(50, 15) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 170 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 15) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358936336 of type opponent at Point(15, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 170 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 170
+Game time: 175 Real Time: 1676311566.476545
+STARTING GAME LOG FOR TIME 175
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(14, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 14) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(14, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358932496 of type opponent at Point(50, 14) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 175 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 14) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358932496 of type opponent at Point(14, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 175 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 175
+Game time: 180 Real Time: 1676311566.630977
+STARTING GAME LOG FOR TIME 180
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(13, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 13) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(13, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939408 of type opponent at Point(50, 13) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 180 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 13) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939408 of type opponent at Point(13, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 180 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 180
+Game time: 185 Real Time: 1676311566.786192
+STARTING GAME LOG FOR TIME 185
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(12, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 12) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(12, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939280 of type opponent at Point(50, 12) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 185 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 12) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939280 of type opponent at Point(12, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 185 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 185
+Game time: 190 Real Time: 1676311566.941157
+STARTING GAME LOG FOR TIME 190
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(11, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 11) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(11, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939856 of type opponent at Point(50, 11) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 190 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 11) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939856 of type opponent at Point(11, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 190 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 190
+Game time: 195 Real Time: 1676311567.093775
+STARTING GAME LOG FOR TIME 195
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(10, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 10) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(10, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358931472 of type opponent at Point(50, 10) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 195 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 10) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358931472 of type opponent at Point(10, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 195 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 195
+Game time: 200 Real Time: 1676311567.247361
+STARTING GAME LOG FOR TIME 200
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(9, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 9) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(9, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358930640 of type opponent at Point(50, 9) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 200 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 9) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358930640 of type opponent at Point(9, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 200 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 200
+Game time: 205 Real Time: 1676311567.399173
+STARTING GAME LOG FOR TIME 205
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(8, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 8) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(8, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358940624 of type opponent at Point(50, 8) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 205 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 8) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358940624 of type opponent at Point(8, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 205 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 205
+Game time: 210 Real Time: 1676311567.55327
+STARTING GAME LOG FOR TIME 210
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(7, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 7) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(7, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938000 of type opponent at Point(50, 7) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 210 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 7) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938000 of type opponent at Point(7, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 210 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 210
+Game time: 215 Real Time: 1676311567.7068312
+STARTING GAME LOG FOR TIME 215
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(6, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 6) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(6, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938192 of type opponent at Point(50, 6) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 215 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 6) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938192 of type opponent at Point(6, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 215 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 215
+Game time: 220 Real Time: 1676311567.8569589
+STARTING GAME LOG FOR TIME 220
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(5, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 5) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(5, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358941136 of type opponent at Point(50, 5) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 220 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 5) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358941136 of type opponent at Point(5, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 220 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 220
+Game time: 225 Real Time: 1676311568.0091982
+STARTING GAME LOG FOR TIME 225
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(4, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 4) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(4, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358932944 of type opponent at Point(50, 4) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 225 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 4) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358932944 of type opponent at Point(4, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 225 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 225
+Game time: 230 Real Time: 1676311568.163146
+STARTING GAME LOG FOR TIME 230
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(3, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 3) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(3, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358936976 of type opponent at Point(50, 3) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 230 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 3) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358936976 of type opponent at Point(3, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 230 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 230
+Game time: 235 Real Time: 1676311568.318434
+STARTING GAME LOG FOR TIME 235
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(2, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 2) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(2, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358930512 of type opponent at Point(50, 2) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 235 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 2) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358930512 of type opponent at Point(2, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 235 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 235
+Game time: 240 Real Time: 1676311568.472746
+STARTING GAME LOG FOR TIME 240
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(1, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 1) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(1, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358937808 of type opponent at Point(50, 1) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 240 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 1) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358937808 of type opponent at Point(1, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 240 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 240
+Game time: 245 Real Time: 1676311568.623648
+STARTING GAME LOG FOR TIME 245
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(0, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, 0) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(0, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358936080 of type opponent at Point(50, 0) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 245 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, 0) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358936080 of type opponent at Point(0, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 245 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 245
+Game time: 250 Real Time: 1676311568.777215
+STARTING GAME LOG FOR TIME 250
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-1, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -1) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-1, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939792 of type opponent at Point(50, -1) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 250 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -1) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358939792 of type opponent at Point(-1, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 250 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 250
+Game time: 255 Real Time: 1676311568.9308999
+STARTING GAME LOG FOR TIME 255
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-2, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -2) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-2, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938256 of type opponent at Point(50, -2) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 255 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -2) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358938256 of type opponent at Point(-2, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 255 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 255
+Game time: 260 Real Time: 1676311569.081836
+STARTING GAME LOG FOR TIME 260
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-3, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -3) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-3, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358933456 of type opponent at Point(50, -3) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 260 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -3) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358933456 of type opponent at Point(-3, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 260 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 260
+Game time: 265 Real Time: 1676311569.23429
+STARTING GAME LOG FOR TIME 265
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-4, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -4) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-4, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358931728 of type opponent at Point(50, -4) with direction Point(0, -1)]} 
+ Alerts: [] 
+ Team: red 
+ Time: 265 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -4) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': [ObjectSighting with id 4358931728 of type opponent at Point(-4, 0) with direction Point(-1, 0)]} 
+ Alerts: [] 
+ Team: blue 
+ Time: 265 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 265
+Game time: 270 Real Time: 1676311569.3883898
+STARTING GAME LOG FOR TIME 270
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-5, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -5) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-5, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 270 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -5) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 270 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 270
+Game time: 275 Real Time: 1676311569.543158
+STARTING GAME LOG FOR TIME 275
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-6, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -6) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-6, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 275 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -6) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 275 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 275
+Game time: 280 Real Time: 1676311569.700186
+STARTING GAME LOG FOR TIME 280
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-7, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -7) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-7, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 280 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -7) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 280 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 280
+Game time: 285 Real Time: 1676311569.8559139
+STARTING GAME LOG FOR TIME 285
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-8, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -8) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-8, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 285 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -8) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 285 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 285
+Game time: 290 Real Time: 1676311570.0119019
+STARTING GAME LOG FOR TIME 290
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-9, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -9) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-9, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 290 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -9) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 290 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 290
+Game time: 295 Real Time: 1676311570.165762
+STARTING GAME LOG FOR TIME 295
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-10, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -10) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-10, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 295 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -10) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 295 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 295
+Game time: 300 Real Time: 1676311570.321418
+STARTING GAME LOG FOR TIME 300
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-11, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -11) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-11, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 300 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -11) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 300 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 300
+Game time: 305 Real Time: 1676311570.476682
+STARTING GAME LOG FOR TIME 305
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-12, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -12) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-12, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 305 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -12) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 305 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 305
+Game time: 310 Real Time: 1676311570.630562
+STARTING GAME LOG FOR TIME 310
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-13, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -13) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-13, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 310 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -13) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 310 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 310
+Game time: 315 Real Time: 1676311570.787507
+STARTING GAME LOG FOR TIME 315
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-14, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -14) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-14, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 315 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -14) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 315 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 315
+Game time: 320 Real Time: 1676311570.941488
+STARTING GAME LOG FOR TIME 320
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-15, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -15) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-15, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 320 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -15) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 320 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 320
+Game time: 325 Real Time: 1676311571.094304
+STARTING GAME LOG FOR TIME 325
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-16, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -16) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-16, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 325 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -16) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 325 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 325
+Game time: 330 Real Time: 1676311571.2470558
+STARTING GAME LOG FOR TIME 330
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-17, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -17) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-17, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 330 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -17) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 330 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 330
+Game time: 335 Real Time: 1676311571.398398
+STARTING GAME LOG FOR TIME 335
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-18, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -18) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-18, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 335 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -18) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 335 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 335
+Game time: 340 Real Time: 1676311571.5540822
+STARTING GAME LOG FOR TIME 340
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-19, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -19) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-19, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 340 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -19) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 340 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 340
+Game time: 345 Real Time: 1676311571.7100632
+STARTING GAME LOG FOR TIME 345
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-20, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -20) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-20, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 345 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -20) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 345 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 345
+Game time: 350 Real Time: 1676311571.866113
+STARTING GAME LOG FOR TIME 350
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-21, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -21) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-21, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 350 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -21) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 350 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 350
+Game time: 355 Real Time: 1676311572.021864
+STARTING GAME LOG FOR TIME 355
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-22, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -22) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-22, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 355 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -22) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 355 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 355
+Game time: 360 Real Time: 1676311572.175796
+STARTING GAME LOG FOR TIME 360
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-23, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -23) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-23, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 360 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -23) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 360 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 360
+Game time: 365 Real Time: 1676311572.326101
+STARTING GAME LOG FOR TIME 365
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-24, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -24) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-24, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 365 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -24) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 365 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 365
+Game time: 370 Real Time: 1676311572.479705
+STARTING GAME LOG FOR TIME 370
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-25, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -25) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-25, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 370 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -25) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 370 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 370
+Game time: 375 Real Time: 1676311572.632492
+STARTING GAME LOG FOR TIME 375
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-26, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -26) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-26, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 375 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -26) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 375 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 375
+Game time: 380 Real Time: 1676311572.7867231
+STARTING GAME LOG FOR TIME 380
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-27, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -27) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-27, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 380 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -27) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 380 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 380
+Game time: 385 Real Time: 1676311572.93946
+STARTING GAME LOG FOR TIME 385
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-28, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -28) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-28, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 385 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -28) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 385 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 385
+Game time: 390 Real Time: 1676311573.091475
+STARTING GAME LOG FOR TIME 390
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-29, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -29) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-29, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 390 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -29) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 390 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 390
+Game time: 395 Real Time: 1676311573.243435
+STARTING GAME LOG FOR TIME 395
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-30, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -30) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-30, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 395 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -30) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 395 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 395
+Game time: 400 Real Time: 1676311573.396897
+STARTING GAME LOG FOR TIME 400
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-31, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -31) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-31, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 400 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -31) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 400 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 400
+Game time: 405 Real Time: 1676311573.548911
+STARTING GAME LOG FOR TIME 405
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-32, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -32) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-32, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 405 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -32) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 405 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 405
+Game time: 410 Real Time: 1676311573.701751
+STARTING GAME LOG FOR TIME 410
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-33, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -33) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-33, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 410 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -33) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 410 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 410
+Game time: 415 Real Time: 1676311573.855086
+STARTING GAME LOG FOR TIME 415
+Red Agents: 1 Red Score: 100 || Blue Agents: 1 Blue Score: 100
+STARTING LOG OF MAP ELEMENTS
+LOGGING AGENTS
+Agent with id 4310896336 at Point(-34, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793
+Agent with id 4310903696 at Point(50, -34) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793
+LOGGING BULLETS
+ENDING LOG OF MAP ELEMENTS
+STARTING LOG OF STATES
+LOGGING RED STATE
+Agents: {'0': Agent with id 4310896336 at Point(-34, 0) and direction Point(-1, 0) and view direction Point(1, 0) and health 100 and fire time 0 and team red and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: red 
+ Time: 415 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+LOGGING BLUE STATE
+Agents: {'0': Agent with id 4310903696 at Point(50, -34) and direction Point(0, -1) and view direction Point(-1, 0) and health 100 and fire time 0 and team blue and range 50 and view angle 3.141592653589793} 
+ Object in sight: {'0': []} 
+ Alerts: [] 
+ Team: blue 
+ Time: 415 
+ Obstacles: [] 
+ Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Safe Zone: [Point(200.0, 200.0), Point(200.0, -200.0), Point(-200.0, -200.0), Point(-200.0, 200.0)] 
+ Is Zone Shrinking: False 
+ENDING LOG OF STATES
+STARTING LOG OF ACTIONS
+LOGGING RED ACTIONS
+LOGGING BLUE ACTIONS
+ENDING LOG OF ACTIONS
+STARTING LOG OF VALIDATED ACTIONS
+LOGGING RED VALIDATED ACTIONS
+LOGGING BLUE VALIDATED ACTIONS
+ENDING LOG OF VALIDATED ACTIONS
+STARTING LOG OF ALERTS
+LOGGING RED ALERTS
+LOGGING BLUE ALERTS
+ENDING LOG OF ALERTS
+ENDING GAME LOG FOR TIME 415
