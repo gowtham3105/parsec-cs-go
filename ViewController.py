@@ -8,12 +8,12 @@ from time import time_ns
 from utils import get_color
 from PIL import Image
 
-
-
 NS_TO_MS: int = 1000000
 
-AGENT_IMAGE = 'gifs/among_us_cropped.gif'
-CUR_AGENT_IMAGE = AGENT_IMAGE.split('.')[0]+"edited.gif"
+AGENT_IMAGE = 'gifs/among_us.gif'
+CUR_AGENT_IMAGE = AGENT_IMAGE.split('.')[0] + "edited.gif"
+
+
 class ViewController:
     """This class is responsible for controlling the simulation and visualizing it."""
     screen: Any
@@ -34,10 +34,10 @@ class ViewController:
         self.pen.speed(0)
 
         im = Image.open(AGENT_IMAGE)
-        size = (AGENT_RADIUS*2, AGENT_RADIUS*2)
+        size = (AGENT_RADIUS * 2, AGENT_RADIUS * 2)
         im.thumbnail(size)
         im.save(CUR_AGENT_IMAGE)
-        self.screen.register_shape(CUR_AGENT_IMAGE )
+        self.screen.register_shape(CUR_AGENT_IMAGE)
         self.turtle = Turtle(shape=CUR_AGENT_IMAGE)
         self.turtle.hideturtle()
 
@@ -50,13 +50,12 @@ class ViewController:
         self.turtle.clear()
         for team in self.environment.agents:
             for agent_id, agent in self.environment.agents[team].items():
-                
                 self.pen.color(get_color(agent.get_team()))
                 self.pen.penup()
                 self.pen.goto(agent.get_location().x, agent.get_location().y)
                 self.pen.pendown()
-                self.pen.dot(AGENT_RADIUS * 2) ## comment this line and uncomment the next lines to see
-                                                # images instead of lines
+                self.pen.dot(AGENT_RADIUS * 2)  ## comment this line and uncomment the next lines to see
+                # images instead of lines
                 self.pen.penup()
                 self.turtle.goto(agent.get_location().x, agent.get_location().y)
                 self.turtle.stamp()
@@ -104,7 +103,6 @@ class ViewController:
         # TODO: draw zone information boards in the bottom
         # Time left, Time left for next zone shrink etc.
         pass
-
 
     def tick(self) -> dict[str, str | list[int]]:
         """Update the environment state and redraw visualization."""

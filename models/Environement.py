@@ -9,7 +9,6 @@ from .Point import Point
 from .Bullet import Bullet
 from .Action import Action
 from .Alert import Alert
-from .Obstacle import Obstacle
 from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
@@ -18,8 +17,6 @@ from utils import isBetweenLineOfSight, is_point_in_vision
 
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
-
-from shapely.geometry import LineString, Polygon
 
 
 class Environment:
@@ -41,10 +38,10 @@ class Environment:
         """Initialize the cells with random locations and directions."""
         self.agents = {
             "red": {
-                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi, "red"),
+                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi/2, "red"),
             },
             "blue": {
-                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi, "blue"),
+                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi/2, "blue"),
             }
         }
         self.bullets = []
@@ -168,9 +165,9 @@ class Environment:
         """Write the stats of the simulation to a file."""
         self._log.write(f"Game time: {self.time} Real Time: {time.time()}\n")
         self._log.write(f"STARTING GAME LOG FOR TIME {self.time}\n")
-        # self._log.write(f"Red Agents: {len(self.agents['red'])} Red Score: {self.scores['red']} "
-        #                 f"|| Blue Agents: {len(self.agents['blue'])} Blue Score: {self.scores['blue']}\n")
-        # # log map elements
+        self._log.write(f"Red Agents: {len(self.agents['red'])} Red Score: {self.scores['red']} "
+                        f"|| Blue Agents: {len(self.agents['blue'])} Blue Score: {self.scores['blue']}\n")
+        # log map elements
         self._log.write("STARTING LOG OF MAP ELEMENTS\n")
 
         self._log.write("LOGGING AGENTS\n")
@@ -323,17 +320,10 @@ class Environment:
         for team in self.agents:
             for other_agent in self.agents[team].values():
                 if agent != other_agent:
-                    if team == 'red':
-                        print("Checking agent-agent collision")
-                        print("distance between agents: ", agent.get_location().distance(other_agent.get_location()))
-                        print("2 * agent radius: ", 2 * AGENT_RADIUS, "AGENT LOCATION: ", agent.get_location(), "OTHER AGENT LOCATION: ", other_agent.get_location())
                     agent_collision = agent.get_location().distance(other_agent.get_location()) <= 2 * AGENT_RADIUS
-                    if team == 'red':
-                        print("agent collision: ", agent_collision)
                     if agent_collision:
                         agent.stop()
-                        print("agent stopped", agent.get_team())
-                        # break
+                    break
 
         return
 

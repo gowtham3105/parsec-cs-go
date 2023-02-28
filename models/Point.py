@@ -37,7 +37,6 @@ class Point:
         y: float = self.y - other.y
         return (x ** 2 + y ** 2) ** 0.5
 
-
     def make_unit_magnitude(self):
         """Return the unit vector of the point."""
         if self.distance(Point(0, 0)) == 0:
