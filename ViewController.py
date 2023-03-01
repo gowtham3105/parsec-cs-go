@@ -2,10 +2,12 @@
 
 from turtle import Turtle, Screen, done, register_shape
 from models.Environement import Environment
+from models.Point import Point
+from typing import List
 from constants import *
 from typing import Any
 from time import time_ns
-from utils import get_color
+from utils import get_color, get_zone_color
 
 NS_TO_MS: int = 1000000
 
@@ -34,11 +36,28 @@ class ViewController:
         self.tick()
         done()
 
+    def draw_zone(self, zone: List[Point], zone_color: str):
+        zone_length = zone[0].distance(zone[3])
+        zone_breadth = zone[0].distance(zone[1])
+        self.pen.penup()
+        self.pen.goto(zone[3].x, zone[3].y)
+        self.pen.pendown()
+        self.pen.color(zone_color)
+
+        # Drawing a rectangle for zone
+        for _ in range(4):
+            self.pen.forward(zone_length if _ % 2 == 0 else zone_breadth)
+            self.pen.right(90)
+
     def tick(self) -> dict[str, str | list[int]]:
         """Update the environment state and redraw visualization."""
         start_time = time_ns() // NS_TO_MS
         self.environment.tick()
         self.pen.clear()
+
+        self.draw_zone(self.environment.get_current_zone(), get_zone_color(ZONE))
+        self.draw_zone(self.environment.get_current_safe_zone(), get_zone_color(SAFE_ZONE))
+
         for team in self.environment.agents:
             for agent_id, agent in self.environment.agents[team].items():
                 self.pen.penup()
