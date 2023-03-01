@@ -39,16 +39,20 @@ class Environment:
         """Initialize the cells with random locations and directions."""
         self.agents = {
             "red": {
-                "0": Agent(Point(50, 0), Point(-1, 0), 10, Point(1, 0), pi, "red"),
+                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi/2, "red"),
             },
             "blue": {
-                "0": Agent(Point(0, 50), Point(0, -1), 10, Point(-1, 0), pi, "blue"),
+                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi/2, "blue"),
             }
         }
         self.bullets = []
         self.alerts = {
             "red": [],
             "blue": []
+        }
+        self.scores = {
+            "red": 100,
+            "blue": 100
         }
         self.obstacles = []
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
@@ -61,10 +65,9 @@ class Environment:
         #  TODO: take a look at this
         if self.time % (UNIT_TIME / TICKS['Bullet']) == 0:
             for bullet in self.bullets:
-                self.enforce_bullet_collisions(bullet)
-                bullet.tick()
-                if not bullet.is_alive():
-                    self.bullets.remove(bullet)
+                if bullet.is_alive():
+                    self.enforce_bullet_collisions(bullet)
+                    bullet.tick()
 
             self.enforce_zone()
 
@@ -97,9 +100,9 @@ class Environment:
 
     def validate_actions(self, actions: List[Action], team: str) -> List[Action]:
         """Validate the actions of the agents."""
-
+        validated_actions = []
         for action in actions:
-            agent_id = action.agent_id
+            agent_id = str(action.agent_id)
             action_type = action.type
             action_direction = action.direction
             allowed = 0
@@ -130,9 +133,10 @@ class Environment:
             # Remove action if invalid and decrease the score based on that.
             if allowed == 0:
                 self.scores[team] -= INVALID_ACTION
-                actions.remove(action)
+            else:
+                validated_actions.append(action)
 
-        return actions
+        return validated_actions
 
     def perform_actions(self, actions: List[Action], team: str):
         """Perform the actions of the agents."""
@@ -145,7 +149,10 @@ class Environment:
             # IF ACTION ---> FIRE
             if action_type == FIRE:
                 if agent.fire():
-                    self.bullets.append(Bullet(agent.get_location(), action_direction, INITIAL_BULLET_ENERGY))
+                    bullet_location = Point(agent.get_location().x, agent.get_location().y)
+                    offset = Point(action_direction.x * AGENT_RADIUS, action_direction.y * AGENT_RADIUS)
+                    bullet_location.add(offset)
+                    self.bullets.append(Bullet(bullet_location, action_direction, INITIAL_BULLET_ENERGY))
 
             # UPDATE DIRECTION
             if action_type == UPDATE_DIRECTION:
@@ -327,12 +334,12 @@ class Environment:
         # check collision with walls
         for obstacle in self.obstacles:
             if bullet.is_colliding(obstacle):
-                bullet.is_alive = False
+                bullet.dead()
 
         for team in self.agents:
             for agent in self.agents[team].values():
                 if bullet.is_colliding(agent):
-                    bullet.is_alive = False
+                    bullet.dead()
                     agent.decrease_health(BULLET_HIT)
 
     def decrease_agent_health(self, bullet: Bullet, agent):
@@ -341,7 +348,6 @@ class Environment:
         pass
 
     def enforce_zone(self):
-
         # Setting is_zone_shrinking to false
         self._is_zone_shrinking = False
         i = 0

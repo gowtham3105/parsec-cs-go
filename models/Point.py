@@ -1,4 +1,8 @@
 
+# from utils import unformat
+import math
+
+
 class Point:
     """A model of a 2-d cartesian coordinate Point."""
     x: float
@@ -41,6 +45,20 @@ class Point:
 
         self.x = self.x / self.distance(Point(0, 0))
         self.y = self.y / self.distance(Point(0, 0))
+
+    def get_angle(self) -> float:
+        """Return the angle of the point."""
+        if self.x == 0:
+            if self.y == 0:
+                return 0
+            elif self.y > 0:
+                return 90
+            else:
+                return 270
+        elif self.x > 0:
+            return math.degrees(math.atan(self.y / self.x))
+        else:
+            return math.degrees(math.atan(self.y / self.x)) + 180
 
     def __str__(self) -> str:
         """Return a string representation of the point."""

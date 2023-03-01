@@ -41,7 +41,7 @@ class Bullet:
         # if the obstacle is agent see if they are within some distance of the bullet.
         #  then make the bullet collide with them and make them and bullet die.
         distance = agent.get_location().distance(self.get_location())
-        if distance < 2 * AGENT_RADIUS:
+        if distance < AGENT_RADIUS:
             return True
         else:
             return False
@@ -49,9 +49,12 @@ class Bullet:
     def is_colliding_with_obstacle(self, obstacle: Obstacle) -> bool:
         return obstacle.checkInside(self.get_location())
 
-    def is_colliding(self, obj: Obstacle | Agent) -> bool:
+    def is_colliding(self, obj: Obstacle or Agent) -> bool:
         """Given a bullet and obstacle check if they are colliding"""
         if isinstance(obj, Agent):
             return self.is_colliding_with_agent(obj)
         elif isinstance(obj, Obstacle):
             return self.is_colliding_with_obstacle(obj)
+
+    def dead(self):
+        self._energy = 0

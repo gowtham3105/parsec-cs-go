@@ -66,5 +66,5 @@ def get_random_float(num1: float, num2: float) -> float:
 
 
 def get_zone_color(zone: str) -> str:
-    """Return a color based on the team."""
+    """Return a color based on the zone."""
     return ZONE_COLORS[zone]
