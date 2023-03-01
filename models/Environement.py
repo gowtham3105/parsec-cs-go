@@ -32,7 +32,7 @@ class Environment:
     _zone: List[Point]
     _safe_zone: List[Point]
     _is_zone_shrinking: bool = False
-    _zone_shrink_times: List[int]
+    _zone_shrink_times: List[int] = [0, 20, 40]
     _shrink_value: int = 4  # Choosing a random point in length/4 of a side
 
     def __init__(self):
@@ -65,13 +65,15 @@ class Environment:
                 if not bullet.is_alive():
                     self.bullets.remove(bullet)
 
+            self.enforce_zone()
+
         if self.time % (UNIT_TIME / TICKS['Agent']) == 0:
             for team in self.agents:
                 for agent in self.agents[team].values():
                     agent.tick()
                     self.enforce_bounds(agent)
                     self.enforce_collisions(agent)
-                    self.enforce_zone(agent)
+
 
             red_state = self.generate_state('red')
             blue_state = self.generate_state('blue')
@@ -87,8 +89,8 @@ class Environment:
             self.perform_actions(validated_red_actions, "red")
             self.perform_actions(validated_blue_actions, "blue")
 
-            self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
-                             validated_blue_actions)
+            # self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
+            #                  validated_blue_actions)
 
         self.time += 1
         return {}
@@ -339,16 +341,16 @@ class Environment:
         pass
 
     def enforce_zone(self):
-        # TODO: implement this
 
         # Setting is_zone_shrinking to false
         self._is_zone_shrinking = False
         i = 0
         while i < len(self._zone_shrink_times) - 1:
-            if self._zone_shrink_times[i] <= self.time < self._zone_shrink_times[i] + (
+            if self._zone_shrink_times[i] <= self.time <= self._zone_shrink_times[i] + (
                     self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) // 2:
                 self._is_zone_shrinking = True
                 break
+            i += 1
 
         # Shrinking zone
         if self._is_zone_shrinking:
