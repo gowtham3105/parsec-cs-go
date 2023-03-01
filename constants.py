@@ -62,3 +62,4 @@ ZONE_COLORS: dict = {
 }
 
 SHRINK_VALUE: int = 10
+FINAL_SIZE = 5
