@@ -32,8 +32,8 @@ class Environment:
     _zone: List[Point]
     _safe_zone: List[Point]
     _is_zone_shrinking: bool = False
-    _zone_shrink_times: List[int] = [0, 20, 40]
-    _shrink_value: int = 4  # Choosing a random point in length/4 of a side
+    _zone_shrink_times: List[int]
+    _shrink_value: int = SHRINK_VALUE  # Choosing a random point in length/shrink_value of a side
 
     def __init__(self):
         """Initialize the cells with random locations and directions."""
@@ -53,6 +53,7 @@ class Environment:
         self.obstacles = []
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self._safe_zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
+        self._zone_shrink_times = [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300]
         self._log = open("log.txt", "w")
 
     def tick(self) -> dict[int | str, int]:
@@ -74,7 +75,6 @@ class Environment:
                     self.enforce_bounds(agent)
                     self.enforce_collisions(agent)
 
-
             red_state = self.generate_state('red')
             blue_state = self.generate_state('blue')
 
@@ -89,8 +89,8 @@ class Environment:
             self.perform_actions(validated_red_actions, "red")
             self.perform_actions(validated_blue_actions, "blue")
 
-            # self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
-            #                  validated_blue_actions)
+            self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
+                             validated_blue_actions)
 
         self.time += 1
         return {}
@@ -370,7 +370,7 @@ class Environment:
                         agent.decrease_health(OUTSIDE_ZONE)
 
             # Shrinking complete and choose new safe zone
-            if time_left == 0:
+            if time_left == 0 and i < len(self._zone_shrink_times)-2:
                 self.set_new_safe_zone()
                 self._is_zone_shrinking = False
 
@@ -398,10 +398,15 @@ class Environment:
 
         self._safe_zone = [Point(x2, y1), Point(x2, y2), Point(x1, y2), Point(x1, y1)]
 
-
     def is_complete(self) -> bool:
         """Method to indicate when the simulation is complete."""
         # TODO: implement this
         if self.time > MAX_TIME:
             return True
         return False
+
+    def get_current_zone(self):
+        return self._zone
+
+    def get_current_safe_zone(self):
+        return self._safe_zone
