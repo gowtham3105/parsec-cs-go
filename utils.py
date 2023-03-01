@@ -63,3 +63,8 @@ def get_section_point(point1: Point, point2: Point, m: int, n: int):
 
 def get_random_float(num1: float, num2: float) -> float:
     return round(uniform(num1, num2), 2)
+
+
+def get_zone_color(zone: str) -> str:
+    """Return a color based on the team."""
+    return ZONE_COLORS[zone]

@@ -36,6 +36,7 @@ INITIAL_BULLET_ENERGY = 50
 
 COLLISION: str = 'collision'
 ZONE: str = 'zone'
+SAFE_ZONE: str = 'safe_zone'
 DEAD: str = 'agent_dead'
 FIRE_IMPOSSIBLE: str = 'cannot_fire'
 WRONG_AGENT: str = 'opponent_agent'
@@ -53,3 +54,10 @@ DAMAGES: Dict[str, int] = {
     BULLET_HIT: 10,
     OUTSIDE_ZONE: 1
 }
+
+ZONE_COLORS: dict = {
+    "zone": "#ffffff",
+    "safe_zone": "#ff0000"
+}
+
+SHRINK_VALUE: int = 10
