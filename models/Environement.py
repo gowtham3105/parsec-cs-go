@@ -384,14 +384,8 @@ class Environment:
                     # setting final zone
                     self.set_final_zone()
 
-        # TODO: Decrease players health outside zone
-        # Reducing agents' health outside the zone
-        # Considering zone as a obstacle polygon for checkInside function reuse
-        # zone_obstacle = Obstacle([point for point in self._zone])
-        # for team in self.agents:
-        #     for agent in self.agents[team].values():
-        #         if zone_obstacle.checkInside(agent.get_location()):
-        #             agent.decrease_health(OUTSIDE_ZONE)
+        # Impose zone penalty
+        self.enforce_zone_penalty()
 
     def set_final_zone(self):
         final_x = (self._safe_zone[0].x + self._safe_zone[3].x) / 2
@@ -424,6 +418,15 @@ class Environment:
                               get_section_point(self._zone[1], self._zone[0], 1, self._shrink_value - 1).y)
 
         self._safe_zone = [Point(x2, y1), Point(x2, y2), Point(x1, y2), Point(x1, y1)]
+
+    def enforce_zone_penalty(self):
+        # Reducing agents' health outside the zone
+        # Considering zone as a obstacle polygon for checkInside function reuse
+        zone_obstacle = Obstacle([point for point in self._zone])
+        for team in self.agents:
+            for agent in self.agents[team].values():
+                if not zone_obstacle.checkInside(agent.get_location()):
+                    agent.decrease_health(OUTSIDE_ZONE)
 
     def is_complete(self) -> bool:
         """Method to indicate when the simulation is complete."""
