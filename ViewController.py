@@ -32,6 +32,8 @@ class ViewController:
         self.screen.delay(0)
         self.screen.title("Cluster Funk v2")
         self.pen = Turtle()
+        self.pen.color("black")
+
         self.pen.hideturtle()
         self.pen.speed(0)
 
@@ -45,6 +47,7 @@ class ViewController:
 
     def start_simulation(self):
         """Call the first tick of the simulation and begin turtle gfx."""
+        
         self.tick()
         done()
 
@@ -105,9 +108,156 @@ class ViewController:
                 self.pen.circle(-1 * agent.get_range(), agent.get_view_angle() * 180 / pi, steps=30)
 
     def draw_information_boards(self):
+
+        # Score display
+        self.pen.penup()
+        self.pen.goto(-VIEW_WIDTH / 2, VIEW_HEIGHT / 2)
+        self.pen.pendown()
+        self.pen.fillcolor("black")
+        self.pen.begin_fill()
+        self.pen.pencolor('green')
+        self.pen.pensize(10)
+        self.pen.forward(VIEW_WIDTH - 7)
+        self.pen.right(90)
+        self.pen.pencolor('green')
+        self.pen.pensize(10)
+        self.pen.forward(VIEW_HEIGHT * 0.23)
+        self.pen.right(90)
+        self.pen.pencolor('white')
+        self.pen.pensize(5)
+        self.pen.forward(VIEW_WIDTH - 7)
+        self.pen.right(90)
+        self.pen.pencolor('green')
+        self.pen.pensize(10)
+        self.pen.forward(VIEW_HEIGHT * 0.23)
+        self.pen.right(90)
+        self.pen.end_fill()
+
+        # Rectangle for penalty scores
+        self.pen.pensize(1)
+        self.pen.penup()
+        self.pen.goto(-VIEW_WIDTH / 2, VIEW_HEIGHT / 2 - VIEW_HEIGHT * 0.23)
+        self.pen.pendown()
+        self.pen.fillcolor("black")
+        self.pen.begin_fill()
+        self.pen.pencolor('white')
+        self.pen.pensize(5)
+        self.pen.forward(VIEW_WIDTH - 7)
+        self.pen.right(90)
+        self.pen.pencolor('green')
+        self.pen.pensize(10)
+        self.pen.forward(VIEW_HEIGHT * 0.07)
+        self.pen.right(90)
+        self.pen.pencolor('green')
+        self.pen.pensize(4)
+        self.pen.forward(VIEW_WIDTH - 7)
+        self.pen.right(90)
+        self.pen.pencolor('green')
+        self.pen.pensize(10)
+        self.pen.forward(VIEW_HEIGHT * 0.07)
+        self.pen.right(90)
+        self.pen.end_fill()
+
+        # Dividing score rectangle
+        self.pen.penup()
+        self.pen.goto(-VIEW_WIDTH / 5, VIEW_HEIGHT / 2 - 5)
+        self.pen.pendown()
+        self.pen.pencolor("white")
+        self.pen.setheading(270)
+        self.pen.pensize(1)
+        self.pen.forward(VIEW_HEIGHT * 0.23 - 5)
+        self.pen.penup()
+        self.pen.goto(0, VIEW_HEIGHT / 2 - 5)
+        self.pen.pendown()
+        self.pen.pensize(4)
+        self.pen.forward(VIEW_HEIGHT * 0.23 - 5) 
+        self.pen.penup()
+        self.pen.goto(VIEW_WIDTH / 5, VIEW_HEIGHT / 2 - 5)
+        self.pen.pendown()
+        self.pen.pensize(1)
+        self.pen.forward(VIEW_HEIGHT * 0.23 - 5)
+
+        # Dividing penalty score rectangle
+        self.pen.penup()
+        self.pen.goto(-VIEW_WIDTH / 7, VIEW_HEIGHT / 2 - VIEW_HEIGHT * 0.23)
+        self.pen.pendown()
+        self.pen.pensize(1)
+        self.pen.pencolor("white")
+        self.pen.setheading(270)
+        self.pen.forward(VIEW_HEIGHT * 0.07 - 2.5)
+        self.pen.penup()
+        self.pen.goto(0, VIEW_HEIGHT / 2 - VIEW_HEIGHT * 0.23)
+        self.pen.pendown()
+        self.pen.pensize(4)
+        self.pen.forward(VIEW_HEIGHT * 0.07 - 4)
+        self.pen.penup()
+        self.pen.goto(VIEW_WIDTH / 7, VIEW_HEIGHT / 2 - VIEW_HEIGHT * 0.23)
+        self.pen.pendown()
+        self.pen.pensize(1)
+        self.pen.forward(VIEW_HEIGHT * 0.07 - 2.5)
+
+        # Draw score for each team
+        for team in self.environment.agents:
+            if team == 'red':
+                score = 500
+                self.pen.penup()
+                self.pen.goto(-VIEW_WIDTH / 2 + 10, VIEW_HEIGHT / 2 - 25)
+                self.pen.pendown()
+                self.pen.pencolor('red')
+                i = 1
+                for agent_id, agent in self.environment.agents['blue'].items():
+                    score -= agent.get_health()
+
+                    # Display agent's health
+                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 10, "normal"))   # Write the text "Hello" with the given font and size
+                    self.pen.penup()
+                    self.pen.goto(-VIEW_WIDTH / 2 + 10, VIEW_HEIGHT / 2 - 25 - 15*i)   # Move the pen to the next line
+                    self.pen.pendown()
+
+                # Write score 
+                self.pen.penup()
+                self.pen.goto(-VIEW_WIDTH / 10, VIEW_HEIGHT / 2 - VIEW_HEIGHT * 0.05 - 35)
+                self.pen.pendown()
+                self.pen.color(get_color(team))
+                self.pen.write(f"{score}", align="center", font=("Arial", 16, "bold"))
+                self.pen.penup()
+                self.pen.goto(-VIEW_WIDTH / 14, VIEW_HEIGHT / 2 - VIEW_HEIGHT * 0.23 - 25)
+                self.pen.pendown()
+
+                # Write penalty Score
+                self.pen.write(f"{score}", align="center", font=("Arial", 13, "bold"))
+
+            elif team == 'blue':
+                score = 500
+                self.pen.penup()
+                self.pen.goto(VIEW_WIDTH / 5 + 70, VIEW_HEIGHT / 2 - 25)
+                self.pen.pendown()
+                self.pen.pencolor('blue')
+                i = 1
+                for agent_id, agent in self.environment.agents['blue'].items():
+                    score -= agent.get_health()
+
+                    # Display agent's health
+                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 10, "normal"))   # Write the text "Hello" with the given font and size
+                    self.pen.penup()
+                    self.pen.goto(VIEW_WIDTH / 5 + 30, VIEW_HEIGHT / 2 - 25 - 15*i)    # Move the pen to the next line
+                    self.pen.pendown()
+
+                # Write score
+                self.pen.penup()
+                self.pen.goto(VIEW_WIDTH / 10, VIEW_HEIGHT / 2 - VIEW_HEIGHT * 0.05 - 35)
+                self.pen.pendown()
+                self.pen.color(get_color(team))
+                self.pen.write(f"{score}", align="center", font=("Arial", 16, "bold"))
+                self.pen.penup()
+                self.pen.goto(VIEW_WIDTH / 14, VIEW_HEIGHT / 2 - VIEW_HEIGHT * 0.23 - 25)
+                self.pen.pendown()
+
+                # Write penalty Score
+                self.pen.write(f"{score}", align="center", font=("Arial", 13, "bold"))
+    
         # TODO: draw information boards
         # Health, Score Fire COOLDOWN, recent alerts headlines etc.
-
         pass
 
     def draw_zones(self):
