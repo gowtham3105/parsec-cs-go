@@ -367,18 +367,18 @@ class Environment:
             # Shrinking the zone
             self.shrink_zone(time_left)
 
-            # Reducing agents' health outside the zone
-            # Considering zone as a obstacle polygon for checkInside function reuse
-            zone_obstacle = Obstacle([point for point in self._zone])
-            for team in self.agents:
-                for agent in self.agents[team].values():
-                    if zone_obstacle.checkInside(agent.get_location()):
-                        agent.decrease_health(OUTSIDE_ZONE)
-
             # Shrinking complete and choose new safe zone
             if time_left == 0 and i < len(self._zone_shrink_times)-2:
                 self.set_new_safe_zone()
                 self._is_zone_shrinking = False
+
+        # Reducing agents' health outside the zone
+        # Considering zone as a obstacle polygon for checkInside function reuse
+        zone_obstacle = Obstacle([point for point in self._zone])
+        for team in self.agents:
+            for agent in self.agents[team].values():
+                if zone_obstacle.checkInside(agent.get_location()):
+                    agent.decrease_health(OUTSIDE_ZONE)
 
     def shrink_zone(self, time_left: int):
         new_zone = []
