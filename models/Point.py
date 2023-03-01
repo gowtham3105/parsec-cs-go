@@ -1,5 +1,3 @@
-from utils import unformat
-
 
 class Point:
     """A model of a 2-d cartesian coordinate Point."""
