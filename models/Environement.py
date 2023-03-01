@@ -39,10 +39,10 @@ class Environment:
         """Initialize the cells with random locations and directions."""
         self.agents = {
             "red": {
-                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi/2, "red"),
+                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi / 2, "red"),
             },
             "blue": {
-                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi/2, "blue"),
+                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi / 2, "blue"),
             }
         }
         self.bullets = []
@@ -56,8 +56,9 @@ class Environment:
         }
         self.obstacles = []
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
-        self._safe_zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
-        self._zone_shrink_times = [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300]
+        self.set_new_safe_zone()
+        self._zone_shrink_times = [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 500]
+
         self._log = open("log.txt", "w")
 
     def tick(self) -> dict[int | str, int]:
@@ -351,15 +352,22 @@ class Environment:
         # Setting is_zone_shrinking to false
         self._is_zone_shrinking = False
         i = 0
-        while i < len(self._zone_shrink_times) - 1:
+        zone_shrink_times_len = len(self._zone_shrink_times)
+        while i < zone_shrink_times_len - 1:
             if self._zone_shrink_times[i] <= self.time <= self._zone_shrink_times[i] + (
                     self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) // 2:
                 self._is_zone_shrinking = True
                 break
             i += 1
 
+        # Final Shrink
+        if self._zone_shrink_times[zone_shrink_times_len - 2] <= self.time <= self._zone_shrink_times[zone_shrink_times_len-1]:
+            self._is_zone_shrinking = True
+            time_left = self._zone_shrink_times[zone_shrink_times_len-1] - self.time
+            self.shrink_zone(time_left)
+
         # Shrinking zone
-        if self._is_zone_shrinking:
+        elif self._is_zone_shrinking:
             time_to_stop_shrinking = self._zone_shrink_times[i] + (
                     self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) // 2
             time_left = time_to_stop_shrinking - self.time
@@ -368,9 +376,13 @@ class Environment:
             self.shrink_zone(time_left)
 
             # Shrinking complete and choose new safe zone
-            if time_left == 0 and i < len(self._zone_shrink_times)-2:
-                self.set_new_safe_zone()
-                self._is_zone_shrinking = False
+            if time_left == 0:
+                if i < len(self._zone_shrink_times) - 3:
+                    self.set_new_safe_zone()
+                    self._is_zone_shrinking = False
+                else:
+                    # setting final zone
+                    self.set_final_zone()
 
         # TODO: Decrease players health outside zone
         # Reducing agents' health outside the zone
@@ -380,6 +392,14 @@ class Environment:
         #     for agent in self.agents[team].values():
         #         if zone_obstacle.checkInside(agent.get_location()):
         #             agent.decrease_health(OUTSIDE_ZONE)
+
+    def set_final_zone(self):
+        final_x = (self._safe_zone[0].x + self._safe_zone[3].x) / 2
+        final_y = (self._safe_zone[0].y + self._safe_zone[1].y) / 2
+        directions = [1, 1, -1, -1]
+        for i in range(4):
+            point = Point(final_x + directions[i] * FINAL_SIZE, final_y + directions[(i + 1) % 4] * FINAL_SIZE)
+            self._safe_zone[i] = point
 
     def shrink_zone(self, time_left: int):
         new_zone = []
