@@ -73,10 +73,10 @@ class ViewController:
                 self.pen.forward(agent.get_range())
                 self.pen.right(90)
                 self.pen.circle(-1 * agent.get_range(), agent.get_view_angle() * 180 / pi, steps=30)
+    
+    def draw_score_rectangle(self):
 
-    def draw_information_boards(self):
-
-        # Score display
+        # Draw score rectangle
         self.pen.penup()
         self.pen.goto(-VIEW_WIDTH / 2, VIEW_HEIGHT / 2)
         self.pen.pendown()
@@ -100,7 +100,9 @@ class ViewController:
         self.pen.right(90)
         self.pen.end_fill()
 
-        # Rectangle for penalty scores
+    def draw_penalty_rectangle(self):
+
+        # Draw penalty rectangle
         self.pen.pensize(1)
         self.pen.penup()
         self.pen.goto(-VIEW_WIDTH / 2, VIEW_HEIGHT / 2 - 420 * 0.23)
@@ -125,7 +127,7 @@ class ViewController:
         self.pen.right(90)
         self.pen.end_fill()
 
-        # Dividing score rectangle
+    def divide_score_rectangle(self):
         self.pen.penup()
         self.pen.goto(-VIEW_WIDTH / 5, VIEW_HEIGHT / 2 - 5)
         self.pen.pendown()
@@ -144,7 +146,9 @@ class ViewController:
         self.pen.pensize(1)
         self.pen.forward(420 * 0.23 - 5)
 
-        # Dividing penalty score rectangle
+    def divide_penalty_rectangle(self):
+
+        # Divide penalty rectangle
         self.pen.penup()
         self.pen.goto(-VIEW_WIDTH / 7, VIEW_HEIGHT / 2 - 420 * 0.23)
         self.pen.pendown()
@@ -163,7 +167,16 @@ class ViewController:
         self.pen.pensize(1)
         self.pen.forward(420 * 0.07 - 2.5)
 
-        # Draw score for each team
+
+
+    def draw_information_boards(self):
+
+        self.draw_score_rectangle()
+        self.draw_penalty_rectangle()
+        self.divide_score_rectangle()
+        self.divide_penalty_rectangle()
+
+        # Display score for each team
         for team in self.environment.agents:
             if team == 'red':
                 score = 500
@@ -176,7 +189,7 @@ class ViewController:
                     score -= agent.get_health()
 
                     # Display agent's health
-                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 10, "normal"))   # Write the text "Hello" with the given font and size
+                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 10, "normal"))
                     self.pen.penup()
                     self.pen.goto(-VIEW_WIDTH / 2 + 10, VIEW_HEIGHT / 2 - 25 - 15*i)   # Move the pen to the next line
                     self.pen.pendown()
@@ -205,7 +218,7 @@ class ViewController:
                     score -= agent.get_health()
 
                     # Display agent's health
-                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 10, "normal"))   # Write the text "Hello" with the given font and size
+                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 10, "normal"))
                     self.pen.penup()
                     self.pen.goto(VIEW_WIDTH / 5 + 30, VIEW_HEIGHT / 2 - 25 - 15*i)    # Move the pen to the next line
                     self.pen.pendown()
