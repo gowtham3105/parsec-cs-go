@@ -33,7 +33,7 @@ class ViewController:
 
     def start_simulation(self):
         """Call the first tick of the simulation and begin turtle gfx."""
-        
+
         self.tick()
         done()
 
@@ -73,9 +73,8 @@ class ViewController:
                 self.pen.forward(agent.get_range())
                 self.pen.right(90)
                 self.pen.circle(-1 * agent.get_range(), agent.get_view_angle() * 180 / pi, steps=30)
-    
+
     def draw_obstacles(self):
-        # TODO: draw obstacles for each polygon obstacle and fill gray
         for obstacle in self.environment.obstacles:
             points = obstacle.corners
             self.pen.penup()
@@ -94,8 +93,6 @@ class ViewController:
             # End the fill and hide the turtle
             self.pen.end_fill()
             self.pen.hideturtle()
-        
-        pass
 
     def draw_information_boards(self):
 
@@ -160,7 +157,7 @@ class ViewController:
         self.pen.goto(0, VIEW_HEIGHT / 2 - 5)
         self.pen.pendown()
         self.pen.pensize(4)
-        self.pen.forward(VIEW_HEIGHT * 0.23 - 5) 
+        self.pen.forward(VIEW_HEIGHT * 0.23 - 5)
         self.pen.penup()
         self.pen.goto(VIEW_WIDTH / 5, VIEW_HEIGHT / 2 - 5)
         self.pen.pendown()
@@ -199,9 +196,10 @@ class ViewController:
                     score -= agent.get_health()
 
                     # Display agent's health
-                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 10, "normal"))   # Write the text "Hello" with the given font and size
+                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()),
+                                   font=("Arial", 10, "normal"))  # Write the text "Hello" with the given font and size
                     self.pen.penup()
-                    self.pen.goto(-VIEW_WIDTH / 2 + 10, VIEW_HEIGHT / 2 - 25 - 15*i)   # Move the pen to the next line
+                    self.pen.goto(-VIEW_WIDTH / 2 + 10, VIEW_HEIGHT / 2 - 25 - 15 * i)  # Move the pen to the next line
                     self.pen.pendown()
 
                 # Write score 
@@ -228,9 +226,10 @@ class ViewController:
                     score -= agent.get_health()
 
                     # Display agent's health
-                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 10, "normal"))   # Write the text "Hello" with the given font and size
+                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()),
+                                   font=("Arial", 10, "normal"))  # Write the text "Hello" with the given font and size
                     self.pen.penup()
-                    self.pen.goto(VIEW_WIDTH / 5 + 30, VIEW_HEIGHT / 2 - 25 - 15*i)    # Move the pen to the next line
+                    self.pen.goto(VIEW_WIDTH / 5 + 30, VIEW_HEIGHT / 2 - 25 - 15 * i)  # Move the pen to the next line
                     self.pen.pendown()
 
                 # Write score
@@ -245,7 +244,7 @@ class ViewController:
 
                 # Write penalty Score
                 self.pen.write(f"{score}", align="center", font=("Arial", 13, "bold"))
-    
+
         # TODO: draw information boards
         # Health, Score Fire COOLDOWN, recent alerts headlines etc.
         pass
