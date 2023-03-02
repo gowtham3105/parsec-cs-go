@@ -14,7 +14,7 @@ from math import sin, cos, pi
 from .State import State
 from .Obstacle import Obstacle
 from utils import isBetweenLineOfSight, is_point_in_vision
-
+from Generator import generate_obstacles
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
 
@@ -53,7 +53,7 @@ class Environment:
             "red": 100,
             "blue": 100
         }
-        self.obstacles = []
+        self.obstacles = generate_obstacles(15)
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self._safe_zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
 
