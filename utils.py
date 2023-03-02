@@ -71,7 +71,6 @@ def get_zone_color(zone: str) -> str:
     """Return a color based on the zone."""
     return ZONE_COLORS[zone]
 
-
 def ping_url(url):
     import requests
     try:

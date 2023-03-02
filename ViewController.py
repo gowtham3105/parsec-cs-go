@@ -2,10 +2,12 @@
 from math import pi
 from turtle import Turtle, Screen, done, register_shape
 from models.Environement import Environment
+from models.Point import Point
+from typing import List
 from constants import *
 from typing import Any
 from time import time_ns
-from utils import get_color
+from utils import get_color, get_zone_color
 from PIL import Image
 
 NS_TO_MS: int = 1000000
@@ -45,6 +47,20 @@ class ViewController:
         """Call the first tick of the simulation and begin turtle gfx."""
         self.tick()
         done()
+
+    def draw_zone(self, zone: List[Point], zone_color: str):
+        zone_length = zone[0].distance(zone[3])
+        zone_breadth = zone[0].distance(zone[1])
+        self.pen.penup()
+        self.pen.goto(zone[3].x, zone[3].y)
+        self.pen.setheading(0)
+        self.pen.pendown()
+        self.pen.color(zone_color)
+
+        # Drawing a rectangle for zone
+        for _ in range(4):
+            self.pen.forward(zone_length if _ % 2 == 0 else zone_breadth)
+            self.pen.right(90)
 
     def draw_agents(self):
         self.turtle.clear()
@@ -109,6 +125,9 @@ class ViewController:
         start_time = time_ns() // NS_TO_MS
         self.environment.tick()
         self.pen.clear()
+
+        self.draw_zone(self.environment.get_current_zone(), get_zone_color(ZONE))
+        self.draw_zone(self.environment.get_current_safe_zone(), get_zone_color(SAFE_ZONE))
 
         self.draw_agent_view_areas()
         self.draw_agents()
