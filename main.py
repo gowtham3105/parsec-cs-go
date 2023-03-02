@@ -14,6 +14,9 @@ teams = ["red", "blue"]
 def main() -> None:
     clients = get_urls(teams)
 
+    if len(clients) != len(teams):
+        raise ValueError(f"Just {len(clients)} clients are registered in {len(teams)} teams.")
+
     """Entrypoint of simulation."""
     model = Environment(clients=clients)
     vc = ViewController(model)

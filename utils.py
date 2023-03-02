@@ -1,3 +1,5 @@
+import os
+
 from shapely import LineString, Polygon
 from typing import List
 import math

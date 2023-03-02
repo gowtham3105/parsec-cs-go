@@ -17,7 +17,6 @@ from .Player import Player
 from utils import isBetweenLineOfSight, is_point_in_vision
 
 
-
 class Environment:
     """The state of the environment."""
     players: Dict[str, Player]

@@ -1,3 +1,4 @@
+import json
 from typing import List
 
 import requests
@@ -26,7 +27,7 @@ class Player:
         # return the action
 
         data = {
-            "state": state.__dict__,
+            "state": state.json(),
             "token": self.token,
         }
 

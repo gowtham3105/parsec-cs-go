@@ -28,8 +28,9 @@ def validate_command_line_args(args: argparse.Namespace):
         raise Exception(f"Player file players/player_{args.player}.py does not exist")
 
 
-def convert_to_state(state: dict):
+def convert_state(state: dict):
     """Convert the state dictionary to a State object."""
+    # TODO: reconstruct the state object
     return State(**state)
 
 

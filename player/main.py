@@ -3,14 +3,14 @@ import importlib
 import os
 from typing import List
 
-from fastapi import FastAPI, Header, HTTPException
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import dotenv
 
 from models.Action import Action
 from models.State import State
-from utils import get_command_line_args, validate_command_line_args, convert_to_state, authorized, get_env_vars, \
+from utils import get_command_line_args, validate_command_line_args, convert_state, authorized, get_env_vars, \
     pre_check
 
 dotenv.load_dotenv('dev.env')
@@ -44,7 +44,7 @@ app.add_middleware(
 @pre_check()
 def tick(body: dict):
     try:
-        state: State = convert_to_state(body['state'])
+        state: State = convert_state(body['state'])
 
         try:
             actions: List[Action] = player_file.tick(state)
