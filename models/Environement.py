@@ -13,15 +13,14 @@ from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
 from .Obstacle import Obstacle
+from .Player import Player
 from utils import isBetweenLineOfSight, is_point_in_vision
 
-from player_red import tick as player_red_tick
-from player_blue import tick as player_blue_tick
 
 
 class Environment:
     """The state of the environment."""
-
+    players: Dict[str, Player]
     agents: Dict[str, Dict[str, Agent]]
     bullets: List[Bullet]
     scores = Dict[str, int]
@@ -34,14 +33,14 @@ class Environment:
     _is_zone_shrinking: bool = False
     _zone_shrink_times: List[int]
 
-    def __init__(self):
+    def __init__(self, clients: List[dict]):
         """Initialize the cells with random locations and directions."""
         self.agents = {
             "red": {
-                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi/2, "red"),
+                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi / 2, "red"),
             },
             "blue": {
-                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi/2, "blue"),
+                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi / 2, "blue"),
             }
         }
         self.bullets = []
@@ -57,11 +56,12 @@ class Environment:
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self._safe_zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
 
+        self.players = {client['team']: Player(**client) for client in clients}
+
         self._log = open("log.txt", "w")
 
     def tick(self) -> dict[int | str, int]:
         """Update the state of the simulation by one time step."""
-        #  TODO: take a look at this
         if self.time % (UNIT_TIME / TICKS['Bullet']) == 0:
             for bullet in self.bullets:
                 if bullet.is_alive():
@@ -79,8 +79,9 @@ class Environment:
             red_state = self.generate_state('red')
             blue_state = self.generate_state('blue')
 
-            red_actions = player_red_tick(red_state)
-            blue_actions = player_blue_tick(blue_state)
+            red_actions = self.players['red'].tick(red_state)
+            blue_actions = self.players['blue'].tick(blue_state)
+
             self.alerts['red'] = []
             self.alerts['blue'] = []
 
