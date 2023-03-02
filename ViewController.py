@@ -70,6 +70,29 @@ class ViewController:
                 self.pen.forward(agent.get_range())
                 self.pen.right(90)
                 self.pen.circle(-1 * agent.get_range(), agent.get_view_angle() * 180 / pi, steps=30)
+    
+    def draw_obstacles(self):
+        # TODO: draw obstacles for each polygon obstacle and fill gray
+        for obstacle in self.environment.obstacles:
+            points = obstacle.corners
+            self.pen.penup()
+            self.pen.goto((points[0].x, points[0].y))
+            self.pen.pendown()
+            self.pen.fillcolor('gray')
+            self.pen.begin_fill()
+
+            # Draw lines to connect each point in order
+            for point in points[1:]:
+                self.pen.goto((point.x, point.y))
+
+            # Return to the starting point to close the polygon
+            self.pen.goto((points[0].x, points[0].y))
+
+            # End the fill and hide the turtle
+            self.pen.end_fill()
+            self.pen.hideturtle()
+        
+        pass
 
     def draw_information_boards(self):
         # TODO: draw information boards
@@ -93,6 +116,7 @@ class ViewController:
         self.environment.tick()
         self.pen.clear()
 
+        self.draw_obstacles()
         self.draw_agent_view_areas()
         self.draw_agents()
         self.draw_bullets()
