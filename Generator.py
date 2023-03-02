@@ -31,8 +31,9 @@ class Generator:
     def get_points_on_circle(self, circle, number_of_points):
         points = []
         radian_hash = {}
-        for _ in range(number_of_points):
-            theta = random.uniform(0, 2 * math.pi)
+        for i in range(number_of_points):
+            total_angle = 2*math.pi
+            theta = random.uniform(i*total_angle/number_of_points, (i+1)*total_angle/number_of_points)
             point = Point(circle[0] + circle[2] * math.cos(theta), circle[1] + circle[2] * math.sin(theta))
             radian_hash[str(point)] = theta
             points.append(point)
