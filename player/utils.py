@@ -13,6 +13,8 @@ from models.Obstacle import Obstacle
 from models.Point import Point
 from models.State import State
 
+DEFAULT_PLAYER = 'env'
+
 
 def get_command_line_args():
     """Get command line arguments."""
@@ -26,6 +28,8 @@ def get_command_line_args():
 
 
 def validate_command_line_args(args: argparse.Namespace):
+    if args.player == DEFAULT_PLAYER:
+        return True
     # check if player file exists
     if os.path.exists(f"players/player_{args.player}.py"):
         return True
@@ -124,6 +128,10 @@ def pre_check():
 
 def get_env_vars(team: str) -> dict:
     """Get the dev environment variables."""
+
+    if team == DEFAULT_PLAYER:
+        team = os.getenv('PLAYER_TEAM')
+
     host_key = f"PLAYER_{team.upper()}_CLIENT_HOST"
     port_key = f"PLAYER_{team.upper()}_CLIENT_PORT"
     token_key = f"PLAYER_{team.upper()}_TOKEN"
