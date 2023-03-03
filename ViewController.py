@@ -91,6 +91,8 @@ class ViewController:
     def draw_agent_view_areas(self):
         for team in self.environment.agents:
             for agent_id, agent in self.environment.agents[team].items():
+                if not agent.is_alive():
+                    continue
                 self.pen.penup()
                 self.pen.goto(agent.get_location().x, agent.get_location().y)
                 self.pen.pendown()
@@ -112,14 +114,14 @@ class ViewController:
 
         pass
 
-    def draw_zones(self):
-        # TODO: draw zones
-        # square box with a color with the zone coordinates
-        pass
-
     def draw_zone_information_boards(self):
         # TODO: draw zone information boards in the bottom
         # Time left, Time left for next zone shrink etc.
+        pass
+
+    def draw_finish_screen(self):
+        # TODO: draw finish screen
+        # Winner, Score, Time taken etc.
         pass
 
     def tick(self) -> dict[str, str | list[int]]:
@@ -136,13 +138,14 @@ class ViewController:
         self.draw_bullets()
 
         self.draw_information_boards()
-        self.draw_zones()
         self.draw_zone_information_boards()
 
         self.screen.update()
 
         if self.environment.is_complete():
-            self.screen.bye()
+            # self.screen.bye()
+            self.draw_finish_screen()
+
             return
         else:
             end_time = time_ns() // NS_TO_MS
