@@ -120,7 +120,7 @@ class ViewController:
         # Time left, Time left for next zone shrink etc.
         pass
 
-    def tick(self) -> dict[str, str | list[int]]:
+    def tick(self) -> dict[str, str or list[int]]:
         """Update the environment state and redraw visualization."""
         start_time = time_ns() // NS_TO_MS
         self.environment.tick()
