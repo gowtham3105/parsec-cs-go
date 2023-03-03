@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import dotenv
+from starlette.responses import RedirectResponse
 
 from models.Action import Action
 from utils import *
@@ -16,7 +17,7 @@ validate_command_line_args(args)
 
 env = get_env_vars(args.player)
 
-player_file = importlib.import_module(f"players.player_{args.player}")
+player_file = importlib.import_module(f"players.player_{env['team']}")
 
 app = FastAPI()
 
@@ -65,6 +66,12 @@ def tick(body: dict):
 @app.get("/health")
 def health_check():
     return {"status": "OK"}
+
+
+@app.get("/")
+def index():
+    # redirect to health check
+    return RedirectResponse(url="/health")
 
 
 if __name__ == "__main__":

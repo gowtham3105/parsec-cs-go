@@ -130,7 +130,7 @@ def get_env_vars(team: str) -> dict:
     """Get the dev environment variables."""
 
     if team == DEFAULT_PLAYER:
-        team = os.getenv('PLAYER_TEAM')
+        team = os.getenv("PLAYER_TEAM")
 
     host_key = f"PLAYER_{team.upper()}_CLIENT_HOST"
     port_key = f"PLAYER_{team.upper()}_CLIENT_PORT"
@@ -142,5 +142,6 @@ def get_env_vars(team: str) -> dict:
             "host": os.getenv(host_key),
             "port": int(os.getenv(port_key)),
             "token": os.getenv(token_key),
+            "team": team,
         },
     )
