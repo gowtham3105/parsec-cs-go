@@ -66,6 +66,8 @@ class ViewController:
         self.turtle.clear()
         for team in self.environment.agents:
             for agent_id, agent in self.environment.agents[team].items():
+                if not agent.is_alive():
+                    continue
                 self.pen.color(get_color(agent.get_team()))
                 self.pen.penup()
                 self.pen.goto(agent.get_location().x, agent.get_location().y)

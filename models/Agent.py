@@ -5,7 +5,7 @@ from constants import DAMAGES
 
 class Agent:
     """A model of a cell agent."""
-    AGENT_RADIUS: int = AGENT_RADIUS   # Radius of the agent
+    AGENT_RADIUS: int = AGENT_RADIUS  # Radius of the agent
     _location: Point  # current location of the agent
     _direction: Point  # angle in which the agent is going
 
@@ -98,7 +98,7 @@ class Agent:
             self._fire_time = FIRE_COOLDOWN
             return True
         return False
-    
+
     def can_fire(self) -> bool:
         return self._fire_time == 0
 
@@ -118,3 +118,6 @@ class Agent:
 
     def set_location(self, location: Point) -> None:
         self._location = location
+
+    def is_alive(self) -> bool:
+        return self._health > 0
