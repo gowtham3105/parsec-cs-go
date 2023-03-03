@@ -63,5 +63,3 @@ ZONE_COLORS: dict = {
 
 SHRINK_VALUE: int = 10
 FINAL_SIZE = 5  # Half of the side of the final square
-
-PLAYER_REQUEST_TIMEOUT: int = 1  # seconds

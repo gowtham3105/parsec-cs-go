@@ -13,15 +13,13 @@ from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
 from .Obstacle import Obstacle
+from .Player import Player
 from utils import isBetweenLineOfSight, is_point_in_vision, get_section_point, get_random_float
-
-from player_red import tick as player_red_tick
-from player_blue import tick as player_blue_tick
 
 
 class Environment:
     """The state of the environment."""
-
+    players: Dict[str, Player]
     agents: Dict[str, Dict[str, Agent]]
     bullets: List[Bullet]
     scores = Dict[str, int]
@@ -35,7 +33,7 @@ class Environment:
     _zone_shrink_times: List[int]
     _shrink_value: int = SHRINK_VALUE  # Choosing a random point in length/shrink_value of a side
 
-    def __init__(self):
+    def __init__(self, clients: List[dict]):
         """Initialize the cells with random locations and directions."""
         self.agents = {
             "red": {
@@ -59,11 +57,12 @@ class Environment:
         self.set_new_safe_zone()
         self._zone_shrink_times = [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 500]
 
+        self.players = {client['team']: Player(**client) for client in clients}
+
         self._log = open("log.txt", "w")
 
     def tick(self) -> dict[int | str, int]:
         """Update the state of the simulation by one time step."""
-        #  TODO: take a look at this
         if self.time % (UNIT_TIME / TICKS['Bullet']) == 0:
             for bullet in self.bullets:
                 if bullet.is_alive():
@@ -82,8 +81,9 @@ class Environment:
             red_state = self.generate_state('red')
             blue_state = self.generate_state('blue')
 
-            red_actions = player_red_tick(red_state)
-            blue_actions = player_blue_tick(blue_state)
+            red_actions = self.players['red'].tick(red_state)
+            blue_actions = self.players['blue'].tick(blue_state)
+
             self.alerts['red'] = []
             self.alerts['blue'] = []
 

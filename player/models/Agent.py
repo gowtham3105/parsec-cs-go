@@ -119,15 +119,29 @@ class Agent:
     def set_location(self, location: Point) -> None:
         self._location = location
 
-    def json(self) -> dict:
-        return {
-            "location": self._location.__dict__,
-            "direction": self._direction.__dict__,
-            "view_direction": self._view_direction.__dict__,
-            "health": self._health,
-            "team": self._team,
-            "id": self._id,
-            "fire_time": self._fire_time,
-            "range": self._range,
-            "view_angle": self._view_angle
+    def set_id(self, id: int) -> None:
+        self._id = id
+
+    def set_health(self, health: int) -> None:
+        self._health = health
+
+    def set_fire_time(self, fire_time: int) -> None:
+        self._fire_time = fire_time
+
+    @staticmethod
+    def generate_object(data: dict):
+        params = {
+            "location": Point(data['location']['x'], data['location']['y']),
+            "direction": Point(data['direction']['x'], data['direction']['y']),
+            "view_direction": Point(data['view_direction']['x'], data['view_direction']['y']),
+            "view_angle": data['view_angle'],
+            "view_range": data['view_range'],
+            "team": data['team']
+
         }
+        agent = Agent(**params)
+        agent.set_id(data['id'])
+        agent.set_health(data['health'])
+        agent.set_fire_time(data['fire_time'])
+
+        return agent
