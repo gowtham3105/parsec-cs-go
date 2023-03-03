@@ -20,7 +20,24 @@ class ObjectSighting:
         self._id = id(self)
 
     def __str__(self):
-        return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location, direction=self.direction, id=self._id)
+        return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location,
+                                            direction=self.direction, id=self._id)
 
     def __repr__(self):
-        return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location, direction=self.direction, id=self._id)
+        return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location,
+                                            direction=self.direction, id=self._id)
+
+    def set_id(self, id):
+        self._id = id
+
+    @staticmethod
+    def generate_object(data: dict):
+        params = {
+            "object_type": data['object_type'],
+            "location": Point(data['location']['x'], data['location']['y']),
+            "direction": Point(data['direction']['x'], data['direction']['y'])
+        }
+        object_sighting = ObjectSighting(**params)
+        object_sighting.set_id(data['id'])
+
+        return object_sighting

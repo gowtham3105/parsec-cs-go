@@ -8,3 +8,17 @@ class Alert:
         self._id = id(self)
         self.alert_type = alertType
         self.agent_id = agentId
+
+    def set_id(self, id):
+        self._id = id
+
+    @staticmethod
+    def generate_object(data: dict):
+        params = {
+            "alert_type": data['alert_type'],
+            "agent_id": data['agent_id']
+        }
+        alert = Alert(**params)
+        alert.set_id(data['id'])
+
+        return alert

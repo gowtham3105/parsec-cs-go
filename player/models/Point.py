@@ -66,3 +66,8 @@ class Point:
     def __repr__(self) -> str:
         """Return a string representation of the point."""
         return Point.STRING.format(x=self.x, y=self.y)
+
+    @staticmethod
+    def generate_object(data: dict) -> "Point":
+        """Generate a Point object from a dictionary."""
+        return Point(data["x"], data["y"])

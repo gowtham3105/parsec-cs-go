@@ -2,10 +2,15 @@ import argparse
 import os
 import time
 from collections import defaultdict
+from typing import List, Dict
 
 from fastapi import HTTPException
 
-from models.Action import Action
+from models.Agent import Agent
+from models.Alert import Alert
+from models.ObjectSighting import ObjectSighting
+from models.Obstacle import Obstacle
+from models.Point import Point
 from models.State import State
 
 
@@ -28,10 +33,50 @@ def validate_command_line_args(args: argparse.Namespace):
         raise Exception(f"Player file players/player_{args.player}.py does not exist")
 
 
-def convert_state(state: dict):
+def generate_agents(agents: List) -> List[Agent]:
+    """Generate the agents."""
+    return [Agent.generate_object(agent) for agent in agents]
+
+
+def generate_object_sighting(object_in_sight: dict) -> Dict[str, List[ObjectSighting]]:
+    """Generate the object sighting."""
+    objects = {}
+    for object_type in object_in_sight:
+        objects[object_type] = [ObjectSighting.generate_object(obj) for obj in object_in_sight[object_type]]
+
+    return objects
+
+
+def generate_alerts(alerts: List) -> List[Alert]:
+    """Generate the alerts."""
+    return [Alert.generate_object(alert) for alert in alerts]
+
+
+def generate_obstacles(obstacles: List) -> List[Obstacle]:
+    """Generate the obstacles."""
+    return [Obstacle.generate_object(obstacle) for obstacle in obstacles]
+
+
+def generate_points(points: List) -> List[Point]:
+    """Generate the points."""
+    return [Point.generate_object(point) for point in points]
+
+
+def generate_state(state: dict):
     """Convert the state dictionary to a State object."""
-    # TODO: reconstruct the state object
-    return State(**state)
+    params = {
+        "agents": generate_agents(state["agents"]),
+        "object_in_sight": generate_object_sighting(state["object_in_sight"]),
+        "alerts": generate_alerts(state["alerts"]),
+        "team": state["team"],
+        "time": state["time"],
+        "obstacles": generate_obstacles(state["obstacles"]),
+        "zone": generate_points(state["zone"]),
+        "safe_zone": generate_points(state["safe_zone"]),
+        "is_zone_shrinking": bool(state["is_zone_shrinking"]),
+    }
+
+    return State(**params)
 
 
 def authorized(token: str):
