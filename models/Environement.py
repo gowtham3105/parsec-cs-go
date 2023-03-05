@@ -13,6 +13,7 @@ from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
 from .Obstacle import Obstacle
+from Generator import generate_obstacles
 from utils import isBetweenLineOfSight, is_point_in_vision, get_section_point, get_random_float
 
 from player_red import tick as player_red_tick
@@ -54,7 +55,7 @@ class Environment:
             "red": 100,
             "blue": 100
         }
-        self.obstacles = []
+        self.obstacles = generate_obstacles(15)
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self.set_new_safe_zone()
         self._zone_shrink_times = [1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 4800]

@@ -32,6 +32,8 @@ class ViewController:
         self.screen.delay(0)
         self.screen.title("Cluster Funk v2")
         self.pen = Turtle()
+        self.pen.color("black")
+
         self.pen.hideturtle()
         self.pen.speed(0)
 
@@ -72,7 +74,7 @@ class ViewController:
                 self.pen.penup()
                 self.pen.goto(agent.get_location().x, agent.get_location().y)
                 self.pen.pendown()
-                self.pen.dot(AGENT_RADIUS * 2)  ## comment this line and uncomment the next lines to see
+                self.pen.dot(AGENT_RADIUS * 2)  # comment this line and uncomment the next lines to see
                 # images instead of lines
                 self.pen.penup()
                 self.turtle.goto(agent.get_location().x, agent.get_location().y)
@@ -108,6 +110,26 @@ class ViewController:
                 self.pen.right(90)
                 self.pen.circle(-1 * agent.get_range(), agent.get_view_angle() * 180 / pi, steps=30)
 
+    def draw_obstacles(self):
+        for obstacle in self.environment.obstacles:
+            points = obstacle.corners
+            self.pen.penup()
+            self.pen.goto((points[0].x, points[0].y))
+            self.pen.pendown()
+            self.pen.fillcolor('gray')
+            self.pen.begin_fill()
+
+            # Draw lines to connect each point in order
+            for point in points[1:]:
+                self.pen.goto((point.x, point.y))
+
+            # Return to the starting point to close the polygon
+            self.pen.goto((points[0].x, points[0].y))
+
+            # End the fill and hide the turtle
+            self.pen.end_fill()
+            self.pen.hideturtle()
+
     def draw_information_boards(self):
         # TODO: draw information boards
         # Health, Score Fire COOLDOWN, recent alerts headlines etc.
@@ -132,12 +154,13 @@ class ViewController:
 
         self.draw_zone(self.environment.get_current_zone(), get_zone_color(ZONE))
         self.draw_zone(self.environment.get_current_safe_zone(), get_zone_color(SAFE_ZONE))
-
         self.draw_agent_view_areas()
         self.draw_agents()
         self.draw_bullets()
+        self.draw_obstacles()
 
         self.draw_information_boards()
+
         self.draw_zone_information_boards()
 
         self.screen.update()

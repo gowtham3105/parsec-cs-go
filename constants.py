@@ -11,6 +11,10 @@ MAX_Y: float = BOUNDS_HEIGHT / 2
 MIN_Y: float = -MAX_Y
 VIEW_HEIGHT: int = BOUNDS_HEIGHT + 20
 
+OBSTACLE_PERCENTAGE: float = 0.2
+MAX_OBSTACLE_SIDES: int = 7
+NUMBER_OF_OBSTACLES: int = 10
+
 CELL_RADIUS: int = 15
 
 FIRE_COOLDOWN: int = 1
@@ -50,7 +54,8 @@ TICKS: Dict[str, int] = {  # Ticks per second
 }
 
 # multiple all Ticks here always
-UNIT_TIME: int = TICKS['Bullet'] * TICKS['Agent']  # Time in which all objects move at least once
+# Time in which all objects move at least once
+UNIT_TIME: int = TICKS['Bullet'] * TICKS['Agent']
 DAMAGES: Dict[str, int] = {
     BULLET_HIT: 10,
     OUTSIDE_ZONE: 1
