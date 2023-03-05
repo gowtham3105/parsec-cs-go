@@ -78,13 +78,13 @@ class ViewController:
 
         # Draw score rectangle
         self.pen.penup()
-        self.pen.goto(-420 / 2, VIEW_HEIGHT / 2)
+        self.pen.goto(-VIEW_WIDTH / 2, VIEW_HEIGHT / 2)
         self.pen.pendown()
         self.pen.fillcolor("black")
         self.pen.begin_fill()
         self.pen.pencolor('green')
         self.pen.pensize(15)
-        self.pen.forward(420 - 7)
+        self.pen.forward(VIEW_WIDTH - 7)
         self.pen.right(90)
         self.pen.pencolor('green')
         self.pen.pensize(7)
@@ -92,7 +92,7 @@ class ViewController:
         self.pen.right(90)
         self.pen.pencolor('white')
         self.pen.pensize(5)
-        self.pen.forward(420 - 7)
+        self.pen.forward(VIEW_WIDTH - 7)
         self.pen.right(90)
         self.pen.pencolor('green')
         self.pen.pensize(7)
@@ -105,13 +105,13 @@ class ViewController:
         # Draw penalty rectangle
         self.pen.pensize(1)
         self.pen.penup()
-        self.pen.goto(-420 / 2, VIEW_HEIGHT / 2 - 420 * 0.23)
+        self.pen.goto(-VIEW_WIDTH / 2, VIEW_HEIGHT / 2 - 420 * 0.23)
         self.pen.pendown()
         self.pen.fillcolor("black")
         self.pen.begin_fill()
         self.pen.pencolor('white')
         self.pen.pensize(5)
-        self.pen.forward(420 - 7)
+        self.pen.forward(VIEW_WIDTH - 7)
         self.pen.right(90)
         self.pen.pencolor('green')
         self.pen.pensize(7)
@@ -119,7 +119,7 @@ class ViewController:
         self.pen.right(90)
         self.pen.pencolor('green')
         self.pen.pensize(7)
-        self.pen.forward(420 - 7)
+        self.pen.forward(VIEW_WIDTH - 7)
         self.pen.right(90)
         self.pen.pencolor('green')
         self.pen.pensize(7)
@@ -129,7 +129,7 @@ class ViewController:
 
     def divide_score_rectangle(self):
         self.pen.penup()
-        self.pen.goto(-420 / 5, VIEW_HEIGHT / 2 - 5)
+        self.pen.goto(-VIEW_WIDTH / 5, VIEW_HEIGHT / 2 - 5)
         self.pen.pendown()
         self.pen.pencolor("white")
         self.pen.setheading(270)
@@ -141,7 +141,7 @@ class ViewController:
         self.pen.pensize(4)
         self.pen.forward(420 * 0.23 - 5) 
         self.pen.penup()
-        self.pen.goto(420 / 5, VIEW_HEIGHT / 2 - 5)
+        self.pen.goto(VIEW_WIDTH / 5, VIEW_HEIGHT / 2 - 5)
         self.pen.pendown()
         self.pen.pensize(1)
         self.pen.forward(420 * 0.23 - 5)
@@ -150,7 +150,7 @@ class ViewController:
 
         # Divide penalty rectangle
         self.pen.penup()
-        self.pen.goto(-420 / 7, VIEW_HEIGHT / 2 - 420 * 0.23)
+        self.pen.goto(-VIEW_WIDTH / 7, VIEW_HEIGHT / 2 - 420 * 0.23)
         self.pen.pendown()
         self.pen.pensize(1)
         self.pen.pencolor("white")
@@ -162,7 +162,7 @@ class ViewController:
         self.pen.pensize(4)
         self.pen.forward(420 * 0.07 - 4)
         self.pen.penup()
-        self.pen.goto(420 / 7, VIEW_HEIGHT / 2 - 420 * 0.23)
+        self.pen.goto(VIEW_WIDTH / 7, VIEW_HEIGHT / 2 - 420 * 0.23)
         self.pen.pendown()
         self.pen.pensize(1)
         self.pen.forward(420 * 0.07 - 2.5)
@@ -181,27 +181,28 @@ class ViewController:
             if team == 'red':
                 score = 500
                 self.pen.penup()
-                self.pen.goto(-420 / 2 + 10, VIEW_HEIGHT / 2 - 25)
+                self.pen.goto(-VIEW_WIDTH / 2 + 10, VIEW_HEIGHT / 2 - 27)
                 self.pen.pendown()
                 self.pen.pencolor('red')
-                i = 1
-                for agent_id, agent in self.environment.agents['blue'].items():
+                i = 0
+                for agent_id, agent in self.environment.agents['red'].items():
                     score -= agent.get_health()
 
                     # Display agent's health
-                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 10, "normal"))
+                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 13, "bold"))
                     self.pen.penup()
-                    self.pen.goto(-420 / 2 + 10, VIEW_HEIGHT / 2 - 25 - 15*i)   # Move the pen to the next line
+                    i += 1
+                    self.pen.goto(-VIEW_WIDTH / 2 + 10, VIEW_HEIGHT / 2 - 27 - 17*i)   # Move the pen to the next line
                     self.pen.pendown()
 
                 # Write score 
                 self.pen.penup()
-                self.pen.goto(-420 / 10, (VIEW_HEIGHT) / 2 - ((420 * 0.28)/2))
+                self.pen.goto(-VIEW_WIDTH / 10, (VIEW_HEIGHT) / 2 - ((420 * 0.28)/2))
                 self.pen.pendown()
                 self.pen.color(get_color(team))
                 self.pen.write(f"{score}", align="center", font=("Arial", 16, "bold"))
                 self.pen.penup()
-                self.pen.goto(-420 / 14, VIEW_HEIGHT / 2 - 420 * 0.23 - 25)
+                self.pen.goto(-VIEW_WIDTH / 14, VIEW_HEIGHT / 2 - 420 * 0.23 - 25)
                 self.pen.pendown()
 
                 # Write penalty Score
@@ -210,27 +211,28 @@ class ViewController:
             elif team == 'blue':
                 score = 500
                 self.pen.penup()
-                self.pen.goto(420 / 5 + 70, VIEW_HEIGHT / 2 - 25)
+                self.pen.goto(VIEW_WIDTH/2 - 75, VIEW_HEIGHT / 2 - 27)
                 self.pen.pendown()
                 self.pen.pencolor('blue')
-                i = 1
+                i = 0
                 for agent_id, agent in self.environment.agents['blue'].items():
                     score -= agent.get_health()
 
                     # Display agent's health
-                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 10, "normal"))
+                    self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 13, "bold"))
                     self.pen.penup()
-                    self.pen.goto(420 / 5 + 30, VIEW_HEIGHT / 2 - 25 - 15*i)    # Move the pen to the next line
+                    i+=1
+                    self.pen.goto(VIEW_WIDTH/2 - 75, VIEW_HEIGHT / 2 - 27 - 17*i)    # Move the pen to the next line
                     self.pen.pendown()
 
                 # Write score
                 self.pen.penup()
-                self.pen.goto(420 / 10,  (VIEW_HEIGHT) / 2 - ((420 * 0.28)/2))
+                self.pen.goto(VIEW_WIDTH / 10,  (VIEW_HEIGHT) / 2 - ((420 * 0.28)/2))
                 self.pen.pendown()
                 self.pen.color(get_color(team))
                 self.pen.write(f"{score}", align="center", font=("Arial", 16, "bold"))
                 self.pen.penup()
-                self.pen.goto(420 / 14, VIEW_HEIGHT / 2 - 420 * 0.23 - 25)
+                self.pen.goto(VIEW_WIDTH / 14, VIEW_HEIGHT / 2 - 420 * 0.23 - 25)
                 self.pen.pendown()
 
                 # Write penalty Score
