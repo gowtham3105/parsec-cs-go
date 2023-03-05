@@ -47,7 +47,6 @@ class ViewController:
 
     def start_simulation(self):
         """Call the first tick of the simulation and begin turtle gfx."""
-
         self.tick()
         done()
 
@@ -75,7 +74,7 @@ class ViewController:
                 self.pen.penup()
                 self.pen.goto(agent.get_location().x, agent.get_location().y)
                 self.pen.pendown()
-                self.pen.dot(AGENT_RADIUS * 2)  ## comment this line and uncomment the next lines to see
+                self.pen.dot(AGENT_RADIUS * 2)  # comment this line and uncomment the next lines to see
                 # images instead of lines
                 self.pen.penup()
                 self.turtle.goto(agent.get_location().x, agent.get_location().y)
@@ -131,11 +130,6 @@ class ViewController:
             self.pen.end_fill()
             self.pen.hideturtle()
 
-    def draw_zones(self):
-        # TODO: draw zones
-        # square box with a color with the zone coordinates
-        
-        
     def draw_information_boards(self):
         # TODO: draw information boards
         # Health, Score Fire COOLDOWN, recent alerts headlines etc.
@@ -146,7 +140,6 @@ class ViewController:
         # TODO: draw zone information boards in the bottom
         # Time left, Time left for next zone shrink etc.
         pass
-
 
     def draw_finish_screen(self):
         # TODO: draw finish screen
@@ -159,7 +152,6 @@ class ViewController:
         self.environment.tick()
         self.pen.clear()
 
-        
         self.draw_zone(self.environment.get_current_zone(), get_zone_color(ZONE))
         self.draw_zone(self.environment.get_current_safe_zone(), get_zone_color(SAFE_ZONE))
         self.draw_agent_view_areas()
