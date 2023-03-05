@@ -13,8 +13,9 @@ from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
 from .Obstacle import Obstacle
-from utils import isBetweenLineOfSight, is_point_in_vision
 from Generator import generate_obstacles
+from utils import isBetweenLineOfSight, is_point_in_vision, get_section_point, get_random_float
+
 from player_red import tick as player_red_tick
 from player_blue import tick as player_blue_tick
 
@@ -33,15 +34,16 @@ class Environment:
     _safe_zone: List[Point]
     _is_zone_shrinking: bool = False
     _zone_shrink_times: List[int]
+    _shrink_value: int = SHRINK_VALUE  # Choosing a random point in length/shrink_value of a side
 
     def __init__(self):
         """Initialize the cells with random locations and directions."""
         self.agents = {
             "red": {
-                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi, "red"),
+                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi / 2, "red"),
             },
             "blue": {
-                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi, "blue"),
+                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi / 2, "blue"),
             }
         }
         self.bullets = []
@@ -55,7 +57,8 @@ class Environment:
         }
         self.obstacles = generate_obstacles(15)
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
-        self._safe_zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
+        self.set_new_safe_zone()
+        self._zone_shrink_times = [1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 4800]
 
         self._log = open("log.txt", "w")
 
@@ -68,13 +71,14 @@ class Environment:
                     self.enforce_bullet_collisions(bullet)
                     bullet.tick()
 
+            self.enforce_zone()
+
         if self.time % (UNIT_TIME / TICKS['Agent']) == 0:
             for team in self.agents:
                 for agent in self.agents[team].values():
                     agent.tick()
                     self.enforce_bounds(agent)
                     self.enforce_collisions(agent)
-                    self.enforce_zone(agent)
 
             red_state = self.generate_state('red')
             blue_state = self.generate_state('blue')
@@ -345,9 +349,85 @@ class Environment:
         # TODO: find an appropriate formula for health deduction.
         pass
 
-    def enforce_zone(self, agent):
-        # TODO: implement this
-        pass
+    def enforce_zone(self):
+        # Setting is_zone_shrinking to false
+        self._is_zone_shrinking = False
+        i = 0
+        zone_shrink_times_len = len(self._zone_shrink_times)
+        while i < zone_shrink_times_len - 1:
+            if self._zone_shrink_times[i] <= self.time <= self._zone_shrink_times[i] + (
+                    self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) // 2:
+                self._is_zone_shrinking = True
+                break
+            i += 1
+
+        # Final Shrink
+        if self._zone_shrink_times[zone_shrink_times_len - 2] <= self.time <= self._zone_shrink_times[zone_shrink_times_len-1]:
+            self._is_zone_shrinking = True
+            time_left = self._zone_shrink_times[zone_shrink_times_len-1] - self.time
+            self.shrink_zone(time_left)
+
+        # Shrinking zone
+        elif self._is_zone_shrinking:
+            time_to_stop_shrinking = self._zone_shrink_times[i] + (
+                    self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) // 2
+            time_left = time_to_stop_shrinking - self.time
+
+            # Shrinking the zone
+            self.shrink_zone(time_left)
+
+            # Shrinking complete and choose new safe zone
+            if time_left == 0:
+                if i < len(self._zone_shrink_times) - 3:
+                    self.set_new_safe_zone()
+                    self._is_zone_shrinking = False
+                else:
+                    # setting final zone
+                    self.set_final_zone()
+
+        # Impose zone penalty
+        self.enforce_zone_penalty()
+
+    def set_final_zone(self):
+        final_x = (self._safe_zone[0].x + self._safe_zone[3].x) / 2
+        final_y = (self._safe_zone[0].y + self._safe_zone[1].y) / 2
+        directions = [1, 1, -1, -1]
+        for i in range(4):
+            point = Point(final_x + directions[i] * FINAL_SIZE, final_y + directions[(i + 1) % 4] * FINAL_SIZE)
+            self._safe_zone[i] = point
+
+    def shrink_zone(self, time_left: int):
+        new_zone = []
+        for i in range(len(self._zone)):
+            new_zone.append(get_section_point(self._zone[i], self._safe_zone[i], 1, time_left))
+
+        # Setting zone after shrinking
+        self._zone = new_zone
+
+    def set_new_safe_zone(self):
+
+        # Convention for zone and  safe-zone 0 -> top-right then clockwise
+        # (x1, y1) left-top corner of the new zone
+        # (x2, y2) right-bottom corner of the new zone
+        x1 = get_random_float(self._zone[3].x,
+                              get_section_point(self._zone[3], self._zone[0], 1, self._shrink_value - 1).x)
+        y1 = get_random_float(get_section_point(self._zone[3], self._zone[2], 1, self._shrink_value - 1).y,
+                              self._zone[3].y)
+        x2 = get_random_float(get_section_point(self._zone[1], self._zone[2], 1, self._shrink_value - 1).x,
+                              self._zone[1].x)
+        y2 = get_random_float(self._zone[1].y,
+                              get_section_point(self._zone[1], self._zone[0], 1, self._shrink_value - 1).y)
+
+        self._safe_zone = [Point(x2, y1), Point(x2, y2), Point(x1, y2), Point(x1, y1)]
+
+    def enforce_zone_penalty(self):
+        # Reducing agents' health outside the zone
+        # Considering zone as a obstacle polygon for checkInside function reuse
+        zone_obstacle = Obstacle([point for point in self._zone])
+        for team in self.agents:
+            for agent in self.agents[team].values():
+                if not zone_obstacle.checkInside(agent.get_location()):
+                    agent.decrease_health(OUTSIDE_ZONE)
 
     def is_complete(self) -> bool:
         """Method to indicate when the simulation is complete."""
@@ -355,3 +435,9 @@ class Environment:
         if self.time > MAX_TIME:
             return True
         return False
+
+    def get_current_zone(self):
+        return self._zone
+
+    def get_current_safe_zone(self):
+        return self._safe_zone

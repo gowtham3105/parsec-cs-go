@@ -28,6 +28,7 @@ OPPONENT: str = 'opponent'
 WALL: str = 'wall'
 BULLET: str = 'bullet'
 BULLET_HIT: str = 'bullet_hit'
+OUTSIDE_ZONE: str = 'outside_zone'
 
 UPDATE_DIRECTION: str = "UPDATE_DIRECTION"
 UPDATE_VIEW_DIRECTION: str = "UPDATE_VIEW_DIRECTION"
@@ -39,6 +40,7 @@ INITIAL_BULLET_ENERGY = 50
 
 COLLISION: str = 'collision'
 ZONE: str = 'zone'
+SAFE_ZONE: str = 'safe_zone'
 DEAD: str = 'agent_dead'
 FIRE_IMPOSSIBLE: str = 'cannot_fire'
 WRONG_AGENT: str = 'opponent_agent'
@@ -55,5 +57,14 @@ TICKS: Dict[str, int] = {  # Ticks per second
 # Time in which all objects move at least once
 UNIT_TIME: int = TICKS['Bullet'] * TICKS['Agent']
 DAMAGES: Dict[str, int] = {
-    BULLET_HIT: 10
+    BULLET_HIT: 10,
+    OUTSIDE_ZONE: 1
 }
+
+ZONE_COLORS: dict = {
+    "zone": "#ffffff",
+    "safe_zone": "#ff0000"
+}
+
+SHRINK_VALUE: int = 10
+FINAL_SIZE = 5  # Half of the side of the final square
