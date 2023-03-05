@@ -40,10 +40,10 @@ class Environment:
         """Initialize the cells with random locations and directions."""
         self.agents = {
             "red": {
-                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi / 2, "red"),
+                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi, "red")
             },
             "blue": {
-                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi / 2, "blue"),
+                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi, "blue")
             }
         }
         self.bullets = []
