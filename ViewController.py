@@ -21,24 +21,34 @@ class ViewController:
     screen: Any
     pen: Turtle
     environment: Environment
+    scale_factor: float
 
     def __init__(self, environment: Environment):
         """Initialize the VC."""
         self.environment = environment
         self.screen = Screen()
         self.screen.bgcolor("black")
-        self.screen.setup(VIEW_WIDTH, VIEW_HEIGHT)
+        self.screen.setup(width=1.0, height=1.0, startx=None, starty=None)
         self.screen.tracer(0, 0)
         self.screen.delay(0)
         self.screen.title("Cluster Funk v2")
+
+        # Compute scale factor based on screen size and view size
+        screen_width = self.screen.window_width()
+        screen_height = self.screen.window_height()
+        width_scale_factor = screen_width / VIEW_WIDTH
+        height_scale_factor = screen_height / VIEW_HEIGHT
+        self.scale_factor = min(width_scale_factor, height_scale_factor)
+
+        # Initialize turtle graphics
         self.pen = Turtle()
         self.pen.color("black")
-
         self.pen.hideturtle()
         self.pen.speed(0)
 
         im = Image.open(AGENT_IMAGE)
-        size = (AGENT_RADIUS * 2, AGENT_RADIUS * 2)
+        size = (AGENT_RADIUS * 2 * self.scale_factor,
+                AGENT_RADIUS * 2 * self.scale_factor)
         im.thumbnail(size)
         im.save(CUR_AGENT_IMAGE)
         self.screen.register_shape(CUR_AGENT_IMAGE)
@@ -51,10 +61,11 @@ class ViewController:
         done()
 
     def draw_zone(self, zone: List[Point], zone_color: str):
-        zone_length = zone[0].distance(zone[3])
-        zone_breadth = zone[0].distance(zone[1])
+        zone_length = zone[0].distance(zone[3]) * self.scale_factor
+        zone_breadth = zone[0].distance(zone[1]) * self.scale_factor
         self.pen.penup()
-        self.pen.goto(zone[3].x, zone[3].y)
+        self.pen.goto(zone[3].x * self.scale_factor,
+                      zone[3].y * self.scale_factor)
         self.pen.setheading(0)
         self.pen.pendown()
         self.pen.color(zone_color)
@@ -72,12 +83,15 @@ class ViewController:
                     continue
                 self.pen.color(get_color(agent.get_team()))
                 self.pen.penup()
-                self.pen.goto(agent.get_location().x, agent.get_location().y)
+                self.pen.goto(agent.get_location().x *
+                              self.scale_factor, agent.get_location().y * self.scale_factor)
                 self.pen.pendown()
-                self.pen.dot(AGENT_RADIUS * 2)  # comment this line and uncomment the next lines to see
+                # comment this line and uncomment the next lines to see
+                self.pen.dot(AGENT_RADIUS * 2 * self.scale_factor)
                 # images instead of lines
                 self.pen.penup()
-                self.turtle.goto(agent.get_location().x, agent.get_location().y)
+                self.turtle.goto(agent.get_location().x *
+                                 self.scale_factor, agent.get_location().y * self.scale_factor)
                 self.turtle.stamp()
 
     def draw_bullets(self):
@@ -85,7 +99,8 @@ class ViewController:
             if not bullet.is_alive():
                 continue
             self.pen.penup()
-            self.pen.goto(bullet.get_location().x, bullet.get_location().y)
+            self.pen.goto(bullet.get_location().x *
+                          self.scale_factor, bullet.get_location().y * self.scale_factor)
             self.pen.pendown()
             self.pen.color("white")
             self.pen.dot(BULLET_RADIUS)
@@ -96,35 +111,42 @@ class ViewController:
                 if not agent.is_alive():
                     continue
                 self.pen.penup()
-                self.pen.goto(agent.get_location().x, agent.get_location().y)
+                self.pen.goto(agent.get_location().x *
+                              self.scale_factor, agent.get_location().y * self.scale_factor)
                 self.pen.pendown()
                 self.pen.color(get_color(agent.get_team()))
                 self.pen.width(2)
-                self.pen.setheading(agent.get_view_direction().get_angle() - (agent.get_view_angle() * 90 / pi))
-                self.pen.forward(agent.get_range())
+                self.pen.setheading(agent.get_view_direction(
+                ).get_angle() - (agent.get_view_angle() * 90 / pi))
+                self.pen.forward(agent.get_range() * self.scale_factor)
                 self.pen.penup()
-                self.pen.goto(agent.get_location().x, agent.get_location().y)
-                self.pen.setheading(agent.get_view_direction().get_angle() + (agent.get_view_angle() * 90 / pi))
+                self.pen.goto(agent.get_location().x *
+                              self.scale_factor, agent.get_location().y * self.scale_factor)
+                self.pen.setheading(agent.get_view_direction(
+                ).get_angle() + (agent.get_view_angle() * 90 / pi))
                 self.pen.pendown()
-                self.pen.forward(agent.get_range())
+                self.pen.forward(agent.get_range() * self.scale_factor)
                 self.pen.right(90)
-                self.pen.circle(-1 * agent.get_range(), agent.get_view_angle() * 180 / pi, steps=30)
+                self.pen.circle(-1 * agent.get_range() * self.scale_factor,
+                                agent.get_view_angle() * 180 / pi, steps=30)
 
     def draw_obstacles(self):
         for obstacle in self.environment.obstacles:
             points = obstacle.corners
             self.pen.penup()
-            self.pen.goto((points[0].x, points[0].y))
+            self.pen.goto((points[0].x * self.scale_factor,
+                          points[0].y * self.scale_factor))
             self.pen.pendown()
             self.pen.fillcolor('gray')
             self.pen.begin_fill()
 
             # Draw lines to connect each point in order
             for point in points[1:]:
-                self.pen.goto((point.x, point.y))
+                self.pen.goto((point.x * self.scale_factor,
+                              point.y * self.scale_factor))
 
             # Return to the starting point to close the polygon
-            self.pen.goto((points[0].x, points[0].y))
+            self.pen.goto((points[0].x * self.scale_factor, points[0].y* self.scale_factor))
 
             # End the fill and hide the turtle
             self.pen.end_fill()
@@ -152,8 +174,10 @@ class ViewController:
         self.environment.tick()
         self.pen.clear()
 
-        self.draw_zone(self.environment.get_current_zone(), get_zone_color(ZONE))
-        self.draw_zone(self.environment.get_current_safe_zone(), get_zone_color(SAFE_ZONE))
+        self.draw_zone(self.environment.get_current_zone(),
+                       get_zone_color(ZONE))
+        self.draw_zone(self.environment.get_current_safe_zone(),
+                       get_zone_color(SAFE_ZONE))
         self.draw_agent_view_areas()
         self.draw_agents()
         self.draw_bullets()
