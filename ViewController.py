@@ -222,8 +222,6 @@ class ViewController:
                 self.pen.pencolor('red')
                 i = 0
                 for agent_id, agent in self.environment.agents['red'].items():
-                    score -= agent.get_health()
-
                     # Display agent's health
                     self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 13, "bold"))
                     self.pen.penup()
@@ -231,6 +229,8 @@ class ViewController:
                     self.pen.goto(-VIEW_WIDTH / 2 + 10, VIEW_HEIGHT / 2 - 27 - 17*i)   # Move the pen to the next line
                     self.pen.pendown()
 
+                for agent_id, agent in self.environment.agents['blue'].items():
+                    score -= agent.get_health()
                 # Write score 
                 self.pen.penup()
                 self.pen.goto(-VIEW_WIDTH / 10, (VIEW_HEIGHT) / 2 - ((420 * 0.28)/2))
@@ -252,8 +252,6 @@ class ViewController:
                 self.pen.pencolor('blue')
                 i = 0
                 for agent_id, agent in self.environment.agents['blue'].items():
-                    score -= agent.get_health()
-
                     # Display agent's health
                     self.pen.write(str(agent_id) + ": " + str(agent.get_health()), font=("Arial", 13, "bold"))
                     self.pen.penup()
@@ -261,6 +259,8 @@ class ViewController:
                     self.pen.goto(VIEW_WIDTH/2 - 75, VIEW_HEIGHT / 2 - 27 - 17*i)    # Move the pen to the next line
                     self.pen.pendown()
 
+                for agent_id, agent in self.environment.agents['red'].items():
+                    score -= agent.get_health()
                 # Write score
                 self.pen.penup()
                 self.pen.goto(VIEW_WIDTH / 10,  (VIEW_HEIGHT) / 2 - ((420 * 0.28)/2))
@@ -308,7 +308,7 @@ class ViewController:
         # Winner, Score, Time taken etc.
         pass
 
-    def tick(self) -> dict[str, str | list[int]]:
+    def tick(self):
         """Update the environment state and redraw visualization."""
         start_time = time_ns() // NS_TO_MS
         self.environment.tick()
