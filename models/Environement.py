@@ -36,6 +36,7 @@ class Environment:
     _is_zone_shrinking: bool = False
     _zone_shrink_times: List[int]
     _shrink_value: int = SHRINK_VALUE  # Choosing a random point in length/shrink_value of a side
+    _winner: str
 
     def __init__(self):
         """Initialize the cells with random locations and directions."""
@@ -59,8 +60,8 @@ class Environment:
         self.obstacles = generate_obstacles(15)
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self.set_new_safe_zone()
-        self._zone_shrink_times = [1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 4800]
-        self._zone_shrink_times = [x // 10 for x in self._zone_shrink_times]
+        self._zone_shrink_times = [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]
+
         self._log = open("log.txt", "w")
 
     def tick(self) -> dict[int | str, int]:
@@ -363,9 +364,10 @@ class Environment:
             i += 1
 
         # Final Shrink
-        if self._zone_shrink_times[zone_shrink_times_len - 2] <= self.time <= self._zone_shrink_times[zone_shrink_times_len-1]:
+        if self._zone_shrink_times[zone_shrink_times_len - 2] <= self.time <= self._zone_shrink_times[
+            zone_shrink_times_len - 1]:
             self._is_zone_shrinking = True
-            time_left = self._zone_shrink_times[zone_shrink_times_len-1] - self.time
+            time_left = self._zone_shrink_times[zone_shrink_times_len - 1] - self.time
             self.shrink_zone(time_left)
 
         # Shrinking zone
@@ -430,12 +432,38 @@ class Environment:
                 if not zone_obstacle.checkInside(agent.get_location()):
                     agent.decrease_health(OUTSIDE_ZONE)
 
+    def is_all_dead(self, team: str) -> bool:
+        for agent in self.agents[team].values():
+            if agent.is_alive():
+                return False
+        return True
+
     def is_complete(self) -> bool:
         """Method to indicate when the simulation is complete."""
         # TODO: implement this
+        is_red_dead = self.is_all_dead("red")
+        is_blue_dead = self.is_all_dead("blue")
+
+        if is_blue_dead and is_red_dead:
+            #need to see score here
+
+            self._winner = "draw"
+        elif is_blue_dead:
+            self._winner = "red"
+        elif is_red_dead:
+            self._winner = "blue"
+        else:
+            return False
+
+        return True
+
+        # we don't need this as this can be controlled using shrink times
         if self.time > MAX_TIME:
             return True
         return False
+
+    def get_winner(self):
+        return self._winner
 
     def get_current_zone(self):
         return self._zone
