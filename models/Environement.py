@@ -26,6 +26,7 @@ class Environment:
     agents: Dict[str, Dict[str, Agent]]
     bullets: List[Bullet]
     scores = Dict[str, int]
+    n_invalid_actions: Dict[str, int]
     obstacles: List[Obstacle]
     time: int = 0
     alerts: Dict[str, List[Alert]]
@@ -52,14 +53,14 @@ class Environment:
             "blue": []
         }
         self.scores = {
-            "red": 100,
-            "blue": 100
+            "red": 0,
+            "blue": 0
         }
         self.obstacles = generate_obstacles(15)
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self.set_new_safe_zone()
         self._zone_shrink_times = [1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 4800]
-
+        self._zone_shrink_times = [x // 10 for x in self._zone_shrink_times]
         self._log = open("log.txt", "w")
 
     def tick(self) -> dict[int | str, int]:
@@ -96,7 +97,7 @@ class Environment:
 
             self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
                              validated_blue_actions)
-
+                    
         self.time += 1
         return {}
 
@@ -134,7 +135,7 @@ class Environment:
 
             # Remove action if invalid and decrease the score based on that.
             if allowed == 0:
-                self.scores[team] -= INVALID_ACTION
+                self.n_invalid_actions[team] += 1
             else:
                 validated_actions.append(action)
 
@@ -441,3 +442,12 @@ class Environment:
 
     def get_current_safe_zone(self):
         return self._safe_zone
+    
+    def caclulate_score(self):
+        """Calculate the score for each team"""
+        opposite_team = {"red": "blue", "blue": "red"}
+
+        for team in self.scores:
+            self.scores[team] = 0
+            for agent_id, agent in self.environment.agents[opposite_team[team]].items():
+                self.scores[team] += INITIAL_AGENT_HEALTH - agent.get_health()

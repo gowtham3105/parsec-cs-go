@@ -15,7 +15,7 @@ class Agent:
     _view_direction: Point  # angle in which the agent is facing
     _fire_time: int  # time until the agent can fire again
 
-    _health: int = 100  # health of the agent
+    _health: int = INITIAL_AGENT_HEALTH  # health of the agent
 
     _team: str
     _id: int
@@ -32,7 +32,7 @@ class Agent:
         self._range = view_range
         self._view_angle = view_angle
         self._view_direction = view_direction
-        self._health = 100
+        self._health = INITIAL_AGENT_HEALTH
         self._team = team
         self._id = id(self)
         self._fire_time = 0

@@ -229,8 +229,7 @@ class ViewController:
                     self.pen.goto(-VIEW_WIDTH / 2 + 10, VIEW_HEIGHT / 2 - 27 - 17*i)   # Move the pen to the next line
                     self.pen.pendown()
 
-                for agent_id, agent in self.environment.agents['blue'].items():
-                    score -= agent.get_health()
+                score = self.environment.scores['red']
                 # Write score 
                 self.pen.penup()
                 self.pen.goto(-VIEW_WIDTH / 10, (VIEW_HEIGHT) / 2 - ((420 * 0.28)/2))
@@ -259,8 +258,7 @@ class ViewController:
                     self.pen.goto(VIEW_WIDTH/2 - 75, VIEW_HEIGHT / 2 - 27 - 17*i)    # Move the pen to the next line
                     self.pen.pendown()
 
-                for agent_id, agent in self.environment.agents['red'].items():
-                    score -= agent.get_health()
+                score = self.environment.scores['blue']
                 # Write score
                 self.pen.penup()
                 self.pen.goto(VIEW_WIDTH / 10,  (VIEW_HEIGHT) / 2 - ((420 * 0.28)/2))
