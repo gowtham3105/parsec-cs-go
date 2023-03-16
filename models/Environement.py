@@ -444,6 +444,8 @@ class Environment:
         is_blue_dead = self.is_all_dead("blue")
 
         if is_blue_dead and is_red_dead:
+            #need to see score here
+
             self._winner = "draw"
         elif is_blue_dead:
             self._winner = "red"
@@ -458,6 +460,9 @@ class Environment:
         if self.time > MAX_TIME:
             return True
         return False
+
+    def get_winner(self):
+        return self._winner
 
     def get_current_zone(self):
         return self._zone

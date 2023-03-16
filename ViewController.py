@@ -306,7 +306,19 @@ class ViewController:
     def draw_finish_screen(self):
         # TODO: draw finish screen
         # Winner, Score, Time taken etc.
-        pass
+        winner = self.environment.get_winner()
+        color = 'white' if winner == 'draw' else winner
+        text = 'DRAW' if winner == 'draw' else (winner + " won").upper()
+        font_size = 40
+        font_style = ('Arial', font_size, 'bold')
+
+        start_x = 0 - (len(text) * font_size // 4)
+
+        self.pen.clear()
+        self.pen.penup()
+        self.pen.goto(start_x, 0)
+        self.pen.color(color)
+        self.pen.write(text, font=font_style)
 
     def tick(self):
         """Update the environment state and redraw visualization."""
