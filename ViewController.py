@@ -307,15 +307,22 @@ class ViewController:
         # Winner, Score, Time taken etc.
         winner = self.environment.get_winner()
         color = 'white' if winner == 'draw' else winner
-        text = 'DRAW' if winner == 'draw' else (winner + " won").upper()
-        font_size = 40
+        text1 = 'DRAW' if winner == 'draw' else (winner + " won").upper()
+        text2 = "TIME TAKEN : " + str(self.environment.time)
+
+        font_size = 30
         font_style = ('Arial', font_size, 'bold')
 
+        self.turtle.clear()
         self.pen.clear()
         self.pen.penup()
-        self.pen.goto(0, 0)
+        self.pen.goto(0, 30)
         self.pen.color(color)
-        self.pen.write(text, align="center", font=font_style)
+        self.pen.write(text1, align="center", font=font_style)
+        self.pen.penup()
+        self.pen.goto(0, -30)
+        self.pen.color('white')
+        self.pen.write(text2, align="center", font=font_style)
 
     def tick(self):
         """Update the environment state and redraw visualization."""
@@ -339,7 +346,6 @@ class ViewController:
         if self.environment.is_complete():
             # self.screen.bye()
             self.draw_finish_screen()
-
             return
         else:
             end_time = time_ns() // NS_TO_MS
