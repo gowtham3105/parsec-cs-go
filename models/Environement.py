@@ -98,7 +98,8 @@ class Environment:
 
             self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
                              validated_blue_actions)
-                    
+        
+        self.caclulate_score()
         self.time += 1
         return {}
 
@@ -477,5 +478,5 @@ class Environment:
 
         for team in self.scores:
             self.scores[team] = 0
-            for agent_id, agent in self.environment.agents[opposite_team[team]].items():
+            for agent_id, agent in self.agents[opposite_team[team]].items():
                 self.scores[team] += INITIAL_AGENT_HEALTH - agent.get_health()
