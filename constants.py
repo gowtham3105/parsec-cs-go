@@ -14,7 +14,7 @@ VIEW_HEIGHT: int = BOUNDS_HEIGHT + 40
 OBSTACLE_PERCENTAGE: float = 0.15
 MAX_OBSTACLE_SIDES: int = 7
 MIN_OBSTACLE_SIDES: int = 4
-NUMBER_OF_OBSTACLES: int = 20
+NUMBER_OF_OBSTACLES: int = 10
 
 CELL_RADIUS: int = 15
 
@@ -70,7 +70,7 @@ ZONE_COLORS: dict = {
 }
 
 SHRINK_VALUE: int = 10
-FINAL_SIZE = 5  # Half of the side of the final square
+FINAL_SIZE = 30  # Half of the side of the final square
 
 
 INITIAL_AGENT_HEALTH = 100
