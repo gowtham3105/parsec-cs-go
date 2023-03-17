@@ -11,9 +11,10 @@ MAX_Y: float = 200
 MIN_Y: float = -MAX_Y
 VIEW_HEIGHT: int = BOUNDS_HEIGHT + 40
 
-OBSTACLE_PERCENTAGE: float = 0.2
-MAX_OBSTACLE_SIDES: int = 7
-NUMBER_OF_OBSTACLES: int = 10
+OBSTACLE_PERCENTAGE: float = 0.15
+MAX_OBSTACLE_SIDES: int = 4
+MIN_OBSTACLE_SIDES: int = 3
+NUMBER_OF_OBSTACLES: int = 20
 
 CELL_RADIUS: int = 15
 
@@ -36,7 +37,7 @@ FIRE: str = "FIRE"
 
 MAX_TIME: int = 5000
 INVALID_ACTION: int = 20
-INITIAL_BULLET_ENERGY = 75
+INITIAL_BULLET_ENERGY = 50
 
 COLLISION: str = 'collision'
 ZONE: str = 'zone'
@@ -47,7 +48,8 @@ WRONG_AGENT: str = 'opponent_agent'
 
 AGENT_RADIUS: int = 5
 BULLET_RADIUS: int = 2  # Only used for visualization
-AGENT_VIEW_RANGE: float = 50
+AGENT_VIEW_RANGE: float = 30
+AGENTS_PER_TEAM: int = 5
 
 TICKS: Dict[str, int] = {  # Ticks per second
     "Bullet": 5,
