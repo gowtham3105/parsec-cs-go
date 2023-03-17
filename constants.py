@@ -12,8 +12,8 @@ MIN_Y: float = -MAX_Y
 VIEW_HEIGHT: int = BOUNDS_HEIGHT + 40
 
 OBSTACLE_PERCENTAGE: float = 0.15
-MAX_OBSTACLE_SIDES: int = 4
-MIN_OBSTACLE_SIDES: int = 3
+MAX_OBSTACLE_SIDES: int = 7
+MIN_OBSTACLE_SIDES: int = 4
 NUMBER_OF_OBSTACLES: int = 20
 
 CELL_RADIUS: int = 15
@@ -66,7 +66,7 @@ DAMAGES: Dict[str, int] = {
 
 ZONE_COLORS: dict = {
     "zone": "#ffffff",
-    "safe_zone": "#ff0000"
+    "safe_zone": "#bdba28"
 }
 
 SHRINK_VALUE: int = 10
