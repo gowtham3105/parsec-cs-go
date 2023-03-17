@@ -89,7 +89,9 @@ def tick(state: State) -> List[Action]:
             y_rad += random.choice([-1, 1]) * (math.pi/6)
             direction = Point(math.cos(x_rad), math.cos(y_rad))
 
-        action = Action(agent_id, type, direction)
+        if random.uniform(0, 1) < 0.5:
+            action = Action(agent_id, FIRE, direction)
+        else: action = Action(agent_id, type, direction)
         actions.append(action)
 
     return actions

@@ -40,7 +40,7 @@ class Environment:
 
     def __init__(self):
         """Initialize the cells with random locations and directions."""
-        self.obstacles, circles = generate_obstacles_and_agents(5, 10)
+        self.obstacles, circles = generate_obstacles_and_agents(5, 2)
         self.agents = {"red": {}, "blue": {}}
         print(circles)
         for i in range(len(circles)):
@@ -61,7 +61,7 @@ class Environment:
         }
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self.set_new_safe_zone()
-        self._zone_shrink_times = [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]
+        self._zone_shrink_times = [x*10 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
         self.n_invalid_actions = {
             "red": 0,
             "blue": 0
@@ -159,7 +159,7 @@ class Environment:
             if action_type == FIRE:
                 if agent.fire():
                     bullet_location = Point(agent.get_location().x, agent.get_location().y)
-                    offset = Point(action_direction.x * AGENT_RADIUS, action_direction.y * AGENT_RADIUS)
+                    offset = Point(action_direction.x * 1.5*AGENT_RADIUS, action_direction.y * 1.5*AGENT_RADIUS)
                     bullet_location.add(offset)
                     self.bullets.append(Bullet(bullet_location, action_direction, INITIAL_BULLET_ENERGY))
 

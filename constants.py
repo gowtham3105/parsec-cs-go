@@ -36,7 +36,7 @@ FIRE: str = "FIRE"
 
 MAX_TIME: int = 5000
 INVALID_ACTION: int = 20
-INITIAL_BULLET_ENERGY = 50
+INITIAL_BULLET_ENERGY = 75
 
 COLLISION: str = 'collision'
 ZONE: str = 'zone'

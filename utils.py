@@ -5,6 +5,7 @@ from random import uniform
 from constants import *
 import re
 from models.Point import Point
+import numpy as np
 from models.Agent import Agent
 
 
@@ -43,14 +44,13 @@ def is_point_in_vision(agent: Agent, polar_point: Point, opponent_agent_radius: 
 
 
 def find_angle(center: Point, polar: Point, radial: Point) -> float:
-    vector1 = Point(polar.x - center.x, polar.y - center.y)
-    vector2 = Point(radial.x - center.x, radial.y - center.y)
-    dot_product = (vector1.x * vector2.x) + (vector1.y * vector2.y)
-    vector_mod = ((vector1.x ** 2 + vector1.y ** 2) ** 0.5) * ((vector2.x ** 2 + vector2.y ** 2) ** 0.5)
+    vector1 = np.array([polar.x - center.x, polar.y - center.y])
+    vector2 = np.array([radial.x - center.x, radial.y - center.y])
+    vector_mod = np.linalg.norm(vector1) * np.linalg.norm(vector2)
     if vector_mod == 0:
         return 0
 
-    angle = dot_product / vector_mod
+    angle = np.dot(vector1, vector2) / vector_mod
     return math.acos(angle)
 
 
