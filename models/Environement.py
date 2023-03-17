@@ -42,7 +42,6 @@ class Environment:
         """Initialize the cells with random locations and directions."""
         self.obstacles, circles = generate_obstacles_and_agents(NUMBER_OF_OBSTACLES, AGENTS_PER_TEAM<<1)
         self.agents = {"red": {}, "blue": {}}
-        print(circles)
         for i in range(len(circles)):
             if i % 2 == 0:
                 self.agents["red"][str(i // 2)] = (
@@ -62,7 +61,7 @@ class Environment:
         }
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self.set_new_safe_zone()
-        self._zone_shrink_times = [x * 100 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
+        self._zone_shrink_times = [x * 1 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
         self.n_invalid_actions = {
             "red": 0,
             "blue": 0
@@ -73,7 +72,6 @@ class Environment:
         """Update the state of the simulation by one time step."""
         #  TODO: take a look at this
 
-        print(len(self.bullets))
         if self.time % (UNIT_TIME / TICKS['Bullet']) == 0:
             for bullet in self.bullets:
                 if bullet.is_alive():
