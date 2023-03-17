@@ -16,6 +16,21 @@ AGENT_IMAGE = 'gifs/among_us.gif'
 CUR_AGENT_IMAGE = AGENT_IMAGE.split('.')[0] + "edited.gif"
 
 
+class ScaledTurtle(Turtle):
+    def __init__(self, scaling_factor, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.scaling_factor = scaling_factor
+
+    def goto(self, x, y=None):
+        if y is None:
+            x, y = x
+        scaled_x = x * self.scaling_factor
+        scaled_y = y * self.scaling_factor
+        super().goto(scaled_x, scaled_y)
+
+    def forward(self, d):
+        scaled_d = d * self.scaling_factor
+        super().forward(scaled_d)
 class ViewController:
     """This class is responsible for controlling the simulation and visualizing it."""
     screen: Any
@@ -27,18 +42,25 @@ class ViewController:
         self.environment = environment
         self.screen = Screen()
         self.screen.bgcolor("black")
-        self.screen.setup(VIEW_WIDTH, VIEW_HEIGHT)
+        self.screen.setup(width=0.9, height=0.9, startx=None, starty=None)
         self.screen.tracer(0, 0)
         self.screen.delay(0)
-        self.screen.title("Cluster Funk v2")
-        self.pen = Turtle()
+        self.screen.title("AI TREK")
+
+        # Compute scale factor based on screen size and view size
+        screen_width = self.screen.window_width()
+        screen_height = self.screen.window_height()
+        width_scale_factor = screen_width / VIEW_WIDTH
+        height_scale_factor = screen_height / VIEW_HEIGHT
+        self.scale_factor = min(width_scale_factor, height_scale_factor)
+        self.pen = ScaledTurtle(self.scale_factor)
         self.pen.color("black")
 
         self.pen.hideturtle()
         self.pen.speed(0)
 
         im = Image.open(AGENT_IMAGE)
-        size = (AGENT_RADIUS * 2, AGENT_RADIUS * 2)
+        size = (self.scale_factor * AGENT_RADIUS * 2, self.scale_factor * AGENT_RADIUS * 2)
         im.thumbnail(size)
         im.save(CUR_AGENT_IMAGE)
         self.screen.register_shape(CUR_AGENT_IMAGE)
@@ -77,7 +99,7 @@ class ViewController:
                 self.pen.dot(AGENT_RADIUS * 2)  # comment this line and uncomment the next lines to see
                 # images instead of lines
                 self.pen.penup()
-                self.turtle.goto(agent.get_location().x, agent.get_location().y)
+                self.turtle.goto(self.scale_factor * agent.get_location().x, self.scale_factor * agent.get_location().y)
                 self.turtle.stamp()
 
     def draw_bullets(self):
@@ -108,7 +130,7 @@ class ViewController:
                 self.pen.pendown()
                 self.pen.forward(agent.get_range())
                 self.pen.right(90)
-                self.pen.circle(-1 * agent.get_range(), agent.get_view_angle() * 180 / pi, steps=30)
+                self.pen.circle(-1 * agent.get_range() * self.scale_factor, agent.get_view_angle() * 180 / pi, steps=30)
 
     def draw_score_rectangle(self):
 
@@ -282,17 +304,17 @@ class ViewController:
         for obstacle in self.environment.obstacles:
             points = obstacle.corners
             self.pen.penup()
-            self.pen.goto((points[0].x, points[0].y))
+            self.pen.goto(points[0].x, points[0].y)
             self.pen.pendown()
             self.pen.fillcolor('gray')
             self.pen.begin_fill()
 
             # Draw lines to connect each point in order
             for point in points[1:]:
-                self.pen.goto((point.x, point.y))
+                self.pen.goto(point.x, point.y)
 
             # Return to the starting point to close the polygon
-            self.pen.goto((points[0].x, points[0].y))
+            self.pen.goto(points[0].x, points[0].y)
 
             # End the fill and hide the turtle
             self.pen.end_fill()
