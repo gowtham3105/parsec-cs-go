@@ -14,8 +14,10 @@ from random import choice, randint
 
 NS_TO_MS: int = 1000000
 
-AGENT_IMAGE = 'gifs/among_us.gif'
-CUR_AGENT_IMAGE = AGENT_IMAGE.split('.')[0] + "edited.gif"
+AGENT_IMAGE_RED = 'gifs/ship_red.gif'
+CUR_AGENT_IMAGE_RED = AGENT_IMAGE_RED.split('.')[0] + "edited.gif"
+AGENT_IMAGE_BLUE = 'gifs/ship_blue.gif'
+CUR_AGENT_IMAGE_BLUE = AGENT_IMAGE_BLUE.split('.')[0] + "edited.gif"
 
 class ScaledTurtle(Turtle):
     def __init__(self, scaling_factor, *args, **kwargs):
@@ -60,13 +62,20 @@ class ViewController:
         self.pen.hideturtle()
         self.pen.speed(0)
 
-        im = Image.open(AGENT_IMAGE)
+        im = Image.open(AGENT_IMAGE_RED)
         size = (self.scale_factor * AGENT_RADIUS * 2, self.scale_factor * AGENT_RADIUS * 2)
         im.thumbnail(size)
-        im.save(CUR_AGENT_IMAGE)
-        self.screen.register_shape(CUR_AGENT_IMAGE)
-        self.turtle = Turtle(shape=CUR_AGENT_IMAGE)
-        self.turtle.hideturtle()
+        im.save(CUR_AGENT_IMAGE_RED)
+        self.screen.register_shape(CUR_AGENT_IMAGE_RED)
+        self.turtle_r = Turtle(shape=CUR_AGENT_IMAGE_RED)
+        self.turtle_r.hideturtle()
+        
+        im = Image.open(AGENT_IMAGE_BLUE)
+        im.thumbnail(size)
+        im.save(CUR_AGENT_IMAGE_BLUE)
+        self.screen.register_shape(CUR_AGENT_IMAGE_BLUE)
+        self.turtle_b = Turtle(shape=CUR_AGENT_IMAGE_BLUE)
+        self.turtle_b.hideturtle()
 
     def make_square(self, side, color):
         center_x = 0
@@ -111,7 +120,8 @@ class ViewController:
             self.pen.right(90)
 
     def draw_agents(self):
-        self.turtle.clear()
+        self.turtle_r.clear()
+        self.turtle_b.clear()
         for team in self.environment.agents:
             for agent_id, agent in self.environment.agents[team].items():
                 # if not agent.is_alive():
@@ -123,9 +133,14 @@ class ViewController:
                 self.pen.dot(AGENT_RADIUS * 2)  # comment this line and uncomment the next lines to see
                 # images instead of lines
                 self.pen.penup()
-                self.turtle.goto(self.scale_factor * agent.get_location().x, self.scale_factor * agent.get_location().y)
-                self.turtle.stamp()
-                self.turtle.up()
+                if team == 'red':
+                    self.turtle_r.goto(self.scale_factor * agent.get_location().x, self.scale_factor * agent.get_location().y)
+                    self.turtle_r.stamp()
+                    self.turtle_r.up()
+                else:
+                    self.turtle_b.goto(self.scale_factor * agent.get_location().x, self.scale_factor * agent.get_location().y)
+                    self.turtle_b.stamp()
+                    self.turtle_b.up()
 
     def draw_bullets(self):
         for bullet in self.environment.bullets:
@@ -284,7 +299,7 @@ class ViewController:
                 self.pen.goto(-VIEW_WIDTH / 10, (VIEW_HEIGHT) / 2 - ((420 * 0.28)/2))
                 self.pen.pendown()
                 self.pen.color(get_color(team))
-                self.pen.write(f"{score}", align="center", font=("Arial", 16, "bold"))
+                self.pen.write(f"{score}", align="center", font=("Arial", 30, "bold"))
                 self.pen.penup()
                 self.pen.goto(-VIEW_WIDTH / 14, VIEW_HEIGHT / 2 - 420 * 0.23 - 25)
                 self.pen.pendown()
@@ -313,7 +328,7 @@ class ViewController:
                 self.pen.goto(VIEW_WIDTH / 10,  (VIEW_HEIGHT) / 2 - ((420 * 0.28)/2))
                 self.pen.pendown()
                 self.pen.color(get_color(team))
-                self.pen.write(f"{score}", align="center", font=("Arial", 16, "bold"))
+                self.pen.write(f"{score}", align="center", font=("Arial", 30, "bold"))
                 self.pen.penup()
                 self.pen.goto(VIEW_WIDTH / 14, VIEW_HEIGHT / 2 - 420 * 0.23 - 25)
                 self.pen.pendown()
@@ -403,7 +418,8 @@ class ViewController:
         if self.environment.is_complete():
             # self.screen.bye()
             sleep(1)
-            self.turtle.clear()
+            self.turtle_b.clear()
+            self.turtle_r.clear()
             self.pen.clear()
             self.draw_information_boards()
             self.draw_finish_screen()
