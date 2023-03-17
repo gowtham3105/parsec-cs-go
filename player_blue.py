@@ -53,15 +53,15 @@ def tick(state: State) -> List[Action]:
                     dist = opponent.location.distance(agent.get_location())
                     if dist < closest:
                         closest = dist
-                        direction = Point(opponent.direction.x - agent.get_direction().x,
-                                          opponent.direction.y - agent.get_direction().y)
+                        direction = Point(opponent.get_location().x - agent.get_location().x,
+                                          opponent.get_location().y - agent.get_location().y)
                 action = Action(agent_id, type, direction)
                 flag = 1
 
             if flag == 0:
                 for alert in state.alerts:
                     if alert.alert_type == COLLISION:
-                        print("Alert Collision RED")
+                        print("Alert Collision BLUE")
                         type = UPDATE_DIRECTION
                         direction = Point(-agent.get_direction().x,
                                           -agent.get_direction().y)
@@ -69,20 +69,21 @@ def tick(state: State) -> List[Action]:
                         flag = 1
                         break
         if flag == 0:
-            type = UPDATE_VIEW_DIRECTION
-            action = Action(agent_id, type, direction)
-            current_direction = agent.get_view_direction()
-            x_rad = math.acos(current_direction.x /
-                              current_direction.distance(Point(0, 0)))
-            y_rad = math.acos(current_direction.y /
-                              current_direction.distance(Point(0, 0)))
-            x_rad += random.choice([-1, 1]) * (math.pi/6)
-            y_rad += random.choice([-1, 1]) * (math.pi/6)
-            direction = agent.get_direction()
+            if random.uniform(0, 1) < 0.95:
+                type = UPDATE_VIEW_DIRECTION
+                action = Action(agent_id, type, direction)
+                current_direction = agent.get_view_direction()
+                direction = current_direction + \
+                    Point(random.uniform(-1, 1), random.uniform(-1, 1))
+            else:
+                type = UPDATE_DIRECTION
+                action = Action(agent_id, type, direction)
+                current_direction = agent.get_direction()
+                direction = current_direction + \
+                    Point(random.uniform(-1, 1), random.uniform(-1, 1))
 
-        if random.uniform(0, 1) < 1:
-            action = Action(agent_id, FIRE, Point(random.uniform(-3, 3), random.uniform(-3, 3)))
-        else: action = Action(agent_id, type, direction)
+        action = Action(agent_id, type, direction)
+        print("Red:", action)
         actions.append(action)
 
     return actions
