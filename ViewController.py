@@ -28,10 +28,10 @@ class ViewController:
         self.environment = environment
         self.screen = Screen()
         self.screen.bgcolor("black")
-        self.screen.setup(width=1.0, height=1.0, startx=None, starty=None)
+        self.screen.setup(width=0.9, height=0.9, startx=None, starty=None)
         self.screen.tracer(0, 0)
         self.screen.delay(0)
-        self.screen.title("Cluster Funk v2")
+        self.screen.title("AI TREK")
 
         # Compute scale factor based on screen size and view size
         screen_width = self.screen.window_width()
