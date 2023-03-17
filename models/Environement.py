@@ -61,7 +61,7 @@ class Environment:
         }
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self.set_new_safe_zone()
-        self._zone_shrink_times = [x * 10 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
+        self._zone_shrink_times = [x * 5 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
         self.n_invalid_actions = {
             "red": 0,
             "blue": 0
@@ -356,6 +356,8 @@ class Environment:
         for team in self.agents:
             for other_agent in self.agents[team].values():
                 if agent != other_agent:
+                    if not other_agent.is_alive():
+                        continue
                     agent_collision = (agent.get_direction() + agent.get_location()).distance(other_agent.get_location() + other_agent.get_direction()) <= 2 * AGENT_RADIUS
                     if agent_collision:
                         # agent.stop()
