@@ -24,8 +24,8 @@ class Agent:
                   " health {health} and fire time {fire_time} and team {team} and range {range} and view angle {" \
                   "view_angle}"
 
-    def __init__(self, location: Point, direction: Point, view_range: float, view_direction: Point, view_angle: float,
-                 team: str):
+    def __init__(self, location: Point, direction: Point, view_direction: Point, view_angle: float,
+                 team: str, view_range: float = AGENT_VIEW_RANGE):
         """Construct an agent with location, velocity, radius, color, and id."""
         self._location = location
         self._direction = direction  # only 8 directions possible and 0,0 is allowed for stop

@@ -207,10 +207,12 @@ class ViewController:
 
     def draw_information_boards(self):
 
+        self.pen.setheading(0)
         self.draw_score_rectangle()
         self.draw_penalty_rectangle()
         self.divide_score_rectangle()
         self.divide_penalty_rectangle()
+        
 
         # Display score for each team
         for team in self.environment.agents:

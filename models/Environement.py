@@ -13,7 +13,7 @@ from .ObjectSighting import ObjectSighting
 from math import sin, cos, pi
 from .State import State
 from .Obstacle import Obstacle
-from Generator import generate_obstacles
+from Generator import generate_obstacles_and_agents
 from utils import isBetweenLineOfSight, is_point_in_vision, get_section_point, get_random_float
 
 from player_red import tick as player_red_tick
@@ -40,14 +40,16 @@ class Environment:
 
     def __init__(self):
         """Initialize the cells with random locations and directions."""
-        self.agents = {
-            "red": {
-                "0": Agent(Point(50, 0), Point(-1, 0), 50, Point(1, 0), pi, "red")
-            },
-            "blue": {
-                "0": Agent(Point(50, 50), Point(0, -1), 50, Point(-1, 0), pi, "blue")
-            }
-        }
+        self.obstacles, circles = generate_obstacles_and_agents(5, 10)
+        self.agents = {"red": {}, "blue": {}}
+        print(circles)
+        for i in range(len(circles)):
+            if i%2==0:
+                self.agents["red"][str(i//2)] = (Agent(Point(circles[i][0], circles[i][1]), Point(-1, 0), Point(1, 0), pi, "red"))
+            else:
+                self.agents["blue"][str(
+                    i//2)] = (Agent(Point(circles[i][0], circles[i][1]), Point(-1, 0), Point(1, 0), pi, "blue"))
+
         self.bullets = []
         self.alerts = {
             "red": [],
@@ -57,11 +59,13 @@ class Environment:
             "red": 0,
             "blue": 0
         }
-        self.obstacles = generate_obstacles(15)
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self.set_new_safe_zone()
         self._zone_shrink_times = [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]
-
+        self.n_invalid_actions = {
+            "red": 0,
+            "blue": 0
+        }
         self._log = open("log.txt", "w")
 
     def tick(self) -> dict[int | str, int]:
@@ -248,7 +252,7 @@ class Environment:
         return deepcopy(State(agents, object_in_sight, self.alerts[team], team, self.time, self.obstacles, self._zone,
                               self._safe_zone, self._is_zone_shrinking))
 
-    def get_object_in_sight(self, agent: Agent) -> List[ObjectSighting]:
+    def get_object_in_sight(self, agent: Agent) ->Dict[str, List[ObjectSighting]]:
 
         object_in_sight = []
         non_blocked_object_in_sight = []
@@ -265,7 +269,7 @@ class Environment:
         for bullet in self.bullets:
             if is_point_in_vision(agent, bullet.get_location(), 0):
                 object_in_sight.append(ObjectSighting(BULLET, bullet.get_location(), bullet.get_direction()))
-
+        
         # checking if the line of sight passes through a wall
         for _object in object_in_sight:
             blocked = False
@@ -275,7 +279,19 @@ class Environment:
                     break
             if not blocked:
                 non_blocked_object_in_sight.append(_object)
-        return non_blocked_object_in_sight
+        
+        agents, bullets = [], []
+        for non_blocking_object in non_blocked_object_in_sight:
+            if non_blocking_object.object_type == OPPONENT:
+                agents.append(non_blocking_object)
+            else:
+                bullets.append(non_blocking_object)
+                
+        
+        return {
+            "Agents": agents,
+            "Bullets": bullets
+        }
 
     @staticmethod
     def random_location() -> Point:

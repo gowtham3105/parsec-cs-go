@@ -47,6 +47,7 @@ WRONG_AGENT: str = 'opponent_agent'
 
 AGENT_RADIUS: int = 5
 BULLET_RADIUS: int = 2  # Only used for visualization
+AGENT_VIEW_RANGE: float = 50
 
 TICKS: Dict[str, int] = {  # Ticks per second
     "Bullet": 5,
