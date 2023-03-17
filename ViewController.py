@@ -67,6 +67,27 @@ class ViewController:
         self.turtle = Turtle(shape=CUR_AGENT_IMAGE)
         self.turtle.hideturtle()
 
+    def make_square(self, side, color):
+        center_x = 0
+        center_y = 0
+        side_length = side
+        start_x = center_x - side_length / 2
+        start_y = center_y - side_length / 2
+
+        self.pen.setheading(0)
+        self.pen.penup()
+        self.pen.goto(start_x, start_y)
+        self.pen.pendown()
+
+        # Draw the square
+        self.pen.fillcolor(color)
+        self.pen.begin_fill()
+        for i in range(4):
+            self.pen.forward(side_length)
+            self.pen.left(90)
+
+        self.pen.end_fill()
+        # Keep the window open until user closes it
     def start_simulation(self):
         """Call the first tick of the simulation and begin turtle gfx."""
         self.tick()
@@ -101,6 +122,7 @@ class ViewController:
                 self.pen.penup()
                 self.turtle.goto(self.scale_factor * agent.get_location().x, self.scale_factor * agent.get_location().y)
                 self.turtle.stamp()
+                self.turtle.up()
 
     def draw_bullets(self):
         for bullet in self.environment.bullets:
@@ -351,6 +373,8 @@ class ViewController:
         start_time = time_ns() // NS_TO_MS
         self.environment.tick()
         self.pen.clear()
+        self.make_square(2*MAX_X + 50, '#825555')
+        self.make_square(2 * MAX_X, 'black')
         self.draw_information_boards()
         self.draw_zone(self.environment.get_current_zone(), get_zone_color(ZONE))
         self.draw_zone(self.environment.get_current_safe_zone(), get_zone_color(SAFE_ZONE))

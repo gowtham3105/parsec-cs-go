@@ -29,20 +29,20 @@ def tick(state: State) -> List[Action]:
         agent = state.agents[agent_id]
         direction = agent.get_direction()
 
-        if random.random() < 0.2:
-            type = UPDATE_VIEW_DIRECTION
-            current_direction = agent.get_view_direction()
-            x_rad = math.acos(current_direction.x /
-                              current_direction.distance(Point(0, 0)))
-            y_rad = math.acos(current_direction.y /
-                              current_direction.distance(Point(0, 0)))
-            x_rad += random.random() * 2 * math.pi
-            y_rad += random.random() * 2 * math.pi
-            direction = Point(math.cos(x_rad), math.cos(y_rad))
-            action = Action(agent_id, type, direction)
-            flag = 1
+        # if random.random() < 0.2:
+        #     type = UPDATE_VIEW_DIRECTION
+        #     current_direction = agent.get_view_direction()
+        #     x_rad = math.acos(current_direction.x /
+        #                       current_direction.distance(Point(0, 0)))
+        #     y_rad = math.acos(current_direction.y /
+        #                       current_direction.distance(Point(0, 0)))
+        #     x_rad += random.random() * 2 * math.pi
+        #     y_rad += random.random() * 2 * math.pi
+        #     direction = Point(math.cos(x_rad), math.cos(y_rad))
+        #     action = Action(agent_id, type, direction)
+        #     flag = 1
 
-        elif flag == 0:
+        if flag == 0:
             opponents = state.object_in_sight[agent_id]["Agents"]
             bullets = state.object_in_sight[agent_id]["Bullets"]
 
@@ -58,25 +58,16 @@ def tick(state: State) -> List[Action]:
                 action = Action(agent_id, type, direction)
                 flag = 1
 
-            elif flag == 0:
+            if flag == 0:
                 for alert in state.alerts:
-                    if alert.alert_type == BULLET:
+                    if alert.alert_type == COLLISION:
+                        print("Alert Collision RED")
                         type = UPDATE_DIRECTION
-                        direction = Point(agent.get_direction(
-                        ).x + 0.69, agent.get_direction().y + 0.7)
+                        direction = Point(-agent.get_direction().x,
+                                          -agent.get_direction().y)
                         action = Action(agent_id, type, direction)
                         flag = 1
                         break
-
-                if flag == 0:
-                    for alert in state.alerts:
-                        if alert.alert_type == COLLISION:
-                            type = UPDATE_DIRECTION
-                            direction = Point(-agent.get_direction().x, -
-                                              agent.get_direction().y)
-                            action = Action(agent_id, type, direction)
-                            flag = 1
-                            break
         if flag == 0:
             type = UPDATE_VIEW_DIRECTION
             action = Action(agent_id, type, direction)
@@ -87,12 +78,11 @@ def tick(state: State) -> List[Action]:
                               current_direction.distance(Point(0, 0)))
             x_rad += random.choice([-1, 1]) * (math.pi/6)
             y_rad += random.choice([-1, 1]) * (math.pi/6)
-            direction = Point(math.cos(x_rad), math.cos(y_rad))
+            direction = agent.get_direction()
 
-        if random.uniform(0, 1) < 0.5:
-            action = Action(agent_id, FIRE, direction)
-        else:
-            action = Action(agent_id, type, direction)
+        if random.uniform(0, 1) < 1:
+            action = Action(agent_id, FIRE, Point(random.uniform(-3, 3), random.uniform(-3, 3)))
+        else: action = Action(agent_id, type, direction)
         actions.append(action)
 
     return actions
