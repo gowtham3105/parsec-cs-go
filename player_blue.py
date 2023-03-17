@@ -1,6 +1,7 @@
 from models.State import State
 from models.Action import Action
 from models.Point import Point
+from models.Obstacle import Obstacle
 from constants import *
 import random
 import math
@@ -20,6 +21,9 @@ from typing import List
 #              "time} \n Obstacles: {obstacles} \n Zone: {zone} \n Safe Zone: {safe_zone} \n Is Zone Shrinking: {" \
 #              "is_zone_shrinking} "
 
+def is_safe_zone(agent, safe_zone):
+    pseudo_obstacle = Obstacle(safe_zone)
+    return pseudo_obstacle.checkInside(agent.get_location())
 
 def tick(state: State) -> List[Action]:
 
@@ -29,19 +33,13 @@ def tick(state: State) -> List[Action]:
         agent = state.agents[agent_id]
         direction = agent.get_direction()
 
-        # if random.random() < 0.2:
-        #     type = UPDATE_VIEW_DIRECTION
-        #     current_direction = agent.get_view_direction()
-        #     x_rad = math.acos(current_direction.x /
-        #                       current_direction.distance(Point(0, 0)))
-        #     y_rad = math.acos(current_direction.y /
-        #                       current_direction.distance(Point(0, 0)))
-        #     x_rad += random.random() * 2 * math.pi
-        #     y_rad += random.random() * 2 * math.pi
-        #     direction = Point(math.cos(x_rad), math.cos(y_rad))
-        #     action = Action(agent_id, type, direction)
-        #     flag = 1
-
+        if not is_safe_zone(agent, state.safe_zone):
+            p1, p2, p3, p4 = state.safe_zone
+            center_x, center_y = (p1.x + p3.x)/2, (p1.y + p3.y)/2
+            type = UPDATE_DIRECTION
+            direction = Point(center_x - agent.get_location().x, center_y - agent.get_location().y)
+            flag = 1
+            
         if flag == 0:
             opponents = state.object_in_sight[agent_id]["Agents"]
             bullets = state.object_in_sight[agent_id]["Bullets"]
@@ -49,8 +47,9 @@ def tick(state: State) -> List[Action]:
             if len(opponents) != 0:
                 type = FIRE
                 closest = float("inf")
+                len(opponents)
                 for opponent in opponents:
-                    dist = opponent.location.distance(agent.get_location())
+                    dist = opponent.get_location().distance(agent.get_location())
                     if dist < closest:
                         closest = dist
                         direction = Point(opponent.get_location().x - agent.get_location().x,
@@ -63,13 +62,13 @@ def tick(state: State) -> List[Action]:
                     if alert.alert_type == COLLISION:
                         print("Alert Collision BLUE")
                         type = UPDATE_DIRECTION
-                        direction = Point(-agent.get_direction().x,
-                                          -agent.get_direction().y)
+                        direction = Point(agent.get_direction().x,
+                                          agent.get_direction().y) + Point(random.uniform(-3, 3), random.uniform(-3, 3))
                         action = Action(agent_id, type, direction)
                         flag = 1
                         break
         if flag == 0:
-            if random.uniform(0, 1) < 0.95:
+            if random.uniform(0, 1) < 1:
                 type = UPDATE_VIEW_DIRECTION
                 action = Action(agent_id, type, direction)
                 current_direction = agent.get_view_direction()
@@ -83,7 +82,7 @@ def tick(state: State) -> List[Action]:
                     Point(random.uniform(-1, 1), random.uniform(-1, 1))
 
         action = Action(agent_id, type, direction)
-        print("Red:", action)
+        print("Blue:", action)
         actions.append(action)
 
     return actions
