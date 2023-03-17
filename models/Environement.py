@@ -40,7 +40,7 @@ class Environment:
 
     def __init__(self):
         """Initialize the cells with random locations and directions."""
-        self.obstacles, circles = generate_obstacles_and_agents(10, 10)
+        self.obstacles, circles = generate_obstacles_and_agents(NUMBER_OF_OBSTACLES, AGENTS_PER_TEAM<<1)
         self.agents = {"red": {}, "blue": {}}
         print(circles)
         for i in range(len(circles)):
@@ -72,11 +72,15 @@ class Environment:
     def tick(self) -> dict[int | str, int]:
         """Update the state of the simulation by one time step."""
         #  TODO: take a look at this
+
+        print(len(self.bullets))
         if self.time % (UNIT_TIME / TICKS['Bullet']) == 0:
             for bullet in self.bullets:
                 if bullet.is_alive():
                     self.enforce_bullet_collisions(bullet)
                     bullet.tick()
+                else:
+                    self.bullets.remove(bullet)
 
             self.enforce_zone()
 
@@ -369,17 +373,20 @@ class Environment:
         zone_obstacle = Obstacle([point for point in self._zone])
         if not zone_obstacle.checkInside(bullet.get_location()):
             bullet.dead()
+            self.bullets.remove(bullet)
             return
 
         for obstacle in self.obstacles:
             if bullet.is_colliding(obstacle):
                 bullet.dead()
+                self.bullets.remove(bullet)
                 return
 
         for team in self.agents:
             for agent in self.agents[team].values():
                 if bullet.is_colliding(agent):
                     bullet.dead()
+                    self.bullets.remove(bullet)
                     agent.decrease_health(BULLET_HIT)
                     return
 
