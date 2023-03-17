@@ -50,8 +50,10 @@ def find_angle(center: Point, polar: Point, radial: Point) -> float:
     if vector_mod == 0:
         return 0
 
-    angle = np.dot(vector1, vector2) / vector_mod
-    return math.acos(angle)
+    cos_theta = np.dot(vector1, vector2) / vector_mod
+    # Sanity check
+    cos_theta = min(1, max(-1, cos_theta))
+    return np.arccos(cos_theta)
 
 
 def get_section_point(point1: Point, point2: Point, m: int, n: int):
