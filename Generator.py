@@ -5,7 +5,7 @@ import random
 import math
 
 
-def generate_random_circles(N, ):
+def generate_random_circles(N):
     map_area = (MAX_X - MIN_X) * (MAX_Y - MIN_Y)
     circle_area = map_area * OBSTACLE_PERCENTAGE / N
     circles = []
@@ -49,7 +49,7 @@ def generate_obstacles_and_agents(number_of_obstacles, n):
     distinct_circles = generate_random_circles(number_of_obstacles+n)
     print(len(distinct_circles))
     for circle in distinct_circles[:number_of_obstacles]:
-        number_of_points = random.randint(3, MAX_OBSTACLE_SIDES)
+        number_of_points = random.randint(MIN_OBSTACLE_SIDES, MAX_OBSTACLE_SIDES)
         obstacle_corners = get_points_on_circle(circle, number_of_points)
         obstacle = Obstacle(obstacle_corners)
         obstacles.append(obstacle)
