@@ -40,15 +40,16 @@ class Environment:
 
     def __init__(self):
         """Initialize the cells with random locations and directions."""
-        self.obstacles, circles = generate_obstacles_and_agents(5, 2)
+        self.obstacles, circles = generate_obstacles_and_agents(10, 10)
         self.agents = {"red": {}, "blue": {}}
         print(circles)
         for i in range(len(circles)):
-            if i%2==0:
-                self.agents["red"][str(i//2)] = (Agent(Point(circles[i][0], circles[i][1]), Point(-1, 0), Point(1, 0), pi, "red"))
+            if i % 2 == 0:
+                self.agents["red"][str(i // 2)] = (
+                    Agent(str(i // 2), Point(circles[i][0], circles[i][1]), Point(-1, 0), Point(1, 0), pi, "red"))
             else:
                 self.agents["blue"][str(
-                    i//2)] = (Agent(Point(circles[i][0], circles[i][1]), Point(-1, 0), Point(1, 0), pi, "blue"))
+                    i // 2)] = (Agent(str(i // 2), Point(circles[i][0], circles[i][1]), Point(-1, 0), Point(1, 0), pi, "blue"))
 
         self.bullets = []
         self.alerts = {
@@ -61,7 +62,7 @@ class Environment:
         }
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self.set_new_safe_zone()
-        self._zone_shrink_times = [x*10 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
+        self._zone_shrink_times = [x * 10 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
         self.n_invalid_actions = {
             "red": 0,
             "blue": 0
@@ -102,7 +103,7 @@ class Environment:
 
             self.write_stats(red_state, blue_state, red_actions, blue_actions, validated_red_actions,
                              validated_blue_actions)
-        
+
         self.caclulate_score()
         self.time += 1
         return {}
@@ -159,7 +160,7 @@ class Environment:
             if action_type == FIRE:
                 if agent.fire():
                     bullet_location = Point(agent.get_location().x, agent.get_location().y)
-                    offset = Point(action_direction.x * 1.5*AGENT_RADIUS, action_direction.y * 1.5*AGENT_RADIUS)
+                    offset = Point(action_direction.x * 1.5 * AGENT_RADIUS, action_direction.y * 1.5 * AGENT_RADIUS)
                     bullet_location.add(offset)
                     self.bullets.append(Bullet(bullet_location, action_direction, INITIAL_BULLET_ENERGY))
 
@@ -252,7 +253,7 @@ class Environment:
         return deepcopy(State(agents, object_in_sight, self.alerts[team], team, self.time, self.obstacles, self._zone,
                               self._safe_zone, self._is_zone_shrinking))
 
-    def get_object_in_sight(self, agent: Agent) ->Dict[str, List[ObjectSighting]]:
+    def get_object_in_sight(self, agent: Agent) -> Dict[str, List[ObjectSighting]]:
 
         object_in_sight = []
         non_blocked_object_in_sight = []
@@ -269,7 +270,7 @@ class Environment:
         for bullet in self.bullets:
             if is_point_in_vision(agent, bullet.get_location(), 0):
                 object_in_sight.append(ObjectSighting(BULLET, bullet.get_location(), bullet.get_direction()))
-        
+
         # checking if the line of sight passes through a wall
         for _object in object_in_sight:
             blocked = False
@@ -279,15 +280,14 @@ class Environment:
                     break
             if not blocked:
                 non_blocked_object_in_sight.append(_object)
-        
+
         agents, bullets = [], []
         for non_blocking_object in non_blocked_object_in_sight:
             if non_blocking_object.object_type == OPPONENT:
                 agents.append(non_blocking_object)
             else:
                 bullets.append(non_blocking_object)
-                
-        
+
         return {
             "Agents": agents,
             "Bullets": bullets
@@ -306,19 +306,27 @@ class Environment:
         y = sin(angle)
         return Point(x, y)
 
-    @staticmethod
-    def enforce_bounds(agent: Agent) -> None:
-        """Cause a cell to 'bounce' if it goes out of bounds."""
 
+    def enforce_bounds(self, agent: Agent) -> None:
+        """Cause a cell to 'bounce' if it goes out of bounds."""
+        is_alert = False
         if agent.get_location().x + AGENT_RADIUS > MAX_X:
             agent.set_location(Point(MAX_X - AGENT_RADIUS, agent.get_location().y))
+            is_alert = True
+
         if agent.get_location().x - AGENT_RADIUS < MIN_X:
             agent.set_location(Point(MIN_X + AGENT_RADIUS, agent.get_location().y))
+            is_alert = True
 
         if agent.get_location().y + AGENT_RADIUS > MAX_Y:
             agent.set_location(Point(agent.get_location().x, MAX_Y - AGENT_RADIUS))
+            is_alert = True
         if agent.get_location().y - AGENT_RADIUS < MIN_Y:
             agent.set_location(Point(agent.get_location().x, MIN_Y + AGENT_RADIUS))
+            is_alert = True
+
+        if is_alert:
+            self.alerts[agent.get_team()].append(Alert(COLLISION, agent.agent_id))
 
     def enforce_collisions(self, agent: Agent) -> None:
         """Cause an agent to stop if it collides with another agent."""
@@ -333,35 +341,46 @@ class Environment:
             agent.stop()
             return
 
-        # Checking agent-wall collision
+        # Checking agent-obstacle collision
         for obstacle in self.obstacles:
-            if obstacle.intersects_circle(agent.get_location(), AGENT_RADIUS):
-                agent.stop()
+            if obstacle.intersects_circle(agent.get_location() + agent.get_direction(), AGENT_RADIUS):
+                # agent.stop()
+                agent.get_location().sub(agent.get_direction())
+                self.alerts[agent.get_team()].append(Alert(COLLISION, agent.agent_id))
                 break
 
         # Checking agent-agent collision
         for team in self.agents:
             for other_agent in self.agents[team].values():
                 if agent != other_agent:
-                    agent_collision = agent.get_location().distance(other_agent.get_location()) <= 2 * AGENT_RADIUS
+                    agent_collision = (agent.get_direction() + agent.get_location()).distance(other_agent.get_location() + other_agent.get_direction()) <= 2 * AGENT_RADIUS
                     if agent_collision:
-                        agent.stop()
+                        # agent.stop()
+                        agent.get_location().sub(agent.get_direction())
+                        self.alerts[agent.get_team()].append(Alert(COLLISION, agent.agent_id))
                     break
 
         return
 
     def enforce_bullet_collisions(self, bullet: Bullet) -> None:
         """Cause a bullet to stop if it collides with another agent or obstacle."""
-        # check collision with walls
+        # check collision with zone
+        zone_obstacle = Obstacle([point for point in self._zone])
+        if not zone_obstacle.checkInside(bullet.get_location()):
+            bullet.dead()
+            return
+
         for obstacle in self.obstacles:
             if bullet.is_colliding(obstacle):
                 bullet.dead()
+                return
 
         for team in self.agents:
             for agent in self.agents[team].values():
                 if bullet.is_colliding(agent):
                     bullet.dead()
                     agent.decrease_health(BULLET_HIT)
+                    return
 
     def decrease_agent_health(self, bullet: Bullet, agent):
         """Decrease the heath of agent depending on the energy of bullet"""
@@ -462,7 +481,7 @@ class Environment:
         is_blue_dead = self.is_all_dead("blue")
 
         if is_blue_dead and is_red_dead:
-            #need to see score here
+            # need to see score here
 
             self._winner = "draw"
         elif is_blue_dead:
@@ -487,7 +506,7 @@ class Environment:
 
     def get_current_safe_zone(self):
         return self._safe_zone
-    
+
     def caclulate_score(self):
         """Calculate the score for each team"""
         opposite_team = {"red": "blue", "blue": "red"}

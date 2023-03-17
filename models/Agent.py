@@ -19,12 +19,13 @@ class Agent:
 
     _team: str
     _id: int
+    agent_id: str
 
     STRING: str = "Agent with id {id} at {location} and direction {direction} and view direction {view_direction} and" \
                   " health {health} and fire time {fire_time} and team {team} and range {range} and view angle {" \
                   "view_angle}"
 
-    def __init__(self, location: Point, direction: Point, view_direction: Point, view_angle: float,
+    def __init__(self, agent_id: str, location: Point, direction: Point, view_direction: Point, view_angle: float,
                  team: str, view_range: float = AGENT_VIEW_RANGE):
         """Construct an agent with location, velocity, radius, color, and id."""
         self._location = location
@@ -35,6 +36,7 @@ class Agent:
         self._health = INITIAL_AGENT_HEALTH
         self._team = team
         self._id = id(self)
+        self.agent_id = agent_id
         self._fire_time = 0
 
     def __str__(self) -> str:

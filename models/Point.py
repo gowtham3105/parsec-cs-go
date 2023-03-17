@@ -31,6 +31,12 @@ class Point:
         self.y += other.y
         return True
 
+    def sub(self, other):
+        """Add two Point objects together and return a new Point."""
+        self.x -= other.x
+        self.y -= other.y
+        return True
+
     def distance(self, other) -> float:
         """Return the distance between two points."""
         x: float = self.x - other.x
@@ -66,3 +72,6 @@ class Point:
     def __repr__(self) -> str:
         """Return a string representation of the point."""
         return Point.STRING.format(x=self.x, y=self.y)
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)

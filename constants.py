@@ -2,12 +2,12 @@
 from typing import Dict
 
 BOUNDS_WIDTH: int = 600
-MAX_X: float = BOUNDS_WIDTH / 2
+MAX_X: float = 200
 MIN_X: float = -MAX_X
 VIEW_WIDTH: int = BOUNDS_WIDTH + 20
 
 BOUNDS_HEIGHT: int = 600
-MAX_Y: float = BOUNDS_HEIGHT / 2
+MAX_Y: float = 200
 MIN_Y: float = -MAX_Y
 VIEW_HEIGHT: int = BOUNDS_HEIGHT + 40
 

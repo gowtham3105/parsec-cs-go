@@ -209,9 +209,9 @@ class ViewController:
 
         self.pen.setheading(0)
         self.draw_score_rectangle()
-        self.draw_penalty_rectangle()
+        # self.draw_penalty_rectangle()
         self.divide_score_rectangle()
-        self.divide_penalty_rectangle()
+        # self.divide_penalty_rectangle()
         
 
         # Display score for each team
@@ -243,7 +243,7 @@ class ViewController:
                 self.pen.pendown()
 
                 # Write penalty Score
-                self.pen.write(f"{score}", align="center", font=("Arial", 13, "bold"))
+                # self.pen.write(f"{score}", align="center", font=("Arial", 13, "bold"))
 
             elif team == 'blue':
                 score = 500
@@ -272,7 +272,7 @@ class ViewController:
                 self.pen.pendown()
 
                 # Write penalty Score
-                self.pen.write(f"{score}", align="center", font=("Arial", 13, "bold"))
+                # self.pen.write(f"{score}", align="center", font=("Arial", 13, "bold"))
     
         # TODO: draw information boards
         # Health, Score Fire COOLDOWN, recent alerts headlines etc.
@@ -329,7 +329,7 @@ class ViewController:
         start_time = time_ns() // NS_TO_MS
         self.environment.tick()
         self.pen.clear()
-
+        self.draw_information_boards()
         self.draw_zone(self.environment.get_current_zone(), get_zone_color(ZONE))
         self.draw_zone(self.environment.get_current_safe_zone(), get_zone_color(SAFE_ZONE))
         self.draw_agent_view_areas()
@@ -337,7 +337,6 @@ class ViewController:
         self.draw_bullets()
         self.draw_obstacles()
 
-        self.draw_information_boards()
 
         self.draw_zone_information_boards()
 
