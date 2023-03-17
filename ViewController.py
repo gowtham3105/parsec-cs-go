@@ -9,12 +9,13 @@ from typing import Any
 from time import time_ns
 from utils import get_color, get_zone_color
 from PIL import Image
+from time import  sleep
+from random import choice, randint
 
 NS_TO_MS: int = 1000000
 
 AGENT_IMAGE = 'gifs/among_us.gif'
 CUR_AGENT_IMAGE = AGENT_IMAGE.split('.')[0] + "edited.gif"
-
 
 class ScaledTurtle(Turtle):
     def __init__(self, scaling_factor, *args, **kwargs):
@@ -88,6 +89,7 @@ class ViewController:
 
         self.pen.end_fill()
         # Keep the window open until user closes it
+
     def start_simulation(self):
         """Call the first tick of the simulation and begin turtle gfx."""
         self.tick()
@@ -97,6 +99,7 @@ class ViewController:
         zone_length = zone[0].distance(zone[3])
         zone_breadth = zone[0].distance(zone[1])
         self.pen.penup()
+        self.pen.pensize(3)
         self.pen.goto(zone[3].x, zone[3].y)
         self.pen.setheading(0)
         self.pen.pendown()
@@ -326,6 +329,8 @@ class ViewController:
         for obstacle in self.environment.obstacles:
             points = obstacle.corners
             self.pen.penup()
+            self.pen.pensize(0)
+            self.pen.color('white')
             self.pen.goto(points[0].x, points[0].y)
             self.pen.pendown()
             self.pen.fillcolor('gray')
@@ -357,8 +362,6 @@ class ViewController:
         font_size = 30
         font_style = ('Arial', font_size, 'bold')
 
-        self.turtle.clear()
-        self.pen.clear()
         self.pen.penup()
         self.pen.goto(0, 30)
         self.pen.color(color)
@@ -368,12 +371,23 @@ class ViewController:
         self.pen.color('white')
         self.pen.write(text2, align="center", font=font_style)
 
+    def write_time(self):
+
+        text = "TIME : " + str(self.environment.time)
+        font_size = 20
+        font_style = ('Arial', font_size, 'bold')
+        self.pen.penup()
+        self.pen.goto(0, -275)
+        self.pen.color('white')
+        self.pen.write(text, align="center", font=font_style)
+
     def tick(self):
         """Update the environment state and redraw visualization."""
         start_time = time_ns() // NS_TO_MS
         self.environment.tick()
+
         self.pen.clear()
-        self.make_square(2*MAX_X + 50, '#825555')
+        self.make_square(2*MAX_X + 25, '#808080')
         self.make_square(2 * MAX_X, 'black')
         self.draw_information_boards()
         self.draw_zone(self.environment.get_current_zone(), get_zone_color(ZONE))
@@ -382,14 +396,16 @@ class ViewController:
         self.draw_agents()
         self.draw_bullets()
         self.draw_obstacles()
-
-
-        self.draw_zone_information_boards()
+        self.write_time()
 
         self.screen.update()
 
         if self.environment.is_complete():
             # self.screen.bye()
+            sleep(1)
+            self.turtle.clear()
+            self.pen.clear()
+            self.draw_information_boards()
             self.draw_finish_screen()
             return
         else:
