@@ -61,7 +61,7 @@ class Environment:
         }
         self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self.set_new_safe_zone()
-        self._zone_shrink_times = [x * 1 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
+        self._zone_shrink_times = [x * 10 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
         self.n_invalid_actions = {
             "red": 0,
             "blue": 0
@@ -264,7 +264,7 @@ class Environment:
         for team in self.agents:
             if team != agent.get_team():
                 for opponent_agent in self.agents[team].values():
-                    if is_point_in_vision(agent, opponent_agent.get_location(), opponent_agent.get_radius()):
+                    if opponent_agent.is_alive() and is_point_in_vision(agent, opponent_agent.get_location(), opponent_agent.get_radius()):
                         object_in_sight.append(ObjectSighting(OPPONENT, opponent_agent.get_location(),
                                                               opponent_agent.get_direction()))
 
