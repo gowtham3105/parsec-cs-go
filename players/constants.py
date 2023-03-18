@@ -1,15 +1,27 @@
 """Constants used through the simulation."""
 from typing import Dict
 
-BOUNDS_WIDTH: int = 400
-MAX_X: float = BOUNDS_WIDTH / 2
+BOUNDS_WIDTH: int = 600
+MAX_X: float = 200
 MIN_X: float = -MAX_X
 VIEW_WIDTH: int = BOUNDS_WIDTH + 20
 
-BOUNDS_HEIGHT: int = 400
-MAX_Y: float = BOUNDS_HEIGHT / 2
+ENV_HOST = "localhost"
+RED_HOST = "localhost"
+BLUE_HOST = "localhost"
+ENV_PORT = 7000
+RED_PORT = 7001
+BLUE_PORT = 7002
+
+BOUNDS_HEIGHT: int = 600
+MAX_Y: float = 200
 MIN_Y: float = -MAX_Y
-VIEW_HEIGHT: int = BOUNDS_HEIGHT + 20
+VIEW_HEIGHT: int = BOUNDS_HEIGHT + 40
+
+OBSTACLE_PERCENTAGE: float = 0.15
+MAX_OBSTACLE_SIDES: int = 7
+MIN_OBSTACLE_SIDES: int = 4
+NUMBER_OF_OBSTACLES: int = 10
 
 CELL_RADIUS: int = 15
 
@@ -43,6 +55,8 @@ WRONG_AGENT: str = 'opponent_agent'
 
 AGENT_RADIUS: int = 5
 BULLET_RADIUS: int = 2  # Only used for visualization
+AGENT_VIEW_RANGE: float = 30
+AGENTS_PER_TEAM: int = 5
 
 TICKS: Dict[str, int] = {  # Ticks per second
     "Bullet": 5,
@@ -50,7 +64,8 @@ TICKS: Dict[str, int] = {  # Ticks per second
 }
 
 # multiple all Ticks here always
-UNIT_TIME: int = TICKS['Bullet'] * TICKS['Agent']  # Time in which all objects move at least once
+# Time in which all objects move at least once
+UNIT_TIME: int = TICKS['Bullet'] * TICKS['Agent']
 DAMAGES: Dict[str, int] = {
     BULLET_HIT: 10,
     OUTSIDE_ZONE: 1
@@ -58,8 +73,11 @@ DAMAGES: Dict[str, int] = {
 
 ZONE_COLORS: dict = {
     "zone": "#ffffff",
-    "safe_zone": "#ff0000"
+    "safe_zone": "#bdba28"
 }
 
 SHRINK_VALUE: int = 10
-FINAL_SIZE = 5  # Half of the side of the final square
+FINAL_SIZE = 30  # Half of the side of the final square
+
+
+INITIAL_AGENT_HEALTH = 100

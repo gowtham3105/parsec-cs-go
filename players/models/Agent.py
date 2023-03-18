@@ -5,7 +5,7 @@ from constants import DAMAGES
 
 class Agent:
     """A model of a cell agent."""
-    AGENT_RADIUS: int = AGENT_RADIUS   # Radius of the agent
+    AGENT_RADIUS: int = AGENT_RADIUS  # Radius of the agent
     _location: Point  # current location of the agent
     _direction: Point  # angle in which the agent is going
 
@@ -15,26 +15,28 @@ class Agent:
     _view_direction: Point  # angle in which the agent is facing
     _fire_time: int  # time until the agent can fire again
 
-    _health: int = 100  # health of the agent
+    _health: int = INITIAL_AGENT_HEALTH  # health of the agent
 
     _team: str
     _id: int
+    agent_id: str
 
     STRING: str = "Agent with id {id} at {location} and direction {direction} and view direction {view_direction} and" \
                   " health {health} and fire time {fire_time} and team {team} and range {range} and view angle {" \
                   "view_angle}"
 
-    def __init__(self, location: Point, direction: Point, view_range: float, view_direction: Point, view_angle: float,
-                 team: str):
+    def __init__(self, agent_id: str, location: Point, direction: Point, view_direction: Point, view_angle: float,
+                 team: str, view_range: float = AGENT_VIEW_RANGE):
         """Construct an agent with location, velocity, radius, color, and id."""
         self._location = location
         self._direction = direction  # only 8 directions possible and 0,0 is allowed for stop
         self._range = view_range
         self._view_angle = view_angle
         self._view_direction = view_direction
-        self._health = 100
+        self._health = INITIAL_AGENT_HEALTH
         self._team = team
         self._id = id(self)
+        self.agent_id = agent_id
         self._fire_time = 0
 
     def __str__(self) -> str:
@@ -98,7 +100,7 @@ class Agent:
             self._fire_time = FIRE_COOLDOWN
             return True
         return False
-    
+
     def can_fire(self) -> bool:
         return self._fire_time == 0
 
@@ -119,29 +121,5 @@ class Agent:
     def set_location(self, location: Point) -> None:
         self._location = location
 
-    def set_id(self, id: int) -> None:
-        self._id = id
-
-    def set_health(self, health: int) -> None:
-        self._health = health
-
-    def set_fire_time(self, fire_time: int) -> None:
-        self._fire_time = fire_time
-
-    @staticmethod
-    def generate_object(data: dict):
-        params = {
-            "location": Point(data['location']['x'], data['location']['y']),
-            "direction": Point(data['direction']['x'], data['direction']['y']),
-            "view_direction": Point(data['view_direction']['x'], data['view_direction']['y']),
-            "view_angle": data['view_angle'],
-            "view_range": data['range'],
-            "team": data['team']
-
-        }
-        agent = Agent(**params)
-        agent.set_id(data['id'])
-        agent.set_health(data['health'])
-        agent.set_fire_time(data['fire_time'])
-
-        return agent
+    def is_alive(self) -> bool:
+        return self._health > 0

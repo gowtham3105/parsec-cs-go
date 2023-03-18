@@ -6,6 +6,13 @@ MAX_X: float = 200
 MIN_X: float = -MAX_X
 VIEW_WIDTH: int = BOUNDS_WIDTH + 20
 
+ENV_HOST = "localhost"
+RED_HOST = "localhost"
+BLUE_HOST = "localhost"
+ENV_PORT = 7000
+RED_PORT = 7001
+BLUE_PORT = 7002
+
 BOUNDS_HEIGHT: int = 600
 MAX_Y: float = 200
 MIN_Y: float = -MAX_Y
@@ -74,5 +81,3 @@ FINAL_SIZE = 30  # Half of the side of the final square
 
 
 INITIAL_AGENT_HEALTH = 100
-
-PLAYER_REQUEST_TIMEOUT: int = 100  # seconds

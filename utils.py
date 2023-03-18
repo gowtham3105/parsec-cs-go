@@ -1,5 +1,3 @@
-import os
-
 from shapely import LineString, Polygon
 from typing import List
 import math
@@ -72,46 +70,3 @@ def get_random_float(num1: float, num2: float) -> float:
 def get_zone_color(zone: str) -> str:
     """Return a color based on the zone."""
     return ZONE_COLORS[zone]
-
-def ping_url(url):
-    import requests
-    try:
-        response = requests.get(url)
-        return response.status_code == 200
-    except:
-        return False
-
-
-def validate_player_client_urls(clients: list[dict], health_check_route) -> list[dict]:
-    valid_clients = []
-    for client in clients:
-        if ping_url(client['client_url'] + health_check_route):
-            valid_clients.append(client)
-
-    return valid_clients
-
-
-def get_urls(teams: List[str]) -> list[dict]:
-    clients = []
-    HEALTH_CHECK_ROUTE = os.getenv("HEALTH_CHECK_ROUTE")
-    if not HEALTH_CHECK_ROUTE:
-        raise ValueError("HEALTH_CHECK_ROUTE not set")
-    for team in teams:
-        player_client_host_key = f"PLAYER_{team.upper()}_CLIENT_HOST"
-        player_client_port_key = f"PLAYER_{team.upper()}_CLIENT_PORT"
-        player_client_token = f"PLAYER_{team.upper()}_TOKEN"
-
-        player_client_host = os.getenv(player_client_host_key)
-        player_client_port = os.getenv(player_client_port_key)
-        player_client_token = os.getenv(player_client_token)
-
-        url = f"http://{player_client_host}:{player_client_port}"
-        data = {
-            "token": player_client_token,
-            "client_url": url,
-            "team": team
-        }
-        clients.append(data)
-
-    validated_clients = validate_player_client_urls(clients, HEALTH_CHECK_ROUTE)
-    return validated_clients

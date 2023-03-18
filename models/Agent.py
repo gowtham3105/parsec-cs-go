@@ -123,16 +123,3 @@ class Agent:
 
     def is_alive(self) -> bool:
         return self._health > 0
-    
-    def json(self) -> dict:
-        return {
-            "location": self._location.__dict__,
-            "direction": self._direction.__dict__,
-            "view_direction": self._view_direction.__dict__,
-            "health": self._health,
-            "team": self._team,
-            "id": self._id,
-            "fire_time": self._fire_time,
-            "range": self._range,
-            "view_angle": self._view_angle
-        }

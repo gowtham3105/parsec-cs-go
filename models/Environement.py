@@ -1,6 +1,5 @@
 from __future__ import annotations
 from typing import List
-from time import time as systime
 import time
 from random import random, randint
 from constants import *
@@ -15,13 +14,16 @@ from math import sin, cos, pi
 from .State import State
 from .Obstacle import Obstacle
 from Generator import generate_obstacles_and_agents
-from .Player import Player
 from utils import isBetweenLineOfSight, is_point_in_vision, get_section_point, get_random_float
 
+# from player_red import tick as player_red_tick
+# from player_blue import tick as player_blue_tick
+import socket
+import pickle
 
 class Environment:
     """The state of the environment."""
-    players: Dict[str, Player]
+
     agents: Dict[str, Dict[str, Agent]]
     bullets: List[Bullet]
     scores = Dict[str, int]
@@ -37,7 +39,7 @@ class Environment:
     _shrink_value: int = SHRINK_VALUE  # Choosing a random point in length/shrink_value of a side
     _winner: str
 
-    def __init__(self, clients: List[dict]):
+    def __init__(self):
         """Initialize the cells with random locations and directions."""
         self.obstacles, circles = generate_obstacles_and_agents(NUMBER_OF_OBSTACLES, AGENTS_PER_TEAM<<1)
         self.agents = {"red": {}, "blue": {}}
@@ -65,11 +67,11 @@ class Environment:
             "red": 0,
             "blue": 0
         }
-        self._zone_shrink_times = [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 500]
-
-        self.players = {client['team']: Player(**client) for client in clients}
-
         self._log = open("log.txt", "w")
+        
+        self.env_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.env_socket.bind((ENV_HOST, ENV_PORT))
+        self.env_socket.settimeout(1)
 
     def tick(self) -> dict[int | str, int]:
         """Update the state of the simulation by one time step."""
@@ -91,17 +93,36 @@ class Environment:
                     agent.tick()
                     self.enforce_bounds(agent)
                     self.enforce_collisions(agent)
-
             red_state = self.generate_state('red')
             blue_state = self.generate_state('blue')
 
-            red_actions = self.players['red'].tick(red_state)
-            start_time = systime()
-            blue_actions = self.players['blue'].tick(blue_state)
-            end_time = systime()
-            print("blue actions are")
-            print(blue_actions)
-            print(f"time for getting the actions is {end_time - start_time}")
+
+
+            red_state_serial = pickle.dumps(red_state)
+            blue_state_serial = pickle.dumps(blue_state)
+            
+            
+            self.env_socket.sendto(red_state_serial, (RED_HOST, RED_PORT))
+            try:
+                red_actions_serial, _ = self.env_socket.recvfrom(4096)
+                red_actions = pickle.loads(red_actions_serial)
+            except Exception as e:
+                print("Red Timeout:", e)
+                red_actions = []
+                
+            self.env_socket.sendto(blue_state_serial, (BLUE_HOST, BLUE_PORT))
+            try:
+                blue_actions_serial, _ = self.env_socket.recvfrom(4096)
+                blue_actions = pickle.loads(blue_actions_serial)
+            except Exception as e:
+                print("Blue Timeout:", e)
+                blue_actions = []
+            
+            # red_actions = player_red_tick(red_state)
+            # blue_actions = player_blue_tick(blue_state)
+            
+            
+            
             self.alerts['red'] = []
             self.alerts['blue'] = []
 

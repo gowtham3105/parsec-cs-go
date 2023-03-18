@@ -56,10 +56,3 @@ class Obstacle:
         for i in range(self.n):
             edges.append(Line(self.corners[i], self.corners[(i + 1) % self.n]))
         return edges
-
-    @staticmethod
-    def generate_object(data: dict):
-        corners: List[Point] = []
-        for corner in data['corners']:
-            corners.append(Point(corner['x'], corner['y']))
-        return Obstacle(corners)

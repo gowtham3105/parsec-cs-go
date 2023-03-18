@@ -396,7 +396,7 @@ class ViewController:
         self.pen.color('white')
         self.pen.write(text, align="center", font=font_style)
 
-    def tick(self) -> dict[str, str or list[int]]:
+    def tick(self):
         """Update the environment state and redraw visualization."""
         start_time = time_ns() // NS_TO_MS
         self.environment.tick()

@@ -20,9 +20,7 @@ class State:
              "time} \n Obstacles: {obstacles} \n Zone: {zone} \n Safe Zone: {safe_zone} \n Is Zone Shrinking: {" \
              "is_zone_shrinking} "
 
-    def __init__(self, agents: Dict[str, Agent], object_in_sight: Dict[str, List], alerts: List[Alert], team: str,
-                 time: int, obstacles: List[Obstacle], zone: List[Point], safe_zone: List[Point],
-                 is_zone_shrinking: bool):
+    def __init__(self, agents: Dict[str, Agent], object_in_sight: Dict[str, List], alerts: List[Alert], team: str, time: int, obstacles: List[Obstacle], zone: List[Point], safe_zone: List[Point], is_zone_shrinking: bool):
         self.agents = agents
         self.object_in_sight = object_in_sight
         self.alerts = alerts
@@ -34,46 +32,12 @@ class State:
         self.is_zone_shrinking = is_zone_shrinking
 
     def __str__(self):
-        return self.STRING.format(agents=self.agents, object_in_sight=self.object_in_sight, alerts=self.alerts,
-                                  team=self.team, time=self.time, obstacles=self.obstacles, zone=self.zone,
-                                  safe_zone=self.safe_zone, is_zone_shrinking=self.is_zone_shrinking)
+        return self.STRING.format(agents=self.agents, object_in_sight=self.object_in_sight, alerts=self.alerts, team=self.team, time=self.time, obstacles=self.obstacles, zone=self.zone, safe_zone=self.safe_zone, is_zone_shrinking=self.is_zone_shrinking)
 
     def __repr__(self):
-        return self.STRING.format(agents=self.agents, object_in_sight=self.object_in_sight, alerts=self.alerts,
-                                  team=self.team, time=self.time, obstacles=self.obstacles, zone=self.zone,
-                                  safe_zone=self.safe_zone, is_zone_shrinking=self.is_zone_shrinking)
+        return self.STRING.format(agents=self.agents, object_in_sight=self.object_in_sight, alerts=self.alerts, team=self.team, time=self.time, obstacles=self.obstacles, zone=self.zone, safe_zone=self.safe_zone, is_zone_shrinking=self.is_zone_shrinking)
 
-    def json(self):
 
-        # print("\n\n\nprinting state.json\n")
-        # print( {
-        #         agent_id: {
-        #     object_type: [object_sighting.__dict__ for object_sighting in object_sightings] for
-        #                         object_type, object_sightings in objects } for agent_id, objects in self.object_in_sight.items()})
-        objects_in_sight = {}
-        for agent_id, objects in self.object_in_sight.items():
-            objects_in_sight[agent_id] = {}
-            for object_type, object_sightings in objects.items():
-                objects_in_sight[agent_id][object_type] = []
-                for object_sighting in object_sightings:
-                    objects_in_sight[agent_id][object_type].append(object_sighting.__dict__)
-        # print(objects_in_sight)
 
-        return {
-            "agents": {agent_id: agent.json() for agent_id, agent in self.agents.items()},
-            # "object_in_sight": {object_type: [object_sighting.__dict__ for object_sighting in object_sightings] for
-            #                     object_type, object_sightings in self.object_in_sight.items()},
-            # "object_in_sight": {
-            #     agent_id: {
-            # object_type: [object_sighting.json() for object_sighting in object_sightings] for
-            #                     object_type, object_sightings in objects } for agent_id, objects in self.object_in_sight.items()},
-            "object_in_sight": objects_in_sight,
-            "alerts": [alert.__dict__ for alert in self.alerts],
-            "team": self.team,
-            "time": self.time,
-            "obstacles": [obstacle.json() for obstacle in self.obstacles],
-            "zone": [point.__dict__ for point in self.zone],
-            "safe_zone": [point.__dict__ for point in self.safe_zone],
-            "is_zone_shrinking": self.is_zone_shrinking
 
-        }
+
