@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  web-red:
+    build: .
+    ports:
+      - "9000:9000"
+    environment:
+      - PLAYER_TEAM=red
+  web-blue:
+    build: .
+    ports:
+      - "9001:9001"
+    environment:
+        - PLAYER_TEAM=blue
