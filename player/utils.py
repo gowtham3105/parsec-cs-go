@@ -13,6 +13,8 @@ from models.Obstacle import Obstacle
 from models.Point import Point
 from models.State import State
 
+import traceback
+
 DEFAULT_PLAYER = 'env'
 
 
@@ -37,16 +39,18 @@ def validate_command_line_args(args: argparse.Namespace):
         raise Exception(f"Player file players/player_{args.player}.py does not exist")
 
 
-def generate_agents(agents: List) -> List[Agent]:
+def generate_agents(agents: dict) -> dict:
     """Generate the agents."""
-    return [Agent.generate_object(agent) for agent in agents]
+    return {agent: Agent.generate_object(agents[agent]) for agent in agents}
 
 
 def generate_object_sighting(object_in_sight: dict) -> Dict[str, List[ObjectSighting]]:
     """Generate the object sighting."""
     objects = {}
-    for object_type in object_in_sight:
-        objects[object_type] = [ObjectSighting.generate_object(obj) for obj in object_in_sight[object_type]]
+    for agent in object_in_sight:
+        objects[agent] = {}
+        for object_type in object_in_sight[agent]:
+            objects[agent][object_type] = [ObjectSighting.generate_object(obj) for obj in object_in_sight[agent][object_type]]
 
     return objects
 
@@ -99,6 +103,7 @@ def authorized(token: str):
                 return result
             except Exception as e:
                 print(e)
+                traceback.print_exc()
                 raise HTTPException(status_code=401, detail="Unauthorized")
 
         return wrapped

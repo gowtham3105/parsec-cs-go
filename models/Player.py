@@ -5,6 +5,7 @@ import requests
 
 from models.Action import Action
 from models.State import State
+from  models.Point import  Point
 from constants import PLAYER_REQUEST_TIMEOUT
 
 
@@ -32,19 +33,22 @@ class Player:
         }
 
         try:
+
             req = requests.post(
                 self.get_full_url(),
                 json=data,
                 timeout=PLAYER_REQUEST_TIMEOUT,
             )
             if req.status_code == 200:
-                return [Action(**action) for action in req.json()["actions"]]
+                return [Action(agent_id=action['agent_id'], action_type=action['type'], direction=Point(action['direction']['x'], action['direction']['y'])) for action in req.json()["actions"]]
+            else:
+                return  []
         except requests.exceptions.Timeout:
             print(f"Player {self.team}'s Request timed out")
-            return None
+            return []
         except Exception as e:
             print(e)
-            return None
+            return []
 
     def __str__(self):
         return f"Player with id {self._id} and token {self.token}"

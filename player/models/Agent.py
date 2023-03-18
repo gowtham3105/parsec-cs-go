@@ -135,7 +135,7 @@ class Agent:
             "direction": Point(data['direction']['x'], data['direction']['y']),
             "view_direction": Point(data['view_direction']['x'], data['view_direction']['y']),
             "view_angle": data['view_angle'],
-            "view_range": data['view_range'],
+            "view_range": data['range'],
             "team": data['team']
 
         }

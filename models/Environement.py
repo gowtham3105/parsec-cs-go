@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import List
+from time import time as systime
 import time
 from random import random, randint
 from constants import *
@@ -95,8 +96,12 @@ class Environment:
             blue_state = self.generate_state('blue')
 
             red_actions = self.players['red'].tick(red_state)
+            start_time = systime()
             blue_actions = self.players['blue'].tick(blue_state)
-
+            end_time = systime()
+            print("blue actions are")
+            print(blue_actions)
+            print(f"time for getting the actions is {end_time - start_time}")
             self.alerts['red'] = []
             self.alerts['blue'] = []
 

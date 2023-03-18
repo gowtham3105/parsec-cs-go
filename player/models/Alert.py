@@ -15,10 +15,10 @@ class Alert:
     @staticmethod
     def generate_object(data: dict):
         params = {
-            "alert_type": data['alert_type'],
-            "agent_id": data['agent_id']
+            "alertType": data['alert_type'],
+            "agentId": data['agent_id']
         }
         alert = Alert(**params)
-        alert.set_id(data['id'])
+        alert.set_id(data['_id'])
 
         return alert

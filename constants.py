@@ -75,4 +75,4 @@ FINAL_SIZE = 30  # Half of the side of the final square
 
 INITIAL_AGENT_HEALTH = 100
 
-PLAYER_REQUEST_TIMEOUT: int = 1  # seconds
+PLAYER_REQUEST_TIMEOUT: int = 100  # seconds

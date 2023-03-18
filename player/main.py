@@ -10,6 +10,8 @@ from starlette.responses import RedirectResponse
 from models.Action import Action
 from utils import *
 
+import traceback
+
 dotenv.load_dotenv('dev.env')
 
 args = get_command_line_args()
@@ -46,6 +48,7 @@ def tick(body: dict):
         try:
             actions: List[Action] = player_file.tick(state)
         except Exception as e:
+            traceback.print_exc()
             print(e, "Error in player file")
             actions = []
 

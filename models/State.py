@@ -45,7 +45,7 @@ class State:
 
     def json(self):
 
-        print("\n\n\nprinting state.json\n")
+        # print("\n\n\nprinting state.json\n")
         # print( {
         #         agent_id: {
         #     object_type: [object_sighting.__dict__ for object_sighting in object_sightings] for
@@ -57,7 +57,7 @@ class State:
                 objects_in_sight[agent_id][object_type] = []
                 for object_sighting in object_sightings:
                     objects_in_sight[agent_id][object_type].append(object_sighting.__dict__)
-        print(objects_in_sight)
+        # print(objects_in_sight)
 
         return {
             "agents": {agent_id: agent.json() for agent_id, agent in self.agents.items()},
