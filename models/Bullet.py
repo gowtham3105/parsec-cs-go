@@ -42,6 +42,11 @@ class Bullet:
         #  then make the bullet collide with them and make them and bullet die.
         distance = agent.get_location().distance(self.get_location())
         if distance < AGENT_RADIUS:
+            print("----------------------------")
+            print(self.get_location())
+            print(agent.get_location())
+            print(distance)
+            print(AGENT_RADIUS)
             return True
         else:
             return False

@@ -1,3 +1,5 @@
+import os
+
 from shapely import LineString, Polygon
 from typing import List
 import math
@@ -5,6 +7,7 @@ from random import uniform
 from constants import *
 import re
 from models.Point import Point
+import numpy as np
 from models.Agent import Agent
 
 
@@ -43,15 +46,16 @@ def is_point_in_vision(agent: Agent, polar_point: Point, opponent_agent_radius: 
 
 
 def find_angle(center: Point, polar: Point, radial: Point) -> float:
-    vector1 = Point(polar.x - center.x, polar.y - center.y)
-    vector2 = Point(radial.x - center.x, radial.y - center.y)
-    dot_product = (vector1.x * vector2.x) + (vector1.y * vector2.y)
-    vector_mod = ((vector1.x ** 2 + vector1.y ** 2) ** 0.5) * ((vector2.x ** 2 + vector2.y ** 2) ** 0.5)
+    vector1 = np.array([polar.x - center.x, polar.y - center.y])
+    vector2 = np.array([radial.x - center.x, radial.y - center.y])
+    vector_mod = np.linalg.norm(vector1) * np.linalg.norm(vector2)
     if vector_mod == 0:
         return 0
 
-    angle = dot_product / vector_mod
-    return math.acos(angle)
+    cos_theta = np.dot(vector1, vector2) / vector_mod
+    # Sanity check
+    cos_theta = min(1, max(-1, cos_theta))
+    return np.arccos(cos_theta)
 
 
 def get_section_point(point1: Point, point2: Point, m: int, n: int):
@@ -68,3 +72,46 @@ def get_random_float(num1: float, num2: float) -> float:
 def get_zone_color(zone: str) -> str:
     """Return a color based on the zone."""
     return ZONE_COLORS[zone]
+
+def ping_url(url):
+    import requests
+    try:
+        response = requests.get(url)
+        return response.status_code == 200
+    except:
+        return False
+
+
+def validate_player_client_urls(clients: list[dict], health_check_route) -> list[dict]:
+    valid_clients = []
+    for client in clients:
+        if ping_url(client['client_url'] + health_check_route):
+            valid_clients.append(client)
+
+    return valid_clients
+
+
+def get_urls(teams: List[str]) -> list[dict]:
+    clients = []
+    HEALTH_CHECK_ROUTE = os.getenv("HEALTH_CHECK_ROUTE")
+    if not HEALTH_CHECK_ROUTE:
+        raise ValueError("HEALTH_CHECK_ROUTE not set")
+    for team in teams:
+        player_client_host_key = f"PLAYER_{team.upper()}_CLIENT_HOST"
+        player_client_port_key = f"PLAYER_{team.upper()}_CLIENT_PORT"
+        player_client_token = f"PLAYER_{team.upper()}_TOKEN"
+
+        player_client_host = os.getenv(player_client_host_key)
+        player_client_port = os.getenv(player_client_port_key)
+        player_client_token = os.getenv(player_client_token)
+
+        url = f"http://{player_client_host}:{player_client_port}"
+        data = {
+            "token": player_client_token,
+            "client_url": url,
+            "team": team
+        }
+        clients.append(data)
+
+    validated_clients = validate_player_client_urls(clients, HEALTH_CHECK_ROUTE)
+    return validated_clients

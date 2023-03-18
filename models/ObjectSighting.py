@@ -19,6 +19,12 @@ class ObjectSighting:
 
         self._id = id(self)
 
+    def get_location(self):
+        return self.location
+    
+    def get_direction(self):
+        return self.direction
+    
     def __str__(self):
         return ObjectSighting.STRING.format(object_type=self.object_type, location=self.location, direction=self.direction, id=self._id)
 

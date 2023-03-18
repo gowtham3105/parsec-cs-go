@@ -9,7 +9,9 @@ def generate_random_circles(N):
     map_area = (MAX_X - MIN_X) * (MAX_Y - MIN_Y)
     circle_area = map_area * OBSTACLE_PERCENTAGE / N
     circles = []
-    for i in range(N):
+    i = 0
+    while i<N:
+        
         radius = math.sqrt(circle_area / math.pi)
         x = random.uniform(MIN_X + radius, MAX_X - radius)
         y = random.uniform(MIN_Y + radius, MAX_Y - radius)
@@ -22,6 +24,8 @@ def generate_random_circles(N):
 
         if not intersects:
             circles.append((x, y, radius))
+            i += 1
+            
 
     return circles
 
@@ -39,13 +43,15 @@ def get_points_on_circle(circle, number_of_points):
     return points
 
 
-def generate_obstacles(number_of_obstacles):
+def generate_obstacles_and_agents(number_of_obstacles, n):
     # TODO: Generate non intersecting polygon obstacles
     obstacles = []
-    distinct_circles = generate_random_circles(number_of_obstacles)
-    for circle in distinct_circles:
-        number_of_points = random.randint(3, MAX_OBSTACLE_SIDES)
+    distinct_circles = generate_random_circles(number_of_obstacles+n)
+    print(len(distinct_circles))
+    for circle in distinct_circles[:number_of_obstacles]:
+        number_of_points = random.randint(MIN_OBSTACLE_SIDES, MAX_OBSTACLE_SIDES)
         obstacle_corners = get_points_on_circle(circle, number_of_points)
         obstacle = Obstacle(obstacle_corners)
         obstacles.append(obstacle)
-    return obstacles
+    print(distinct_circles)
+    return obstacles, distinct_circles[number_of_obstacles:]
