@@ -21,6 +21,7 @@ from utils import isBetweenLineOfSight, is_point_in_vision, get_section_point, g
 import socket
 import pickle
 
+
 class Environment:
     """The state of the environment."""
 
@@ -36,12 +37,14 @@ class Environment:
     _safe_zone: List[Point]
     _is_zone_shrinking: bool = False
     _zone_shrink_times: List[int]
-    _shrink_value: int = SHRINK_VALUE  # Choosing a random point in length/shrink_value of a side
+    # Choosing a random point in length/shrink_value of a side
+    _shrink_value: int = SHRINK_VALUE
     _winner: str
 
     def __init__(self):
         """Initialize the cells with random locations and directions."""
-        self.obstacles, circles = generate_obstacles_and_agents(NUMBER_OF_OBSTACLES, AGENTS_PER_TEAM<<1)
+        self.obstacles, circles = generate_obstacles_and_agents(
+            NUMBER_OF_OBSTACLES, AGENTS_PER_TEAM << 1)
         self.agents = {"red": {}, "blue": {}}
         for i in range(len(circles)):
             if i % 2 == 0:
@@ -60,18 +63,20 @@ class Environment:
             "red": 0,
             "blue": 0
         }
-        self._zone = [Point(MAX_X, MAX_Y), Point(MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
+        self._zone = [Point(MAX_X, MAX_Y), Point(
+            MAX_X, MIN_Y), Point(MIN_X, MIN_Y), Point(MIN_X, MAX_Y)]
         self.set_new_safe_zone()
-        self._zone_shrink_times = [x * 5 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
+        self._zone_shrink_times = [
+            x * 5 for x in [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 480]]
         self.n_invalid_actions = {
             "red": 0,
             "blue": 0
         }
         self._log = open("log.txt", "w")
-        
+
         self.env_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.env_socket.bind((ENV_HOST, ENV_PORT))
-        self.env_socket.settimeout(1)
+        self.env_socket.settimeout(0.2)
 
     def tick(self) -> dict[int | str, int]:
         """Update the state of the simulation by one time step."""
@@ -96,38 +101,48 @@ class Environment:
             red_state = self.generate_state('red')
             blue_state = self.generate_state('blue')
 
-
-
             red_state_serial = pickle.dumps(red_state)
             blue_state_serial = pickle.dumps(blue_state)
-            
-            
-            self.env_socket.sendto(red_state_serial, (RED_HOST, RED_PORT))
+
             try:
-                red_actions_serial, _ = self.env_socket.recvfrom(65527)
-                red_actions = pickle.loads(red_actions_serial)
+                while True:
+                    self.env_socket.sendto(
+                        red_state_serial, (RED_HOST, RED_PORT))
+                    red_actions_serial, red_addr = self.env_socket.recvfrom(
+                        65527)
+                    red_actions = pickle.loads(red_actions_serial)
+                    if red_addr[1] != RED_PORT:
+                        continue
+                    else:
+                        break
             except Exception as e:
                 print("Red Timeout:", e)
                 red_actions = []
-                
-            self.env_socket.sendto(blue_state_serial, (BLUE_HOST, BLUE_PORT))
+
             try:
-                blue_actions_serial, _ = self.env_socket.recvfrom(65527)
-                blue_actions = pickle.loads(blue_actions_serial)
+                while True:
+                    self.env_socket.sendto(
+                        blue_state_serial, (BLUE_HOST, BLUE_PORT))
+                    blue_actions_serial, blue_addr = self.env_socket.recvfrom(
+                        65527)
+                    blue_actions = pickle.loads(blue_actions_serial)
+                    if blue_addr[1] != BLUE_PORT:
+                        continue
+                    else:
+                        break
             except Exception as e:
                 print("Blue Timeout:", e)
                 blue_actions = []
-            
+
             # red_actions = player_red_tick(red_state)
             # blue_actions = player_blue_tick(blue_state)
-            
-            
-            
+
             self.alerts['red'] = []
             self.alerts['blue'] = []
 
             validated_red_actions = self.validate_actions(red_actions, "red")
-            validated_blue_actions = self.validate_actions(blue_actions, "blue")
+            validated_blue_actions = self.validate_actions(
+                blue_actions, "blue")
 
             self.perform_actions(validated_red_actions, "red")
             self.perform_actions(validated_blue_actions, "blue")
@@ -190,10 +205,13 @@ class Environment:
             # IF ACTION ---> FIRE
             if action_type == FIRE:
                 if agent.fire():
-                    bullet_location = Point(agent.get_location().x, agent.get_location().y)
-                    offset = Point(1.5*AGENT_RADIUS*action_direction.x, 1.5*AGENT_RADIUS*action_direction.y)
+                    bullet_location = Point(
+                        agent.get_location().x, agent.get_location().y)
+                    offset = Point(1.5*AGENT_RADIUS*action_direction.x,
+                                   1.5*AGENT_RADIUS*action_direction.y)
                     bullet_location.add(offset)
-                    self.bullets.append(Bullet(bullet_location, action_direction, INITIAL_BULLET_ENERGY))
+                    self.bullets.append(
+                        Bullet(bullet_location, action_direction, INITIAL_BULLET_ENERGY))
 
             # UPDATE DIRECTION
             if action_type == UPDATE_DIRECTION:
@@ -300,7 +318,8 @@ class Environment:
         # bullets
         for bullet in self.bullets:
             if is_point_in_vision(agent, bullet.get_location(), 0):
-                object_in_sight.append(ObjectSighting(BULLET, bullet.get_location(), bullet.get_direction()))
+                object_in_sight.append(ObjectSighting(
+                    BULLET, bullet.get_location(), bullet.get_direction()))
 
         # checking if the line of sight passes through a wall
         for _object in object_in_sight:
@@ -337,27 +356,31 @@ class Environment:
         y = sin(angle)
         return Point(x, y)
 
-
     def enforce_bounds(self, agent: Agent) -> None:
         """Cause a cell to 'bounce' if it goes out of bounds."""
         is_alert = False
         if agent.get_location().x + AGENT_RADIUS > MAX_X:
-            agent.set_location(Point(MAX_X - AGENT_RADIUS, agent.get_location().y))
+            agent.set_location(
+                Point(MAX_X - AGENT_RADIUS, agent.get_location().y))
             is_alert = True
 
         if agent.get_location().x - AGENT_RADIUS < MIN_X:
-            agent.set_location(Point(MIN_X + AGENT_RADIUS, agent.get_location().y))
+            agent.set_location(
+                Point(MIN_X + AGENT_RADIUS, agent.get_location().y))
             is_alert = True
 
         if agent.get_location().y + AGENT_RADIUS > MAX_Y:
-            agent.set_location(Point(agent.get_location().x, MAX_Y - AGENT_RADIUS))
+            agent.set_location(
+                Point(agent.get_location().x, MAX_Y - AGENT_RADIUS))
             is_alert = True
         if agent.get_location().y - AGENT_RADIUS < MIN_Y:
-            agent.set_location(Point(agent.get_location().x, MIN_Y + AGENT_RADIUS))
+            agent.set_location(
+                Point(agent.get_location().x, MIN_Y + AGENT_RADIUS))
             is_alert = True
 
         if is_alert:
-            self.alerts[agent.get_team()].append(Alert(COLLISION, agent.agent_id))
+            self.alerts[agent.get_team()].append(
+                Alert(COLLISION, agent.agent_id))
 
     def enforce_collisions(self, agent: Agent) -> None:
         """Cause an agent to stop if it collides with another agent."""
@@ -377,7 +400,8 @@ class Environment:
             if obstacle.intersects_circle(agent.get_location() + agent.get_direction(), AGENT_RADIUS):
                 # agent.stop()
                 agent.get_location().sub(agent.get_direction())
-                self.alerts[agent.get_team()].append(Alert(COLLISION, agent.agent_id))
+                self.alerts[agent.get_team()].append(
+                    Alert(COLLISION, agent.agent_id))
 
                 break
 
@@ -387,11 +411,13 @@ class Environment:
                 if agent != other_agent:
                     if not other_agent.is_alive():
                         continue
-                    agent_collision = (agent.get_direction() + agent.get_location()).distance(other_agent.get_location() + other_agent.get_direction()) <= 2 * AGENT_RADIUS
+                    agent_collision = (agent.get_direction() + agent.get_location()).distance(
+                        other_agent.get_location() + other_agent.get_direction()) <= 2 * AGENT_RADIUS
                     if agent_collision:
                         # agent.stop()
                         agent.get_location().sub(agent.get_direction())
-                        self.alerts[agent.get_team()].append(Alert(COLLISION, agent.agent_id))
+                        self.alerts[agent.get_team()].append(
+                            Alert(COLLISION, agent.agent_id))
                     break
 
         return
@@ -438,7 +464,7 @@ class Environment:
 
         # Final Shrink
         if self._zone_shrink_times[zone_shrink_times_len - 2] <= self.time <= self._zone_shrink_times[
-            zone_shrink_times_len - 1]:
+                zone_shrink_times_len - 1]:
             self._is_zone_shrinking = True
             time_left = self._zone_shrink_times[zone_shrink_times_len - 1] - self.time
             self.shrink_zone(time_left)
@@ -446,7 +472,7 @@ class Environment:
         # Shrinking zone
         elif self._is_zone_shrinking:
             time_to_stop_shrinking = self._zone_shrink_times[i] + (
-                    self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) // 2
+                self._zone_shrink_times[i + 1] - self._zone_shrink_times[i]) // 2
             time_left = time_to_stop_shrinking - self.time
 
             # Shrinking the zone
@@ -469,13 +495,15 @@ class Environment:
         final_y = (self._safe_zone[0].y + self._safe_zone[1].y) / 2
         directions = [1, 1, -1, -1]
         for i in range(4):
-            point = Point(final_x + directions[i] * FINAL_SIZE, final_y + directions[(i + 1) % 4] * FINAL_SIZE)
+            point = Point(
+                final_x + directions[i] * FINAL_SIZE, final_y + directions[(i + 1) % 4] * FINAL_SIZE)
             self._safe_zone[i] = point
 
     def shrink_zone(self, time_left: int):
         new_zone = []
         for i in range(len(self._zone)):
-            new_zone.append(get_section_point(self._zone[i], self._safe_zone[i], 1, time_left))
+            new_zone.append(get_section_point(
+                self._zone[i], self._safe_zone[i], 1, time_left))
 
         # Setting zone after shrinking
         self._zone = new_zone
@@ -494,7 +522,8 @@ class Environment:
         y2 = get_random_float(self._zone[1].y,
                               get_section_point(self._zone[1], self._zone[0], 1, self._shrink_value - 1).y)
 
-        self._safe_zone = [Point(x2, y1), Point(x2, y2), Point(x1, y2), Point(x1, y1)]
+        self._safe_zone = [Point(x2, y1), Point(
+            x2, y2), Point(x1, y2), Point(x1, y1)]
 
     def enforce_zone_penalty(self):
         # Reducing agents' health outside the zone
