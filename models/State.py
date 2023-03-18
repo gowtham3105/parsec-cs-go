@@ -44,14 +44,34 @@ class State:
                                   safe_zone=self.safe_zone, is_zone_shrinking=self.is_zone_shrinking)
 
     def json(self):
+
+        print("\n\n\nprinting state.json\n")
+        # print( {
+        #         agent_id: {
+        #     object_type: [object_sighting.__dict__ for object_sighting in object_sightings] for
+        #                         object_type, object_sightings in objects } for agent_id, objects in self.object_in_sight.items()})
+        objects_in_sight = {}
+        for agent_id, objects in self.object_in_sight.items():
+            objects_in_sight[agent_id] = {}
+            for object_type, object_sightings in objects.items():
+                objects_in_sight[agent_id][object_type] = []
+                for object_sighting in object_sightings:
+                    objects_in_sight[agent_id][object_type].append(object_sighting.__dict__)
+        print(objects_in_sight)
+
         return {
             "agents": {agent_id: agent.json() for agent_id, agent in self.agents.items()},
-            "object_in_sight": {object_type: [object_sighting.__dict__ for object_sighting in object_sightings] for
-                                object_type, object_sightings in self.object_in_sight.items()},
+            # "object_in_sight": {object_type: [object_sighting.__dict__ for object_sighting in object_sightings] for
+            #                     object_type, object_sightings in self.object_in_sight.items()},
+            # "object_in_sight": {
+            #     agent_id: {
+            # object_type: [object_sighting.json() for object_sighting in object_sightings] for
+            #                     object_type, object_sightings in objects } for agent_id, objects in self.object_in_sight.items()},
+            "object_in_sight": objects_in_sight,
             "alerts": [alert.__dict__ for alert in self.alerts],
             "team": self.team,
             "time": self.time,
-            "obstacles": [obstacle.__dict__ for obstacle in self.obstacles],
+            "obstacles": [obstacle.json() for obstacle in self.obstacles],
             "zone": [point.__dict__ for point in self.zone],
             "safe_zone": [point.__dict__ for point in self.safe_zone],
             "is_zone_shrinking": self.is_zone_shrinking
