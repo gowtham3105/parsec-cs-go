@@ -104,7 +104,7 @@ class Environment:
             
             self.env_socket.sendto(red_state_serial, (RED_HOST, RED_PORT))
             try:
-                red_actions_serial, _ = self.env_socket.recvfrom(4096)
+                red_actions_serial, _ = self.env_socket.recvfrom(65527)
                 red_actions = pickle.loads(red_actions_serial)
             except Exception as e:
                 print("Red Timeout:", e)
@@ -112,7 +112,7 @@ class Environment:
                 
             self.env_socket.sendto(blue_state_serial, (BLUE_HOST, BLUE_PORT))
             try:
-                blue_actions_serial, _ = self.env_socket.recvfrom(4096)
+                blue_actions_serial, _ = self.env_socket.recvfrom(65527)
                 blue_actions = pickle.loads(blue_actions_serial)
             except Exception as e:
                 print("Blue Timeout:", e)

@@ -102,7 +102,7 @@ if __name__ == '__main__':
     blue_socket.bind((blue_host, blue_port))
     print("Blue player is ready to receive messages...")
     while True:
-        environment_message, addr = blue_socket.recvfrom(4096)
+        environment_message, addr = blue_socket.recvfrom(65527)
         state = pickle.loads(environment_message)
         actions = tick(state)
         new_message = pickle.dumps(actions)
