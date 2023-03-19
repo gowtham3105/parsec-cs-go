@@ -10,8 +10,8 @@ ENV_HOST = "localhost"
 RED_HOST = "localhost"
 BLUE_HOST = "localhost"
 ENV_PORT = 7000
-RED_PORT = 7001
-BLUE_PORT = 7002
+BLUE_PORT = 7001
+RED_PORT = 7002
 
 BOUNDS_HEIGHT: int = 600
 MAX_Y: float = 200

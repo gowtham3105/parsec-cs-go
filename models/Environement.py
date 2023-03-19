@@ -116,7 +116,7 @@ class Environment:
                     else:
                         break
             except Exception as e:
-                print("Blue Timeout:", e)
+                # print("Blue Timeout:", e)
                 blue_actions = []
 
             try:
@@ -131,7 +131,7 @@ class Environment:
                     else:
                         break
             except Exception as e:
-                print("Red Timeout:", e)
+                # print("Red Timeout:", e)
                 red_actions = []
 
             # red_actions = player_red_tick(red_state)

@@ -8,6 +8,7 @@ import math
 from typing import List
 import socket
 import pickle
+import sys
 
 
 #     agents: Dict[str, Agent]  # The player's agents
@@ -28,6 +29,7 @@ def is_safe_zone(agent, safe_zone):
     pseudo_obstacle = Obstacle(safe_zone)
     return pseudo_obstacle.checkInside(agent.get_location())
 
+
 def tick(state: State) -> List[Action]:
 
     actions = []
@@ -40,9 +42,10 @@ def tick(state: State) -> List[Action]:
             p1, p2, p3, p4 = state.safe_zone
             center_x, center_y = (p1.x + p3.x)/2, (p1.y + p3.y)/2
             type = UPDATE_DIRECTION
-            direction = Point(center_x - agent.get_location().x, center_y - agent.get_location().y)
+            direction = Point(center_x - agent.get_location().x,
+                              center_y - agent.get_location().y)
             flag = 1
-            
+
         if flag == 0:
             opponents = state.object_in_sight[agent_id]["Agents"]
             bullets = state.object_in_sight[agent_id]["Bullets"]
@@ -63,7 +66,7 @@ def tick(state: State) -> List[Action]:
             if flag == 0:
                 for alert in state.alerts:
                     if alert.alert_type == COLLISION:
-                        print("Alert Collision BLUE")
+                        # print("Alert Collision BLUE")
                         type = UPDATE_DIRECTION
                         direction = Point(agent.get_direction().x,
                                           agent.get_direction().y) + Point(random.uniform(-3, 3), random.uniform(-3, 3))
@@ -85,7 +88,7 @@ def tick(state: State) -> List[Action]:
                     Point(random.uniform(-1, 1), random.uniform(-1, 1))
 
         action = Action(agent_id, type, direction)
-        print("Blue:", action)
+        # print("Blue:", action)
         actions.append(action)
 
     return actions
@@ -94,15 +97,21 @@ def tick(state: State) -> List[Action]:
 if __name__ == '__main__':
     server_port = ENV_PORT
     server_host = 'localhost'
-    
+
     blue_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    
+    blue_socket.settimeout(2)
+
     blue_host = 'localhost'
     blue_port = BLUE_PORT
     blue_socket.bind((blue_host, blue_port))
     print("Blue player is ready to receive messages...")
     while True:
-        environment_message, addr = blue_socket.recvfrom(65527)
+        try:
+            environment_message, addr = blue_socket.recvfrom(65527)
+        except:
+            print("Environment Not Responding...Blue Closed")
+            blue_socket.close()
+            sys.exit(1)
         state = pickle.loads(environment_message)
         actions = tick(state)
         new_message = pickle.dumps(actions)

@@ -90,6 +90,7 @@ Note:
 1. Windows users  should use ***git bash*** to run the bash script (.sh)
 2. You need to submit both player_red.py and player_blue.py
 
+
 ## WhatsApp Link for Support <a name="whatsapp"></a>
 [WhatsApp Invite Link](https://chat.whatsapp.com/E8JfBWU0YWEFvdku345XLw)
 

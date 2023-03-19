@@ -8,6 +8,7 @@ import math
 from typing import List
 import socket
 import pickle
+import sys
 
 
 #     agents: Dict[str, Agent]  # The player's agents
@@ -34,7 +35,7 @@ def tick(state: State) -> List[Action]:
 
     actions = []
     for agent_id in state.agents:
-        flag = 0 # flag to check if we have specified the action for the agent
+        flag = 0  # flag to check if we have specified the action for the agent
         agent = state.agents[agent_id]
         direction = agent.get_direction()
 
@@ -46,15 +47,15 @@ def tick(state: State) -> List[Action]:
                               center_y - agent.get_location().y)
             flag = 1
 
-        if flag == 0: # if agent is not in safe zone
+        if flag == 0:  # if agent is not in safe zone
             opponents = state.object_in_sight[agent_id]["Agents"]
             bullets = state.object_in_sight[agent_id]["Bullets"]
 
-            if len(opponents) != 0: # if there are opponents in sight fire at them
+            if len(opponents) != 0:  # if there are opponents in sight fire at them
                 type = FIRE
                 closest = float("inf")
                 len(opponents)
-                for opponent in opponents: # fire at the closest opponent
+                for opponent in opponents:  # fire at the closest opponent
                     dist = opponent.get_location().distance(agent.get_location())
                     if dist < closest:
                         closest = dist
@@ -66,7 +67,7 @@ def tick(state: State) -> List[Action]:
             if flag == 0:
                 for alert in state.alerts:
                     if alert.alert_type == COLLISION:
-                        print("Alert Collision red")
+                        # print("Alert Collision red")
                         type = UPDATE_DIRECTION
                         direction = Point(agent.get_direction().x,
                                           agent.get_direction().y) + Point(random.uniform(-3, 3), random.uniform(-3, 3))
@@ -88,17 +89,18 @@ def tick(state: State) -> List[Action]:
                     Point(random.uniform(-1, 1), random.uniform(-1, 1))
 
         action = Action(agent_id, type, direction)
-        print("red:", action)
+        # print("red:", action)
         actions.append(action)
 
     return actions
 
 
 if __name__ == '__main__':
-    server_port = ENV_HOST
-    server_host = 'localhost'
+    server_port = ENV_PORT
+    server_host = ENV_HOST
 
     red_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    red_socket.settimeout(2)
 
     red_host = 'localhost'
     red_port = RED_PORT
@@ -106,7 +108,12 @@ if __name__ == '__main__':
 
     print("Red player is ready to receive messages...")
     while True:
-        environment_message, addr = red_socket.recvfrom(65527)
+        try:
+            environment_message, addr = red_socket.recvfrom(65527)
+        except:
+            print("Environment Not Responding...Red Closed")
+            red_socket.close()
+            sys.exit(1)
         state = pickle.loads(environment_message)
         actions = tick(state)
         new_message = pickle.dumps(actions)
