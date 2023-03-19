@@ -7,8 +7,9 @@
 ## Table of Contents
 1. [Overview](#overview)
 2. [Winning Criteria](#winning)
-3. [Instructions for running](#instructions)
-4. [Whatsapp group link for support](#whatsapp)
+3. [Documentation](https://github.com/gowtham3105/parsec-cs-go/blob/master/Documentation.md)
+4. [Instructions for running](#instructions)
+5. [Whatsapp group link for support](#whatsapp)
 
 ## Overview <a name="overview"></a>
 In the vast and uncharted reaches of space, the AITREK tournament has begun. The most daring and skilled crews have embarked on this grand adventure, with their sights set on glory and conquest.
@@ -65,6 +66,8 @@ If the score of a team reaches 500, they win. I.e., if all the agents in the opp
 ## Winning Criteria  <a name="winning"></a>
 The match will be best of 3 runs. The team which wins 2 runs first will be considered the winner.
 
+## Documentation <a name="documenation"></a>
+You can view documenation [here](https://github.com/gowtham3105/parsec-cs-go/blob/master/Documentation.md)
 
 ## Instructions for Running  <a name="instructions"></a>
 ### Installation
