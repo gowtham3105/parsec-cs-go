@@ -34,7 +34,7 @@ def tick(state: State) -> List[Action]:
 
     actions = []
     for agent_id in state.agents:
-        flag = 0
+        flag = 0 # flag to check if we have specified the action for the agent
         agent = state.agents[agent_id]
         direction = agent.get_direction()
 
@@ -46,15 +46,15 @@ def tick(state: State) -> List[Action]:
                               center_y - agent.get_location().y)
             flag = 1
 
-        if flag == 0:
+        if flag == 0: # if agent is not in safe zone
             opponents = state.object_in_sight[agent_id]["Agents"]
             bullets = state.object_in_sight[agent_id]["Bullets"]
 
-            if len(opponents) != 0:
+            if len(opponents) != 0: # if there are opponents in sight fire at them
                 type = FIRE
                 closest = float("inf")
                 len(opponents)
-                for opponent in opponents:
+                for opponent in opponents: # fire at the closest opponent
                     dist = opponent.get_location().distance(agent.get_location())
                     if dist < closest:
                         closest = dist
@@ -95,13 +95,13 @@ def tick(state: State) -> List[Action]:
 
 
 if __name__ == '__main__':
-    server_port = 7000
+    server_port = ENV_HOST
     server_host = 'localhost'
 
     red_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     red_host = 'localhost'
-    red_port = 7002
+    red_port = RED_PORT
     red_socket.bind((red_host, red_port))
 
     print("Red player is ready to receive messages...")
