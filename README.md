@@ -7,7 +7,7 @@
 ## Table of Contents
 1. [Overview](#overview)
 2. [Winning Criteria](#winning)
-3. [Documentation](https://github.com/gowtham3105/parsec-cs-go/blob/master/Documentation.md)
+3. [Documentation](https://github.com/gowtham3105/parsec-cs-go/blob/main/Documentation.md)
 4. [Instructions for running](#instructions)
 5. [Whatsapp group link for support](#whatsapp)
 
@@ -67,7 +67,7 @@ If the score of a team reaches 500, they win. I.e., if all the agents in the opp
 The match will be best of 3 runs. The team which wins 2 runs first will be considered the winner.
 
 ## Documentation <a name="documenation"></a>
-You can view documenation [here](https://github.com/gowtham3105/parsec-cs-go/blob/master/Documentation.md)
+You can view documenation [here](https://github.com/gowtham3105/parsec-cs-go/blob/main/Documentation.md)
 
 ## Instructions for Running  <a name="instructions"></a>
 ### Installation
@@ -87,7 +87,7 @@ Edit the ```tick()``` function in players/player_red.py and players/player_blue.
 
 Note: 
 
-1. Windows users  should ***git bash*** to run the bash script (.sh)
+1. Windows users  should use ***git bash*** to run the bash script (.sh)
 2. You need to submit both player_red.py and player_blue.py
 
 ## WhatsApp Link for Support <a name="whatsapp"></a>
