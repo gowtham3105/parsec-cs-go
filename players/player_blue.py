@@ -92,13 +92,13 @@ def tick(state: State) -> List[Action]:
 
 
 if __name__ == '__main__':
-    server_port = 7000
+    server_port = ENV_PORT
     server_host = 'localhost'
     
     blue_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     
     blue_host = 'localhost'
-    blue_port = 7001
+    blue_port = BLUE_PORT
     blue_socket.bind((blue_host, blue_port))
     print("Blue player is ready to receive messages...")
     while True:
