@@ -73,9 +73,11 @@ You can view documenation [here](https://github.com/gowtham3105/parsec-cs-go/blo
 ### Installation
 1. Clone the repository using the following command
 
-```https://github.com/gowtham3105/parsec-cs-go.git```
+```git clone https://github.com/gowtham3105/parsec-cs-go.git```
+2. Change directory to cs-go:
+```cd parsec-cs-go```
 
-2. Install the requirements using
+3. Install the requirements using
 
 ```pip install -r requirements.txt```
 
