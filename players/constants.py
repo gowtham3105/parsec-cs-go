@@ -6,13 +6,12 @@ MAX_X: float = 200
 MIN_X: float = -MAX_X
 VIEW_WIDTH: int = BOUNDS_WIDTH + 20
 
-ENV_HOST: str = "localhost"
-RED_HOST: str = "localhost"
-BLUE_HOST: int = "localhost"
-ENV_PORT: int = 7000
-BLUE_PORT: int = 7001
-RED_PORT: int = 7002
-SOCKET_TIMEOUT: float = 0.2
+ENV_HOST = "localhost"
+RED_HOST = "localhost"
+BLUE_HOST = "localhost"
+ENV_PORT = 7000
+BLUE_PORT = 7001
+RED_PORT = 7002
 
 BOUNDS_HEIGHT: int = 600
 MAX_Y: float = 200
