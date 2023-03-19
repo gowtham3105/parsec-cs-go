@@ -46,7 +46,7 @@ def tick(state: State) -> List[Action]:
 
         if flag == 0:
             rand_val = random.uniform(0, 1)
-            print(rand_val)
+            # print(rand_val)
             if rand_val < 0.3:
                 type = UPDATE_VIEW_DIRECTION
                 current_direction = agent.get_view_direction()
