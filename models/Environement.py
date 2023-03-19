@@ -76,7 +76,7 @@ class Environment:
 
         self.env_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.env_socket.bind((ENV_HOST, ENV_PORT))
-        self.env_socket.settimeout(0.2)
+        self.env_socket.settimeout(SOCKET_TIMEOUT)
 
     def tick(self) -> dict[int | str, int]:
         """Update the state of the simulation by one time step."""
@@ -107,21 +107,6 @@ class Environment:
             try:
                 while True:
                     self.env_socket.sendto(
-                        red_state_serial, (RED_HOST, RED_PORT))
-                    red_actions_serial, red_addr = self.env_socket.recvfrom(
-                        65527)
-                    red_actions = pickle.loads(red_actions_serial)
-                    if red_addr[1] != RED_PORT:
-                        continue
-                    else:
-                        break
-            except Exception as e:
-                print("Red Timeout:", e)
-                red_actions = []
-
-            try:
-                while True:
-                    self.env_socket.sendto(
                         blue_state_serial, (BLUE_HOST, BLUE_PORT))
                     blue_actions_serial, blue_addr = self.env_socket.recvfrom(
                         65527)
@@ -133,6 +118,21 @@ class Environment:
             except Exception as e:
                 print("Blue Timeout:", e)
                 blue_actions = []
+
+            try:
+                while True:
+                    self.env_socket.sendto(
+                        red_state_serial, (RED_HOST, RED_PORT))
+                    red_actions_serial, red_addr = self.env_socket.recvfrom(
+                        65527)
+                    red_actions = pickle.loads(red_actions_serial)
+                    if red_addr[1] != RED_PORT:
+                        continue
+                    else:
+                        break
+            except Exception as e:
+                print("Red Timeout:", e)
+                red_actions = []
 
             # red_actions = player_red_tick(red_state)
             # blue_actions = player_blue_tick(blue_state)
