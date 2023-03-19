@@ -74,6 +74,7 @@ You can view documenation [here](https://github.com/gowtham3105/parsec-cs-go/blo
 1. Clone the repository using the following command
 
 ```git clone https://github.com/gowtham3105/parsec-cs-go.git```
+
 2. Change directory to cs-go:
 ```cd parsec-cs-go```
 
@@ -83,14 +84,19 @@ You can view documenation [here](https://github.com/gowtham3105/parsec-cs-go/blo
 
 ### Running
 Edit the ```tick()``` function in players/player_red.py and players/player_blue.py
+Edit the ```tick()``` function in players/player_red.py and players/player_blue.py
 
-1. Run start.sh to start env and players.
+In case you are running on a windows environment, run the following command in ***git bash***. *DO NOT USE WSL*
+
+1. Run ```bash start.sh``` to start env and players.
 2. players are in playes folder
+
 
 Note: 
 
 1. Windows users  should use ***git bash*** to run the bash script (.sh)
-2. You need to submit both player_red.py and player_blue.py
+2. The instructions to install ***git bash*** can be found [here](https://git-scm.com/downloads) 
+3. You need to submit both player_red.py and player_blue.py
 
 
 ## WhatsApp Link for Support <a name="whatsapp"></a>
